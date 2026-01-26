@@ -1,4 +1,4 @@
-package com.example.firstmod;
+package net.diabolo.firstmod;
 
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
