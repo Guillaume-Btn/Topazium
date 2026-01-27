@@ -1,4 +1,4 @@
-package net.diabolo.firstmod;
+package net.diabolo.diabolomod;
 
 import java.util.List;
 

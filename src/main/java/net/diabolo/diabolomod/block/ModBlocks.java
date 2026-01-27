@@ -1,8 +1,8 @@
-package net.diabolo.firstmod.block;
+package net.diabolo.diabolomod.block;
 
 
-import net.diabolo.firstmod.FirstMod;
-import net.diabolo.firstmod.item.ModItems;
+import net.diabolo.diabolomod.DiaboloMod;
+import net.diabolo.diabolomod.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 
 public class ModBlocks {
-    public static final DeferredRegister.Blocks BLOCKS= DeferredRegister.createBlocks(FirstMod.MODID);
+    public static final DeferredRegister.Blocks BLOCKS= DeferredRegister.createBlocks(DiaboloMod.MODID);
 
     public static final  DeferredBlock<Block> BISMUTH_BLOCK = BLOCKS.registerBlock(//seul methode qui marche
             "bismuth_block",

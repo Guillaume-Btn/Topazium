@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "firstmod:block/bismuth_ore"
+    "all": "diabolomod:block/bismuth_block"
   }
 }
