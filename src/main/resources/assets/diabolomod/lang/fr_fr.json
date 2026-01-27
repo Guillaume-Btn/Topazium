@@ -3,5 +3,8 @@
   "item.diabolomod.raw_bismuth": "Bismuth brut",
 
   "block.diabolomod.bismuth_block": "Bloc de Bismuth",
-  "block.diabolomod.bismuth_ore": "Minerais de Bismuth"
+  "block.diabolomod.bismuth_ore": "Minerais de Bismuth",
+
+  "creativetab.diabolomod.items": "Items de DiaboloMod",
+  "creativetab.diabolomod.blocks": "Blocs de DiaboloMod"
 }
