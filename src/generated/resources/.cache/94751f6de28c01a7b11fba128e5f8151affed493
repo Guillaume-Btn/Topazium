@@ -1,0 +1,5 @@
+// 1.21.11	2026-01-27T21:47:40.7947116	Tags for minecraft:block mod id diabolomod
+486619fb3987293fdc2b744e21303d680c21f967 data/diabolomod/tags/block/incorrect_for_topaz_tool.json
+3b810049bc2d88b796c0b7f304a3c8921b6a9ab1 data/diabolomod/tags/block/needs_topaz_tool.json
+e26e5d0ecc7e7265270ca82c0a0f9575d5297fde data/minecraft/tags/block/mineable/pickaxe.json
+3cff91e240c3f65c390994812123b870c9241395 data/minecraft/tags/block/needs_iron_tool.json
