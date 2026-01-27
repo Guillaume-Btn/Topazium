@@ -1,0 +1,14 @@
+// 1.21.11	2026-01-27T20:03:29.7885958	Model Definitions - diabolomod
+46aeaa99852f94d243c727fac8e43a71c4de329f assets/diabolomod/blockstates/topaz_block.json
+b988edf617448c999573b6431bdb0b58603aedcc assets/diabolomod/blockstates/topaz_deepslate_ore.json
+0e370b90287e002be3651a0f8ef7c05449b669c0 assets/diabolomod/blockstates/topaz_ore.json
+0f4c090ae7b875ba1e2198aac1c2036ba1f92041 assets/diabolomod/items/raw_topaz.json
+3a5b6fe0e380242f7349a623e39dcf64c78735ed assets/diabolomod/items/topaz.json
+aef1e19b9c750ef1d4ff9020b14003e4443e6880 assets/diabolomod/items/topaz_block.json
+9d56f69af70851dc8fafd3e904a7bce7c0022fd6 assets/diabolomod/items/topaz_deepslate_ore.json
+228e01262c4b1f2f84a01e092d11fdcff31bbca3 assets/diabolomod/items/topaz_ore.json
+bb1d54833145ccc2452c678f84bf301db33d2a45 assets/diabolomod/models/block/topaz_block.json
+e739507036c44302155ff2ad197df63d5cf638aa assets/diabolomod/models/block/topaz_deepslate_ore.json
+03e1d83820c75954d1fa387526e912ecc8c5c7a1 assets/diabolomod/models/block/topaz_ore.json
+7d495c1007fcf4c61acb180baf1fa7cf24f04515 assets/diabolomod/models/item/raw_topaz.json
+63b9ea93503be7593edc54127952a5b20a904bb9 assets/diabolomod/models/item/topaz.json

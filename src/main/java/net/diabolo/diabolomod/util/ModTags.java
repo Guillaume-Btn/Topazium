@@ -19,7 +19,7 @@ public class ModTags {
     }
 
     public static class Items{
-        public static final TagKey<Item> TOPAZ_REPAIR=createTag("topaz_repair");
+        public static final TagKey<Item> TOPAZ_REPAIRABLE =createTag("topaz_repair");
 
         private static TagKey<Item> createTag(String name){
             return ItemTags.create(Identifier.fromNamespaceAndPath(DiaboloMod.MODID,name));

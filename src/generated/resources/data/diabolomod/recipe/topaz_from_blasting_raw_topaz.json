@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "topaz",
+  "ingredient": "diabolomod:raw_topaz",
+  "result": {
+    "count": 1,
+    "id": "diabolomod:topaz"
+  }
+}
