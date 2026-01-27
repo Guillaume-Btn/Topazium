@@ -18,9 +18,16 @@ public class ModBlocks {
             "bismuth_block",
             Block::new, // factory qui reçoit les properties avec l'id déjà mis
             BlockBehaviour.Properties.of()
-                    .strength(2.0f)
+                    .strength(2.4f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.AMETHYST)
+    );
+
+    public static final  DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = BLOCKS.registerBlock(//seul methode qui marche
+            "bismuth_deepslate_ore",
+            Block::new, BlockBehaviour.Properties.of()
+                    .strength(3.4f) // duree pour casser
+                    .requiresCorrectToolForDrops()
     );
 
     public static final  DeferredBlock<Block> BISMUTH_ORE = BLOCKS.registerBlock(//seul methode qui marche
@@ -34,6 +41,7 @@ public class ModBlocks {
     static {
         ModItems.ITEMS.registerSimpleBlockItem("bismuth_block", BISMUTH_BLOCK);
         ModItems.ITEMS.registerSimpleBlockItem("bismuth_ore", BISMUTH_ORE);
+        ModItems.ITEMS.registerSimpleBlockItem("bismuth_deepslate_ore", BISMUTH_DEEPSLATE_ORE);
     }
 
     public static void register(IEventBus eventBus){
