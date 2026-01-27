@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "diabolomod:block/bismuth_ore"
+    "model": "diabolomod:item/raw_topaz"
   }
 }

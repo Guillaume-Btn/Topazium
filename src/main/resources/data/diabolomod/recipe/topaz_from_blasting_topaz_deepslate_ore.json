@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.25,
-  "group": "bismuth",
-  "ingredient": "diabolomod:raw_bismuth",
+  "group": "topaz",
+  "ingredient": "diabolomod:topaz_deepslate_ore",
   "result": {
-    "id": "diabolomod:bismuth"
+    "id": "diabolomod:topaz"
   }
 }

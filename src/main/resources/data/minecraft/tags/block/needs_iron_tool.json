@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "diabolomod:bismuth_ore"
+    "diabolomod:topaz_deepslate_ore",
+    "diabolomod:topaz_ore"
   ]
 }

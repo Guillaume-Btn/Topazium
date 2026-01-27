@@ -9,9 +9,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DiaboloMod.MODID);
     // Remplacez votre ligne actuelle par celle-ci :
-    public static final DeferredItem<Item> BISMUTH = ITEMS.registerSimpleItem("bismuth", props -> props);
-    public static final DeferredItem<Item> RAW_BISMUTH = ITEMS.registerSimpleItem("raw_bismuth", props -> props);
-
+    public static final DeferredItem<Item> TOPAZ = ITEMS.registerSimpleItem("topaz", props -> props);
+    public static final DeferredItem<Item> RAW_TOPAZ = ITEMS.registerSimpleItem("raw_topaz", props -> props);
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

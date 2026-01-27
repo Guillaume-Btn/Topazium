@@ -1,10 +1,10 @@
 {
-  "item.diabolomod.bismuth": "Bismuth",
-  "item.diabolomod.raw_bismuth": "Raw bismuth",
+  "item.diabolomod.topaz": "Topaz",
+  "item.diabolomod.raw_topaz": "Raw Topaz",
 
-  "block.diabolomod.bismuth_block":"Block of Bismuth",
-  "block.diabolomod.bismuth_ore": "Bismuth Ore",
-  "block.diabolomod.bismuth_deepslate_ore": "Bismuth Deepslate Ore",
+  "block.diabolomod.topaz_block": "Block of Topaz",
+  "block.diabolomod.topaz_ore": "Topaz Ore",
+  "block.diabolomod.topaz_deepslate_ore": "Topaz Deepslate Ore",
 
   "creativetab.diabolomod.items": "DiaboloMod's Items",
   "creativetab.diabolomod.blocks": "DiaboloMod's Blocks"

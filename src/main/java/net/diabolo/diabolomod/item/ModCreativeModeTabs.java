@@ -17,24 +17,24 @@ public class ModCreativeModeTabs {
 
     public static final Supplier<CreativeModeTab> ITEMS_TAB=CREATIVE_MODE_TAB.register("items_tab",
             () -> CreativeModeTab.builder().icon(
-                    () -> new ItemStack(ModItems.BISMUTH.get()))
+                    () -> new ItemStack(ModItems.TOPAZ.get()))
                     .title(Component.translatable("creativetab.diabolomod.items"))
                     .displayItems(((itemDisplayParameters, output) -> {
                         // zone d'enregisrement des items dans la creative tab
-                        output.accept(ModItems.BISMUTH);
-                        output.accept(ModItems.RAW_BISMUTH);
+                        output.accept(ModItems.TOPAZ);
+                        output.accept(ModItems.RAW_TOPAZ);
                     }))
                     .build());
 
     public static final Supplier<CreativeModeTab> BLOCKS_TAB=CREATIVE_MODE_TAB.register("blocks_tab",
             () -> CreativeModeTab.builder().icon(
-                            () -> new ItemStack(ModBlocks.BISMUTH_BLOCK))
+                            () -> new ItemStack(ModBlocks.TOPAZ_BLOCK))
                     .title(Component.translatable("creativetab.diabolomod.blocks"))
                     .displayItems(((itemDisplayParameters, output) -> {
                         // zone d'enregisrement des items dans la creative tab
-                        output.accept(ModBlocks.BISMUTH_BLOCK);
-                        output.accept(ModBlocks.BISMUTH_ORE);
-                        output.accept(ModBlocks.BISMUTH_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.TOPAZ_BLOCK);
+                        output.accept(ModBlocks.TOPAZ_ORE);
+                        output.accept(ModBlocks.TOPAZ_DEEPSLATE_ORE);
                     }))
                     .build());
 

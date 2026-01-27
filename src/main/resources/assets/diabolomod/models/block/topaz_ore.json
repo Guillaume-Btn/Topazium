@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "diabolomod:block/bismuth_deepslate_ore"
+    "all": "diabolomod:block/topaz_ore"
   }
 }

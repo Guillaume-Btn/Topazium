@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "bismuth",
+  "group": "topaz",
   "ingredients": [
-    "diabolomod:bismuth_block"
+    "diabolomod:topaz_block"
   ],
   "result": {
     "count": 9,
-    "id": "diabolomod:bismuth"
+    "id": "diabolomod:topaz"
   }
 }

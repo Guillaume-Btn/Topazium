@@ -14,34 +14,36 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS= DeferredRegister.createBlocks(DiaboloMod.MODID);
 
-    public static final  DeferredBlock<Block> BISMUTH_BLOCK = BLOCKS.registerBlock(//seul methode qui marche
-            "bismuth_block",
+    public static final  DeferredBlock<Block> TOPAZ_BLOCK = BLOCKS.registerBlock(//seul methode qui marche
+            "topaz_block",
             Block::new, // factory qui reçoit les properties avec l'id déjà mis
             BlockBehaviour.Properties.of()
                     .strength(2.4f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.AMETHYST)
     );
-
-    public static final  DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = BLOCKS.registerBlock(//seul methode qui marche
-            "bismuth_deepslate_ore",
-            Block::new, BlockBehaviour.Properties.of()
-                    .strength(3.4f) // duree pour casser
+    public static final  DeferredBlock<Block> TOPAZ_ORE = BLOCKS.registerBlock(//seul methode qui marche
+            "topaz_ore",
+            Block::new, // factory qui reçoit les properties avec l'id déjà mis
+            BlockBehaviour.Properties.of()
+                    .strength(2.4f)
                     .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
     );
 
-    public static final  DeferredBlock<Block> BISMUTH_ORE = BLOCKS.registerBlock(//seul methode qui marche
-            "bismuth_ore",
-            Block::new, BlockBehaviour.Properties.of()
-                    .strength(1.0f) // duree pour casser
+    public static final  DeferredBlock<Block> TOPAZ_DEEPSLATE_ORE = BLOCKS.registerBlock(//seul methode qui marche
+            "topaz_deepslate_ore",
+            Block::new, // factory qui reçoit les properties avec l'id déjà mis
+            BlockBehaviour.Properties.of()
+                    .strength(3.4f)
                     .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)
     );
-
 
     static {
-        ModItems.ITEMS.registerSimpleBlockItem("bismuth_block", BISMUTH_BLOCK);
-        ModItems.ITEMS.registerSimpleBlockItem("bismuth_ore", BISMUTH_ORE);
-        ModItems.ITEMS.registerSimpleBlockItem("bismuth_deepslate_ore", BISMUTH_DEEPSLATE_ORE);
+        ModItems.ITEMS.registerSimpleBlockItem("topaz_block", TOPAZ_BLOCK);
+        ModItems.ITEMS.registerSimpleBlockItem("topaz_ore", TOPAZ_ORE);
+        ModItems.ITEMS.registerSimpleBlockItem("topaz_deepslate_ore", TOPAZ_DEEPSLATE_ORE);
     }
 
     public static void register(IEventBus eventBus){
