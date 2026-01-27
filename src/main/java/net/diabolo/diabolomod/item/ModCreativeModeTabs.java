@@ -31,10 +31,22 @@ public class ModCreativeModeTabs {
                             () -> new ItemStack(ModBlocks.TOPAZ_BLOCK))
                     .title(Component.translatable("creativetab.diabolomod.blocks"))
                     .displayItems(((itemDisplayParameters, output) -> {
-                        // zone d'enregisrement des items dans la creative tab
                         output.accept(ModBlocks.TOPAZ_BLOCK);
                         output.accept(ModBlocks.TOPAZ_ORE);
                         output.accept(ModBlocks.TOPAZ_DEEPSLATE_ORE);
+                    }))
+                    .build());
+
+    public static final Supplier<CreativeModeTab> TOOLS_TAB=CREATIVE_MODE_TAB.register("tools_tab",
+            () -> CreativeModeTab.builder().icon(
+                            () -> new ItemStack(ModItems.TOPAZ_SWORD.get()))
+                    .title(Component.translatable("creativetab.diabolomod.tools"))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.TOPAZ_SWORD);
+                        output.accept(ModItems.TOPAZ_PICKAXE);
+                        output.accept(ModItems.TOPAZ_AXE);
+                        output.accept(ModItems.TOPAZ_SHOVEL);
+                        output.accept(ModItems.TOPAZ_HOE);
                     }))
                     .build());
 
