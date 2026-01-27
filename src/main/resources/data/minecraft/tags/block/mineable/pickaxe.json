@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "diabolomod:bismuth_block",
+    "diabolomod:bismuth_ore",
+    "diabolomod:bismuth_deepslate_ore"
+  ]
+}
