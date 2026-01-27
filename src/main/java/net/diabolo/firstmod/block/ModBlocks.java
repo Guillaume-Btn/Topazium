@@ -18,13 +18,22 @@ public class ModBlocks {
             "bismuth_block",
             Block::new, // factory qui reçoit les properties avec l'id déjà mis
             BlockBehaviour.Properties.of()
-                    .strength(4.0f)
+                    .strength(2.0f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.AMETHYST)
     );
 
+    public static final  DeferredBlock<Block> BISMUTH_ORE = BLOCKS.registerBlock(//seul methode qui marche
+            "bismuth_ore",
+            Block::new, BlockBehaviour.Properties.of()
+                    .strength(1.0f) // duree pour casser
+                    .requiresCorrectToolForDrops()
+    );
+
+
     static {
         ModItems.ITEMS.registerSimpleBlockItem("bismuth_block", BISMUTH_BLOCK);
+        ModItems.ITEMS.registerSimpleBlockItem("bismuth_ore", BISMUTH_ORE);
     }
 
     public static void register(IEventBus eventBus){
