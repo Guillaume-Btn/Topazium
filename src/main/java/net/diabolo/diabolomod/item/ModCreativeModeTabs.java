@@ -23,6 +23,7 @@ public class ModCreativeModeTabs {
                         // zone d'enregisrement des items dans la creative tab
                         output.accept(ModItems.TOPAZ);
                         output.accept(ModItems.RAW_TOPAZ);
+                        output.accept(ModItems.BLUE_TOPAZ);
                     }))
                     .build());
 
@@ -32,6 +33,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.diabolomod.blocks"))
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ModBlocks.TOPAZ_BLOCK);
+                        output.accept(ModBlocks.BLUE_TOPAZ_BLOCK);
                         output.accept(ModBlocks.TOPAZ_ORE);
                         output.accept(ModBlocks.TOPAZ_DEEPSLATE_ORE);
                     }))
@@ -47,6 +49,15 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TOPAZ_AXE);
                         output.accept(ModItems.TOPAZ_SHOVEL);
                         output.accept(ModItems.TOPAZ_HOE);
+                        output.accept(ModItems.TOPAZ_HAMMER);
+                        output.accept(ModItems.TOPAZ_SPEAR);
+                        output.accept(ModItems.BLUE_TOPAZ_SPEAR);
+                        output.accept(ModItems.BLUE_TOPAZ_SWORD);
+                        output.accept(ModItems.BLUE_TOPAZ_PICKAXE);
+                        output.accept(ModItems.BLUE_TOPAZ_AXE);
+                        output.accept(ModItems.BLUE_TOPAZ_SHOVEL);
+                        output.accept(ModItems.BLUE_TOPAZ_HOE);
+                        output.accept(ModItems.BLUE_TOPAZ_HAMMER);
                     }))
                     .build());
 

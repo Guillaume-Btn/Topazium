@@ -56,6 +56,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(ModBlocks.TOPAZ_BLOCK)
                 .unlockedBy("has_topaz_block", has(ModBlocks.TOPAZ_BLOCK)).save(output);
 
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLUE_TOPAZ_BLOCK.get())
+                .pattern("BBB")
+                .pattern("BBB")
+                .pattern("BBB")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shapeless(RecipeCategory.MISC, ModItems.BLUE_TOPAZ.get(), 9)
+                .requires(ModBlocks.BLUE_TOPAZ_BLOCK)
+                .unlockedBy("has_blue_topaz_block", has(ModBlocks.BLUE_TOPAZ_BLOCK)).save(output);
+
 //        shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(), 18)
 //                .requires(ModBlocks.MAGIC_BLOCK)
 //                .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK))
@@ -125,6 +136,84 @@ public class ModRecipeProvider extends RecipeProvider {
                 .group("topaz_hoe")
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ))
                 .save(output, "diabolomod:topaz_hoe_alt");
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HAMMER.get())
+                .pattern("BBB")
+                .pattern("BAB")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_SWORD.get())
+                .pattern(" B ")
+                .pattern(" B ")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_PICKAXE.get())
+                .pattern("BBB")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_AXE.get())
+                .pattern(" BB")
+                .pattern(" AB")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("blue_topaz_axe")
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ))
+                .save(output,"diabolomod:blue_topaz_axe_alt");
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_AXE.get())
+                .pattern("BB ")
+                .pattern("BA ")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("blue_topaz_axe")
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_SHOVEL.get())
+                .pattern(" B ")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HOE.get())
+                .pattern(" BB")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("blue_topaz_hoe")
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HOE.get())
+                .pattern("BB ")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("blue_topaz_hoe")
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ))
+                .save(output, "diabolomod:blue_topaz_hoe_alt");
+
+        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HAMMER.get())
+                .pattern("BBB")
+                .pattern("BAB")
+                .pattern(" A ")
+                .define('B', ModItems.BLUE_TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
 
         // Throws error
         // trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceKey.create(Registries.TRIM_PATTERN, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")),

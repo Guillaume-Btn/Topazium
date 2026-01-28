@@ -20,14 +20,17 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.TOPAZ_BLOCK.get())
                 .add(ModBlocks.TOPAZ_ORE.get())
-                .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get());
+                .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
+                .add(ModBlocks.BLUE_TOPAZ_BLOCK.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.TOPAZ_ORE.get())
                 .add(ModBlocks.TOPAZ_BLOCK.get());
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get());
+                .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
+                .add(ModBlocks.BLUE_TOPAZ_BLOCK.get());
+
 
         tag(ModTags.Blocks.NEEDS_TOPAZ_TOOL)
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
@@ -37,5 +40,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
                 .remove(ModTags.Blocks.NEEDS_TOPAZ_TOOL);
 
+
+        tag(ModTags.Blocks.NEEDS_BLUE_TOPAZ_TOOL)
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+
+        tag(ModTags.Blocks.INCORRECT_FOR_BLUE_TOPAZ_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)
+                .remove(ModTags.Blocks.NEEDS_BLUE_TOPAZ_TOOL);
     }
 }

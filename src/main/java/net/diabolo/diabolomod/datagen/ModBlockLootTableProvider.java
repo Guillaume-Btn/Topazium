@@ -27,6 +27,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.TOPAZ_BLOCK.get());
+        dropSelf(ModBlocks.BLUE_TOPAZ_BLOCK.get());
 
         add(ModBlocks.TOPAZ_ORE.get(),
                 block -> createOreDrop(ModBlocks.TOPAZ_ORE.get(), ModItems.RAW_TOPAZ.get()));

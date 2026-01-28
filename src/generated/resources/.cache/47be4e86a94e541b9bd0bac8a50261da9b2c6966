@@ -1,7 +1,9 @@
-// 1.21.11	2026-01-27T23:25:48.9068482	Tags for minecraft:item mod id diabolomod
+// 1.21.11	2026-01-28T16:48:10.7246867	Tags for minecraft:item mod id diabolomod
+197b52d6ea8286bf03325708f396787abcb9488b data/diabolomod/tags/item/blue_topaz_repair.json
 a2e307b841156a1e485e487674d146e90d9c84ee data/diabolomod/tags/item/topaz_repair.json
-9fe6ebbda79eef16fa8bc096678b927ed754c329 data/minecraft/tags/item/axes.json
-446602a0d65dc1b9f3485fb4f249d5599a74cecd data/minecraft/tags/item/hoes.json
-223ec722676194610c661feb7f5b3b466a17098e data/minecraft/tags/item/pickaxes.json
-4e959bfebb6de05f3875f9d4eb66d116afaf1ee9 data/minecraft/tags/item/shovels.json
-20d751d5412c59d24c9988393c5c459bded19155 data/minecraft/tags/item/swords.json
+3b67cc3be9843d13d72fcb9b9f8f5d638381a794 data/minecraft/tags/item/axes.json
+274e0999f87a1185d3e21196f8ad0ed15703dde7 data/minecraft/tags/item/hoes.json
+152a80317c584f84d5f20b52cb786d856b531a47 data/minecraft/tags/item/pickaxes.json
+5a87b9431b55ea6bfab1f95cefc49cd310b5334c data/minecraft/tags/item/shovels.json
+0d8f6c738a3a23aea4390b6e694984441c8159e9 data/minecraft/tags/item/spears.json
+3843587632f49623ad12d1021fefe72b066525df data/minecraft/tags/item/swords.json

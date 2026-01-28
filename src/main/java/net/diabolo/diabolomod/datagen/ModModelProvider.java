@@ -24,13 +24,13 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TOPAZ.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_TOPAZ.get(), ModelTemplates.FLAT_ITEM);
 
-
         itemModels.generateFlatItem(ModItems.TOPAZ_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        //itemModels.generateFlatItem(ModItems.TOPAZ_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.TOPAZ_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.TOPAZ_SPEAR.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 /*
         itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModArmorMaterials.BISMUTH, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
         itemModels.generateTrimmableItem(ModItems.BISMUTH_CHESTPLATE.get(), ModArmorMaterials.BISMUTH, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
@@ -55,6 +55,15 @@ public class ModModelProvider extends ModelProvider {
 //                .trapdoor(ModBlocks.BISMUTH_TRAPDOOR.get()
                 ;
 
+        blockModels.createTrivialCube(ModBlocks.BLUE_TOPAZ_BLOCK.get());
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_SPEAR.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
     }
 

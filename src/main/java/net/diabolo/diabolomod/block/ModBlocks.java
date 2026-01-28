@@ -22,6 +22,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.AMETHYST)
     );
+
     public static final  DeferredBlock<Block> TOPAZ_ORE = BLOCKS.registerBlock(//seul methode qui marche
             "topaz_ore",
             Block::new, // factory qui reçoit les properties avec l'id déjà mis
@@ -40,10 +41,20 @@ public class ModBlocks {
                     .sound(SoundType.DEEPSLATE)
     );
 
+    public static final  DeferredBlock<Block> BLUE_TOPAZ_BLOCK = BLOCKS.registerBlock(//seul methode qui marche
+            "blue_topaz_block",
+            Block::new, // factory qui reçoit les properties avec l'id déjà mis
+            BlockBehaviour.Properties.of()
+                    .strength(2.4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.AMETHYST)
+    );
+
     static {
         ModItems.ITEMS.registerSimpleBlockItem("topaz_block", TOPAZ_BLOCK);
         ModItems.ITEMS.registerSimpleBlockItem("topaz_ore", TOPAZ_ORE);
         ModItems.ITEMS.registerSimpleBlockItem("topaz_deepslate_ore", TOPAZ_DEEPSLATE_ORE);
+        ModItems.ITEMS.registerSimpleBlockItem("blue_topaz_block", BLUE_TOPAZ_BLOCK);
     }
 
     public static void register(IEventBus eventBus){

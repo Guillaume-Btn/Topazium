@@ -22,15 +22,26 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.TOPAZ_REPAIRABLE)
                 .add(ModItems.TOPAZ.get());
 
+        tag(ModTags.Items.BLUE_TOPAZ_REPAIRABLE)
+                .add(ModItems.BLUE_TOPAZ.get());
+
         tag(ItemTags.SWORDS)
-                .add(ModItems.TOPAZ_SWORD.get());
+                .add(ModItems.TOPAZ_SWORD.get())
+                .add(ModItems.BLUE_TOPAZ_SWORD.get());
         tag(ItemTags.PICKAXES)
-                .add(ModItems.TOPAZ_PICKAXE.get());
+                .add(ModItems.TOPAZ_PICKAXE.get())
+                .add(ModItems.BLUE_TOPAZ_PICKAXE.get());
         tag(ItemTags.SHOVELS)
-                .add(ModItems.TOPAZ_SHOVEL.get());
+                .add(ModItems.TOPAZ_SHOVEL.get())
+                .add(ModItems.BLUE_TOPAZ_SHOVEL.get());
         tag(ItemTags.AXES)
-                .add(ModItems.TOPAZ_AXE.get());
+                .add(ModItems.TOPAZ_AXE.get())
+                .add(ModItems.BLUE_TOPAZ_AXE.get());
         tag(ItemTags.HOES)
-                .add(ModItems.TOPAZ_HOE.get());
+                .add(ModItems.TOPAZ_HOE.get())
+                .add(ModItems.BLUE_TOPAZ_HOE.get());
+        tag(ItemTags.SPEARS)
+                .add(ModItems.BLUE_TOPAZ_SPEAR.get())
+                .add(ModItems.TOPAZ_SPEAR.get());
     }
 }

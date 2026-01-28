@@ -6,10 +6,22 @@
   "item.diabolomod.topaz_shovel": "Pelle en Topaze",
   "item.diabolomod.topaz_axe": "Hache en Topaze",
   "item.diabolomod.topaz_hoe": "Houe en Topaze",
+  "item.diabolomod.topaz_hammer": "Marteau en Topaze",
+  "item.diabolomod.topaz_spear": "Lance en Topaze",
+
+  "item.diabolomod.blue_topaz": "Topaze Bleu",
+  "item.diabolomod.blue_topaz_sword": "Épée en Topaze Bleu",
+  "item.diabolomod.blue_topaz_pickaxe": "Pioche en Topaze Bleu",
+  "item.diabolomod.blue_topaz_shovel": "Pelle en Topaze Bleu",
+  "item.diabolomod.blue_topaz_axe": "Hache en Topaze Bleu",
+  "item.diabolomod.blue_topaz_hoe": "Houe en Topaze Bleu",
+  "item.diabolomod.blue_topaz_hammer": "Marteau en Topaze Bleu",
+  "item.diabolomod.blue_topaz_spear": "Lance en Topaze Bleu",
 
   "block.diabolomod.topaz_block": "Bloc de Topaze",
   "block.diabolomod.topaz_ore": "Minerais de Topaze",
   "block.diabolomod.topaz_deepslate_ore": "Minerais de Topaze des abîmes",
+  "block.diabolomod.blue_topaz_block": "Bloc de Topaze Bleu",
 
   "creativetab.diabolomod.items": "Items de DiaboloMod",
   "creativetab.diabolomod.blocks": "Blocs de DiaboloMod",
