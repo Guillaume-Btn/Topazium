@@ -22,15 +22,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.TOPAZ_REPAIRABLE)
                 .add(ModItems.TOPAZ.get());
 
-//        tag(ItemTags.SWORDS)
-//                .add(ModItems.BISMUTH_SWORD.get());
-//        tag(ItemTags.PICKAXES)
-//                .add(ModItems.BISMUTH_PICKAXE.get());
-//        tag(ItemTags.SHOVELS)
-//                .add(ModItems.BISMUTH_SHOVEL.get());
-//        tag(ItemTags.AXES)
-//                .add(ModItems.BISMUTH_AXE.get());
-//        tag(ItemTags.HOES)
-//                .add(ModItems.BISMUTH_HOE.get());
+        tag(ItemTags.SWORDS)
+                .add(ModItems.TOPAZ_SWORD.get());
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.TOPAZ_PICKAXE.get());
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.TOPAZ_SHOVEL.get());
+        tag(ItemTags.AXES)
+                .add(ModItems.TOPAZ_AXE.get());
+        tag(ItemTags.HOES)
+                .add(ModItems.TOPAZ_HOE.get());
     }
 }

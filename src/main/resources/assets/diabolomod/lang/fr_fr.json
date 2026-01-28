@@ -1,11 +1,17 @@
 {
-  "item.diabolomod.topaz": "Topaz",
-  "item.diabolomod.raw_topaz": "Topaz brut",
+  "item.diabolomod.topaz": "Topaze",
+  "item.diabolomod.raw_topaz": "Topaze brut",
+  "item.diabolomod.topaz_sword": "Épée en Topaze",
+  "item.diabolomod.topaz_pickaxe": "Pioche en Topaze",
+  "item.diabolomod.topaz_shovel": "Pelle en Topaze",
+  "item.diabolomod.topaz_axe": "Hache en Topaze",
+  "item.diabolomod.topaz_hoe": "Houe en Topaze",
 
-  "block.diabolomod.topaz_block": "Bloc de Topaz",
-  "block.diabolomod.topaz_ore": "Minerais de Topaz",
-  "block.diabolomod.topaz_deepslate_ore": "Minerais de Topaz des abîmes",
+  "block.diabolomod.topaz_block": "Bloc de Topaze",
+  "block.diabolomod.topaz_ore": "Minerais de Topaze",
+  "block.diabolomod.topaz_deepslate_ore": "Minerais de Topaze des abîmes",
 
   "creativetab.diabolomod.items": "Items de DiaboloMod",
-  "creativetab.diabolomod.blocks": "Blocs de DiaboloMod"
+  "creativetab.diabolomod.blocks": "Blocs de DiaboloMod",
+  "creativetab.diabolomod.tools": "Outils de DiaboloMod"
 }

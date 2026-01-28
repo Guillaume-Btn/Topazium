@@ -1,14 +1,24 @@
-// 1.21.11	2026-01-27T20:03:29.7885958	Model Definitions - diabolomod
+// 1.21.11	2026-01-27T23:25:48.9058251	Model Definitions - diabolomod
 46aeaa99852f94d243c727fac8e43a71c4de329f assets/diabolomod/blockstates/topaz_block.json
 b988edf617448c999573b6431bdb0b58603aedcc assets/diabolomod/blockstates/topaz_deepslate_ore.json
 0e370b90287e002be3651a0f8ef7c05449b669c0 assets/diabolomod/blockstates/topaz_ore.json
 0f4c090ae7b875ba1e2198aac1c2036ba1f92041 assets/diabolomod/items/raw_topaz.json
 3a5b6fe0e380242f7349a623e39dcf64c78735ed assets/diabolomod/items/topaz.json
+6170c62182cd62bf8dbb5499d9819f5cd55a1a63 assets/diabolomod/items/topaz_axe.json
 aef1e19b9c750ef1d4ff9020b14003e4443e6880 assets/diabolomod/items/topaz_block.json
 9d56f69af70851dc8fafd3e904a7bce7c0022fd6 assets/diabolomod/items/topaz_deepslate_ore.json
+536713016848f4d39e40e89dd5f3c4ee1239b277 assets/diabolomod/items/topaz_hoe.json
 228e01262c4b1f2f84a01e092d11fdcff31bbca3 assets/diabolomod/items/topaz_ore.json
+f2ca5384a1b443ae1e6d67a20e560e110fb4ceb3 assets/diabolomod/items/topaz_pickaxe.json
+d2aeef15e2dfd7c356397f2b9e20e4c87ded0fc6 assets/diabolomod/items/topaz_shovel.json
+c0495d8d189ca51d8946dbc8e88c764563854d25 assets/diabolomod/items/topaz_sword.json
 bb1d54833145ccc2452c678f84bf301db33d2a45 assets/diabolomod/models/block/topaz_block.json
 e739507036c44302155ff2ad197df63d5cf638aa assets/diabolomod/models/block/topaz_deepslate_ore.json
 03e1d83820c75954d1fa387526e912ecc8c5c7a1 assets/diabolomod/models/block/topaz_ore.json
 7d495c1007fcf4c61acb180baf1fa7cf24f04515 assets/diabolomod/models/item/raw_topaz.json
 63b9ea93503be7593edc54127952a5b20a904bb9 assets/diabolomod/models/item/topaz.json
+916fc15be11c54f989e598f01e7758e76129d8ca assets/diabolomod/models/item/topaz_axe.json
+21f33d54bd8c27443c24ed5a1d6858de38524d91 assets/diabolomod/models/item/topaz_hoe.json
+6f4efb090632ea031a47bb514e787784f4488038 assets/diabolomod/models/item/topaz_pickaxe.json
+cea43de7e032f136a85421dcfa3d6e696262fe6f assets/diabolomod/models/item/topaz_shovel.json
+c9fa68255d207a5bbf25530fe20f9f95232be379 assets/diabolomod/models/item/topaz_sword.json

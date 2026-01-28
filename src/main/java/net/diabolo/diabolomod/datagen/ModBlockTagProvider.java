@@ -26,9 +26,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TOPAZ_ORE.get())
                 .add(ModBlocks.TOPAZ_BLOCK.get());
 
-        // Tout ce qui est minable avec du fer est minable avec du Topaz
-        tag(ModTags.Blocks.NEEDS_TOPAZ_TOOL)
+        tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get());
+
+        tag(ModTags.Blocks.NEEDS_TOPAZ_TOOL)
+                .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
+                .addTag(BlockTags.NEEDS_IRON_TOOL);
 
         tag(ModTags.Blocks.INCORRECT_FOR_TOPAZ_TOOL)
                 .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)

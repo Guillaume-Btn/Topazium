@@ -1,5 +1,6 @@
 {
   "values": [
-    "diabolomod:topaz_deepslate_ore"
+    "diabolomod:topaz_deepslate_ore",
+    "#minecraft:needs_iron_tool"
   ]
 }

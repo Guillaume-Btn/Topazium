@@ -12,6 +12,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 
@@ -44,7 +45,7 @@ public class ModRecipeProvider extends RecipeProvider {
         List<ItemLike> TOPAZ_SMELTABLES = List.of(ModItems.RAW_TOPAZ,
                 ModBlocks.TOPAZ_ORE, ModBlocks.TOPAZ_DEEPSLATE_ORE);
 
-        shaped(RecipeCategory.MISC, ModBlocks.TOPAZ_BLOCK.get())
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TOPAZ_BLOCK.get())
                 .pattern("BBB")
                 .pattern("BBB")
                 .pattern("BBB")
@@ -63,6 +64,67 @@ public class ModRecipeProvider extends RecipeProvider {
         oreSmelting(output, TOPAZ_SMELTABLES, RecipeCategory.MISC, ModItems.TOPAZ.get(), 0.25f, 200, "topaz");
         oreBlasting(output, TOPAZ_SMELTABLES, RecipeCategory.MISC, ModItems.TOPAZ.get(), 0.25f, 100, "topaz");
 
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_SWORD.get())
+                .pattern(" B ")
+                .pattern(" B ")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_PICKAXE.get())
+                .pattern("BBB")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_AXE.get())
+                .pattern(" BB")
+                .pattern(" AB")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("topaz_axe")
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ))
+                .save(output,"diabolomod:topaz_axe_alt");
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_AXE.get())
+                .pattern("BB ")
+                .pattern("BA ")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("topaz_axe")
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_SHOVEL.get())
+                .pattern(" B ")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HOE.get())
+                .pattern(" BB")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("topaz_hoe")
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HOE.get())
+                .pattern("BB ")
+                .pattern(" A ")
+                .pattern(" A ")
+                .define('B', ModItems.TOPAZ.get())
+                .define('A', Items.STICK)
+                .group("topaz_hoe")
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ))
+                .save(output, "diabolomod:topaz_hoe_alt");
 
         // Throws error
         // trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceKey.create(Registries.TRIM_PATTERN, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")),
