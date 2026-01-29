@@ -1,0 +1,4 @@
+// 1.21.11	2026-01-29T14:04:26.8098796	Registries
+d00a8a8ec3259aa096b35736ed13e3a23cedfb2d data/diabolomod/neoforge/biome_modifier/add_topaz_ore.json
+263f93b146bc19c515acd196e276809d59824ee8 data/diabolomod/worldgen/configured_feature/topaz_ore.json
+4a102b056a34c038e3ce99ef00ea5ddaec363f1a data/diabolomod/worldgen/placed_feature/topaz_ore_placed.json
