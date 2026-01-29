@@ -2,10 +2,12 @@ package net.diabolo.diabolomod.item;
 
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.item.custom.HammerItem;
+import net.diabolo.diabolomod.item.custom.ModArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -32,6 +34,17 @@ public class ModItems {
     public static final DeferredItem<HammerItem> TOPAZ_HAMMER = ITEMS.registerItem("topaz_hammer",
             (properties) -> new HammerItem(properties.pickaxe(ModToolTiers.TOPAZ, 7F, -3.5f)));
 
+    public static final DeferredItem<Item> TOPAZ_HELMET = ITEMS.registerItem("topaz_helmet",
+            (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.TOPAZ_ARMOR_MATERIAL, ArmorType.HELMET)));
+    public static final DeferredItem<Item> TOPAZ_CHESTPLATE = ITEMS.registerItem("topaz_chestplate",
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.TOPAZ_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+    public static final DeferredItem<Item> TOPAZ_LEGGINGS = ITEMS.registerItem("topaz_leggings",
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.TOPAZ_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+    public static final DeferredItem<Item> TOPAZ_BOOTS = ITEMS.registerItem("topaz_boots",
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.TOPAZ_ARMOR_MATERIAL, ArmorType.BOOTS)));
+
+
+
     public static final DeferredItem<Item> BLUE_TOPAZ = ITEMS.registerSimpleItem("blue_topaz", props -> props);
     public static final DeferredItem<Item> BLUE_TOPAZ_SWORD = ITEMS.registerItem("blue_topaz_sword",
             (properties) -> new Item(properties.sword(ModToolTiers.BLUE_TOPAZ, 7, -2.4f)));
@@ -49,6 +62,14 @@ public class ModItems {
     public static final DeferredItem<HammerItem> BLUE_TOPAZ_HAMMER = ITEMS.registerItem("blue_topaz_hammer",
             (properties) -> new HammerItem(properties.pickaxe(ModToolTiers.BLUE_TOPAZ, 7F, -3.5f)));
 
+    public static final DeferredItem<Item> BLUE_TOPAZ_HELMET = ITEMS.registerItem("blue_topaz_helmet",
+            (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.HELMET)));
+    public static final DeferredItem<Item> BLUE_TOPAZ_CHESTPLATE = ITEMS.registerItem("blue_topaz_chestplate",
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+    public static final DeferredItem<Item> BLUE_TOPAZ_LEGGINGS = ITEMS.registerItem("blue_topaz_leggings",
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+    public static final DeferredItem<Item> BLUE_TOPAZ_BOOTS = ITEMS.registerItem("blue_topaz_boots",
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.BOOTS)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

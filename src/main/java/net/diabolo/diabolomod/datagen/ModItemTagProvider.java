@@ -6,7 +6,6 @@ import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -43,5 +42,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.SPEARS)
                 .add(ModItems.BLUE_TOPAZ_SPEAR.get())
                 .add(ModItems.TOPAZ_SPEAR.get());
+
+        tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.TOPAZ_HELMET.get())
+                .add(ModItems.TOPAZ_CHESTPLATE.get())
+                .add(ModItems.TOPAZ_LEGGINGS.get())
+                .add(ModItems.TOPAZ_BOOTS.get());
     }
 }

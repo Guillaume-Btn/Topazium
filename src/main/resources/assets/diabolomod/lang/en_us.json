@@ -9,6 +9,12 @@
   "item.diabolomod.topaz_hammer": "Topaz Hammer",
   "item.diabolomod.topaz_spear": "Topaz Spear",
 
+  "item.diabolomod.topaz_helmet": "Topaz Helmet",
+  "item.diabolomod.topaz_chestplate": "Topaz Chestplate",
+  "item.diabolomod.topaz_leggings": "Topaz Leggings",
+  "item.diabolomod.topaz_boots": "Topaz Boots",
+
+
   "item.diabolomod.blue_topaz": "Blue Topaz",
   "item.diabolomod.blue_topaz_sword": "Blue Topaz Sword",
   "item.diabolomod.blue_topaz_pickaxe": "Blue Topaz Pickaxe",
@@ -17,6 +23,11 @@
   "item.diabolomod.blue_topaz_hoe": "Blue Topaz Hoe",
   "item.diabolomod.blue_topaz_hammer": "Blue Topaz Hammer",
   "item.diabolomod.blue_topaz_spear": "Blue Topaz Spear",
+
+  "item.diabolomod.blue_topaz_helmet": "Blue Topaz Helmet",
+  "item.diabolomod.blue_topaz_chestplate": "Blue Topaz Chestplate",
+  "item.diabolomod.blue_topaz_leggings": "Blue Topaz Leggings",
+  "item.diabolomod.blue_topaz_boots": "Blue Topaz Boots",
 
   "block.diabolomod.topaz_block": "Block of Topaz",
   "block.diabolomod.topaz_ore": "Topaz Ore",

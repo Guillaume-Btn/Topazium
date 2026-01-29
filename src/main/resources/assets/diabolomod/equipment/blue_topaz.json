@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "diabolomod:blue_topaz"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "diabolomod:blue_topaz"
+      }
+    ]
+  }
+}

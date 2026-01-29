@@ -58,6 +58,16 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BLUE_TOPAZ_SHOVEL);
                         output.accept(ModItems.BLUE_TOPAZ_HOE);
                         output.accept(ModItems.BLUE_TOPAZ_HAMMER);
+
+                        output.accept(ModItems.TOPAZ_HELMET);
+                        output.accept(ModItems.TOPAZ_CHESTPLATE);
+                        output.accept(ModItems.TOPAZ_LEGGINGS);
+                        output.accept(ModItems.TOPAZ_BOOTS);
+
+                        output.accept(ModItems.BLUE_TOPAZ_HELMET);
+                        output.accept(ModItems.BLUE_TOPAZ_CHESTPLATE);
+                        output.accept(ModItems.BLUE_TOPAZ_LEGGINGS);
+                        output.accept(ModItems.BLUE_TOPAZ_BOOTS);
                     }))
                     .build());
 

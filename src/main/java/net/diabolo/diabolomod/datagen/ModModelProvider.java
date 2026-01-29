@@ -1,6 +1,7 @@
 package net.diabolo.diabolomod.datagen;
 
 import net.diabolo.diabolomod.DiaboloMod;
+import net.diabolo.diabolomod.item.ModArmorMaterials;
 import net.minecraft.data.PackOutput;
 import net.diabolo.diabolomod.block.ModBlocks;
 import net.diabolo.diabolomod.item.ModItems;
@@ -31,12 +32,12 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TOPAZ_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_SPEAR.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-/*
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_HELMET.get(), ModArmorMaterials.BISMUTH, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_CHESTPLATE.get(), ModArmorMaterials.BISMUTH, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_LEGGINGS.get(), ModArmorMaterials.BISMUTH, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
-        itemModels.generateTrimmableItem(ModItems.BISMUTH_BOOTS.get(), ModArmorMaterials.BISMUTH, ItemModelGenerators.TRIM_PREFIX_BOOTS,  false);
-        */
+
+        itemModels.generateTrimmableItem(ModItems.TOPAZ_HELMET.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        itemModels.generateTrimmableItem(ModItems.TOPAZ_CHESTPLATE.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        itemModels.generateTrimmableItem(ModItems.TOPAZ_LEGGINGS.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        itemModels.generateTrimmableItem(ModItems.TOPAZ_BOOTS.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_BOOTS,  false);
+        
 
 
         /* BLOCKS */
@@ -44,15 +45,15 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.TOPAZ_DEEPSLATE_ORE.get());
 
         blockModels.family(ModBlocks.TOPAZ_BLOCK.get())
-//                .fence(ModBlocks.BISMUTH_FENCE.get())
-//                .fenceGate(ModBlocks.BISMUTH_FENCE_GATE.get())
-//                .wall(ModBlocks.BISMUTH_WALL.get())
-//                .stairs(ModBlocks.BISMUTH_STAIRS.get())
-//                .slab(ModBlocks.BISMUTH_SLAB.get())
-//                .button(ModBlocks.BISMUTH_BUTTON.get())
-//                .pressurePlate(ModBlocks.BISMUTH_PRESSURE_PLATE.get())
-//                .door(ModBlocks.BISMUTH_DOOR.get())
-//                .trapdoor(ModBlocks.BISMUTH_TRAPDOOR.get()
+//                .fence(ModBlocks.TOPAZ_FENCE.get())
+//                .fenceGate(ModBlocks.TOPAZ_FENCE_GATE.get())
+//                .wall(ModBlocks.TOPAZ_WALL.get())
+//                .stairs(ModBlocks.TOPAZ_STAIRS.get())
+//                .slab(ModBlocks.TOPAZ_SLAB.get())
+//                .button(ModBlocks.TOPAZ_BUTTON.get())
+//                .pressurePlate(ModBlocks.TOPAZ_PRESSURE_PLATE.get())
+//                .door(ModBlocks.TOPAZ_DOOR.get())
+//                .trapdoor(ModBlocks.TOPAZ_TRAPDOOR.get()
                 ;
 
         blockModels.createTrivialCube(ModBlocks.BLUE_TOPAZ_BLOCK.get());
@@ -64,6 +65,12 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_SPEAR.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+
+        itemModels.generateTrimmableItem(ModItems.BLUE_TOPAZ_HELMET.get(), ModArmorMaterials.BLUE_TOPAZ, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        itemModels.generateTrimmableItem(ModItems.BLUE_TOPAZ_CHESTPLATE.get(), ModArmorMaterials.BLUE_TOPAZ, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        itemModels.generateTrimmableItem(ModItems.BLUE_TOPAZ_LEGGINGS.get(), ModArmorMaterials.BLUE_TOPAZ, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        itemModels.generateTrimmableItem(ModItems.BLUE_TOPAZ_BOOTS.get(), ModArmorMaterials.BLUE_TOPAZ, ItemModelGenerators.TRIM_PREFIX_BOOTS,  false);
+
 
     }
 
