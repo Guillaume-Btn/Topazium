@@ -1,18 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "topaz_hoe",
   "key": {
-    "A": "minecraft:stick",
     "B": "diabolomod:topaz"
   },
   "pattern": [
-    "BB ",
-    " A ",
-    " A "
+    "BBB",
+    "B B",
+    "   "
   ],
   "result": {
     "count": 1,
-    "id": "diabolomod:topaz_hoe"
+    "id": "diabolomod:topaz_helmet"
   }
 }

@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "blue_topaz_axe",
   "key": {
     "A": "minecraft:stick",
     "B": "diabolomod:blue_topaz"

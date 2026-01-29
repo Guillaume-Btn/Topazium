@@ -92,22 +92,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_AXE.get())
-                .pattern(" BB")
-                .pattern(" AB")
-                .pattern(" A ")
-                .define('B', ModItems.TOPAZ.get())
-                .define('A', Items.STICK)
-                .group("topaz_axe")
-                .unlockedBy("has_topaz", has(ModItems.TOPAZ))
-                .save(output,"diabolomod:topaz_axe_alt");
-
-        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_AXE.get())
                 .pattern("BB ")
                 .pattern("BA ")
                 .pattern(" A ")
                 .define('B', ModItems.TOPAZ.get())
                 .define('A', Items.STICK)
-                .group("topaz_axe")
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_SHOVEL.get())
@@ -119,23 +108,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HOE.get())
-                .pattern(" BB")
-                .pattern(" A ")
-                .pattern(" A ")
-                .define('B', ModItems.TOPAZ.get())
-                .define('A', Items.STICK)
-                .group("topaz_hoe")
-                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
-
-        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HOE.get())
                 .pattern("BB ")
                 .pattern(" A ")
                 .pattern(" A ")
                 .define('B', ModItems.TOPAZ.get())
                 .define('A', Items.STICK)
-                .group("topaz_hoe")
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ))
-                .save(output, "diabolomod:topaz_hoe_alt");
+                .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_SPEAR.get())
                 .pattern("  B")
@@ -143,25 +122,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A  ")
                 .define('B', ModItems.TOPAZ.get())
                 .define('A', Items.STICK)
-                .group("topaz_spear")
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
-
-        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_SPEAR.get())
-                .pattern("B  ")
-                .pattern(" A ")
-                .pattern("  A")
-                .define('B', ModItems.TOPAZ.get())
-                .define('A', Items.STICK)
-                .group("topaz_spear")
-                .unlockedBy("has_topaz", has(ModItems.TOPAZ))
-                .save(output, "diabolomod:topaz_spear_alt");
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HAMMER.get())
                 .pattern("BBB")
                 .pattern("BAB")
                 .pattern(" A ")
-                        .define('A',Items.STICK).define('B',ModItems.TOPAZ.get())
-                        .unlockedBy("has_topaz",has(ModItems.TOPAZ)).save(output);
+                .define('A',Items.STICK).define('B',ModItems.TOPAZ.get())
+                .unlockedBy("has_topaz",has(ModItems.TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_SWORD.get())
                 .pattern(" B ")
@@ -180,22 +148,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_AXE.get())
-                .pattern(" BB")
-                .pattern(" AB")
-                .pattern(" A ")
-                .define('B', ModItems.BLUE_TOPAZ.get())
-                .define('A', Items.STICK)
-                .group("blue_topaz_axe")
-                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ))
-                .save(output,"diabolomod:blue_topaz_axe_alt");
-
-        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_AXE.get())
                 .pattern("BB ")
                 .pattern("BA ")
                 .pattern(" A ")
                 .define('B', ModItems.BLUE_TOPAZ.get())
                 .define('A', Items.STICK)
-                .group("blue_topaz_axe")
                 .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_SHOVEL.get())
@@ -207,23 +164,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HOE.get())
-                .pattern(" BB")
-                .pattern(" A ")
-                .pattern(" A ")
-                .define('B', ModItems.BLUE_TOPAZ.get())
-                .define('A', Items.STICK)
-                .group("blue_topaz_hoe")
-                .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
-
-        shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HOE.get())
                 .pattern("BB ")
                 .pattern(" A ")
                 .pattern(" A ")
                 .define('B', ModItems.BLUE_TOPAZ.get())
                 .define('A', Items.STICK)
-                .group("blue_topaz_hoe")
                 .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ))
-                .save(output, "diabolomod:blue_topaz_hoe_alt");
+                .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HAMMER.get())
                 .pattern("BBB")
@@ -232,6 +179,34 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('B', ModItems.BLUE_TOPAZ.get())
                 .define('A', Items.STICK)
                 .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HELMET.get())
+                .pattern("BBB")
+                .pattern("B B")
+                .pattern("   ")
+                .define('B', ModItems.TOPAZ.get())
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_CHESTPLATE.get())
+                .pattern("B B")
+                .pattern("BBB")
+                .pattern("BBB")
+                .define('B', ModItems.TOPAZ.get())
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_LEGGINGS.get())
+                .pattern("BBB")
+                .pattern("B B")
+                .pattern("B B")
+                .define('B', ModItems.TOPAZ.get())
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_BOOTS.get())
+                .pattern("   ")
+                .pattern("B B")
+                .pattern("B B")
+                .define('B', ModItems.TOPAZ.get())
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
         // Throws error
         // trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceKey.create(Registries.TRIM_PATTERN, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")),

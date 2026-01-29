@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "A": "minecraft:stick",
     "B": "diabolomod:topaz"
   },
   "pattern": [
-    "BB ",
-    " A ",
-    " A "
+    "B B",
+    "BBB",
+    "BBB"
   ],
   "result": {
     "count": 1,
-    "id": "diabolomod:topaz_hoe"
+    "id": "diabolomod:topaz_chestplate"
   }
 }

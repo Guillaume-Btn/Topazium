@@ -1,13 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "blue_topaz_hoe",
   "key": {
     "A": "minecraft:stick",
     "B": "diabolomod:blue_topaz"
   },
   "pattern": [
-    " BB",
+    "BB ",
     " A ",
     " A "
   ],
