@@ -31,7 +31,8 @@ public class ModArmorItem extends Item {
             (new ImmutableMap.Builder<ArmorMaterial, List<MobEffectInstance>>())
                     .put(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL,
                             List.of(new MobEffectInstance(MobEffects.SPEED, 200, 1, false, false),
-                                    new MobEffectInstance(MobEffects.STRENGTH, 200, 1, false, false)))
+                                    new MobEffectInstance(MobEffects.STRENGTH, 200, 1, false, false),
+                                    new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0 ,false ,false)))
                     .build();
 
     public ModArmorItem(Properties properties) {
