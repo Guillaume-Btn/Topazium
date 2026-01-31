@@ -71,6 +71,8 @@ public class ModItems {
     public static final DeferredItem<Item> BLUE_TOPAZ_BOOTS = ITEMS.registerItem("blue_topaz_boots",
             (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.BOOTS)));
 
+    public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.registerSimpleItem("cobalt_solution", props -> props);
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

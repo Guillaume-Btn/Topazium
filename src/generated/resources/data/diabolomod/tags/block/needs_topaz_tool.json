@@ -1,6 +1,7 @@
 {
   "values": [
     "diabolomod:topaz_deepslate_ore",
+    "diabolomod:crystal_infuser",
     "#minecraft:needs_iron_tool"
   ]
 }

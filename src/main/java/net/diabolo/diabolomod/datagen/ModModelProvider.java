@@ -12,6 +12,8 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.client.data.models.model.ModelLocationUtils;
+
 
 import java.util.stream.Stream;
 
@@ -24,6 +26,7 @@ public class ModModelProvider extends ModelProvider {
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ModItems.TOPAZ.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_TOPAZ.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.COBALT_SOLUTION.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.TOPAZ_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -43,6 +46,8 @@ public class ModModelProvider extends ModelProvider {
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.TOPAZ_ORE.get());
         blockModels.createTrivialCube(ModBlocks.TOPAZ_DEEPSLATE_ORE.get());
+
+        //itemModels.generateFlatItem(ModBlocks.CRYSTAL_INFUSER.asItem(), ModelTemplates.FLAT_ITEM);
 
         blockModels.family(ModBlocks.TOPAZ_BLOCK.get())
 //                .fence(ModBlocks.TOPAZ_FENCE.get())
@@ -76,7 +81,11 @@ public class ModModelProvider extends ModelProvider {
 
     @Override
     protected Stream<? extends Holder<Block>> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream();
+
+        return ModBlocks.BLOCKS.getEntries().stream()
+                // AJOUTE CE FILTRE :
+                .filter(b -> !b.get().equals(ModBlocks.CRYSTAL_INFUSER.get()))
+                .map(block -> (Holder<Block>) block);
     }
 
     @Override

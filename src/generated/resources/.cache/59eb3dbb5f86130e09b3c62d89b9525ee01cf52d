@@ -1,5 +1,6 @@
-// 1.21.11	2026-01-28T13:38:15.5450169	Loot Tables
+// 1.21.11	2026-01-30T15:54:12.7912266	Loot Tables
 4fab42ace0950e57e4a6f93532decc60f98c6b04 data/diabolomod/loot_table/blocks/blue_topaz_block.json
+59d0eb916812d3621cfd3eb2f467eacfe9b91de0 data/diabolomod/loot_table/blocks/crystal_infuser.json
 7ebe9c5974362ceb966a189d9ac3227f0078d31f data/diabolomod/loot_table/blocks/topaz_block.json
 a3c2545b715c4267f5a898ea048425e8b79c4d9d data/diabolomod/loot_table/blocks/topaz_deepslate_ore.json
 ffddd16481fc1d9103f1a4595b03433e23fb18ec data/diabolomod/loot_table/blocks/topaz_ore.json

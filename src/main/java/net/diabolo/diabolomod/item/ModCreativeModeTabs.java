@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TOPAZ);
                         output.accept(ModItems.RAW_TOPAZ);
                         output.accept(ModItems.BLUE_TOPAZ);
+                        output.accept(ModItems.COBALT_SOLUTION);
                     }))
                     .build());
 
@@ -36,6 +37,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BLUE_TOPAZ_BLOCK);
                         output.accept(ModBlocks.TOPAZ_ORE);
                         output.accept(ModBlocks.TOPAZ_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.CRYSTAL_INFUSER);
                     }))
                     .build());
 

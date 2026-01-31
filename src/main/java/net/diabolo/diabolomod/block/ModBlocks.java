@@ -2,6 +2,7 @@ package net.diabolo.diabolomod.block;
 
 
 import net.diabolo.diabolomod.DiaboloMod;
+import net.diabolo.diabolomod.block.custom.InfuserBlock;
 import net.diabolo.diabolomod.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -50,11 +51,17 @@ public class ModBlocks {
                     .sound(SoundType.AMETHYST)
     );
 
+    public static final  DeferredBlock<Block> CRYSTAL_INFUSER =BLOCKS.registerBlock("crystal_infuser",
+            InfuserBlock::new,BlockBehaviour.Properties.of().noOcclusion()
+                    .strength(4f).requiresCorrectToolForDrops()
+    );
+
     static {
         ModItems.ITEMS.registerSimpleBlockItem("topaz_block", TOPAZ_BLOCK);
         ModItems.ITEMS.registerSimpleBlockItem("topaz_ore", TOPAZ_ORE);
         ModItems.ITEMS.registerSimpleBlockItem("topaz_deepslate_ore", TOPAZ_DEEPSLATE_ORE);
         ModItems.ITEMS.registerSimpleBlockItem("blue_topaz_block", BLUE_TOPAZ_BLOCK);
+        ModItems.ITEMS.registerSimpleBlockItem("crystal_infuser", CRYSTAL_INFUSER);
     }
 
     public static void register(IEventBus eventBus){

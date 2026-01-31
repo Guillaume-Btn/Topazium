@@ -33,6 +33,9 @@
   "block.diabolomod.topaz_ore": "Topaz Ore",
   "block.diabolomod.topaz_deepslate_ore": "Topaz Deepslate Ore",
   "block.diabolomod.blue_topaz_block": "Block of Blue Topaz",
+  "block.diabolomod.crystal_infuser": "Crystal Infuser",
+
+  "item.diabolomod.cobalt_solution": "Cobalt Solution",
 
   "creativetab.diabolomod.items": "DiaboloMod's Items",
   "creativetab.diabolomod.blocks": "DiaboloMod's Blocks",

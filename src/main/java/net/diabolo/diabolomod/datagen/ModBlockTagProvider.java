@@ -6,6 +6,7 @@ import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,7 +22,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TOPAZ_BLOCK.get())
                 .add(ModBlocks.TOPAZ_ORE.get())
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
-                .add(ModBlocks.BLUE_TOPAZ_BLOCK.get());
+                .add(ModBlocks.BLUE_TOPAZ_BLOCK.get())
+                .add(ModBlocks.CRYSTAL_INFUSER.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.TOPAZ_ORE.get())
@@ -34,6 +36,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(ModTags.Blocks.NEEDS_TOPAZ_TOOL)
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
+                .add(ModBlocks.CRYSTAL_INFUSER.get())
                 .addTag(BlockTags.NEEDS_IRON_TOOL);
 
         tag(ModTags.Blocks.INCORRECT_FOR_TOPAZ_TOOL)
