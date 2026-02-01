@@ -1,8 +1,10 @@
 package net.diabolo.diabolomod.screen.custom;
 
 import net.diabolo.diabolomod.block.ModBlocks;
+import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.screen.ModMenuTypes;
 import net.diabolo.diabolomod.entity.CrystalInfuserBlockEntity;
+import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -31,20 +33,47 @@ public class CrystalInfuserMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        // --- LE CORRECTIF EST ICI ---
-        // Si on est côté Serveur (entity existe), on prend son inventaire (taille 3).
-        // Si on est côté Client (entity est null), on crée un inventaire FACTICE de taille 3.
-        // COMME ÇA, PAS DE CRASH "Slot 1 not in valid range" !
-
         var handler = (this.blockEntity != null) ? this.blockEntity.itemHandler : new net.neoforged.neoforge.items.ItemStackHandler(4);
 
-        this.addSlot(new SlotItemHandler(handler, 0, 54, 16)); // Slot 0
-        this.addSlot(new SlotItemHandler(handler, 1, 54, 53)); // Slot 1 (Ne plantera plus car handler a une taille de 3)
-        this.addSlot(new SlotItemHandler(handler, 2, 104, 34)); // Slot 1 (Ne plantera plus car handler a une taille de 3)
-        this.addSlot(new SlotItemHandler(handler, 3, 133, 34)); // Slot 1 (Ne plantera plus car handler a une taille de 3)
+        this.addSlot(new SlotItemHandler(handler, 0, 54, 16) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                // Le joueur ne peut poser l'item que s'il a le tag
+                return stack.is(ModTags.Items.CAN_BE_INFUSED);
+            }
+        });
 
+        this.addSlot(new SlotItemHandler(handler, 1, 54, 53) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                return stack.is(ModTags.Items.IS_INFUSER);
+            }
+        });
+        this.addSlot(new SlotItemHandler(handler, 2, 104, 34) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                return false; // Le joueur ne peut rien mettre ici
+            }
+        });
+        this.addSlot(new SlotItemHandler(handler, 3, 133, 34) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                return false; // Le joueur ne peut rien mettre ici
+            }
+        });
         addDataSlots(data);
     }
+
+    public int getScaledBubbleProgress1() {
+        int progress = this.data.get(2);
+        int maxProgress = this.data.get(1);
+        int arrowPixelSize = 16;
+
+       //return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
+        return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
+    }
+
+
 
 
 
@@ -75,24 +104,24 @@ public class CrystalInfuserMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
+    // ✅ CORRIGÉ : 4 slots (2 inputs + 2 outputs)
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;
+
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
-        // Check if the slot clicked is one of the vanilla container slots
+        // Depuis slots VANILLA (0-35) → vers TE (36-39)
         if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;  // EMPTY_ITEM
+            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
+                return ItemStack.EMPTY;
             }
-        } else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            // This is a TE slot so merge the stack into the players inventory
+        }
+        // Depuis slots TE (36-39) → vers VANILLA (0-35)  ✅ SHIFT-CLICK FONCTIONNE !
+        else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
             if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;
             }
@@ -100,7 +129,7 @@ public class CrystalInfuserMenu extends AbstractContainerMenu {
             System.out.println("Invalid slotIndex:" + pIndex);
             return ItemStack.EMPTY;
         }
-        // If stack size == 0 (the entire stack was moved) set slot contents to null
+
         if (sourceStack.getCount() == 0) {
             sourceSlot.set(ItemStack.EMPTY);
         } else {

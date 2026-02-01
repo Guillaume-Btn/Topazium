@@ -1,20 +1,27 @@
 package net.diabolo.diabolomod.datagen;
 
+import com.google.gson.JsonObject;
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.block.ModBlocks;
 import net.diabolo.diabolomod.item.ModItems;
+import net.diabolo.diabolomod.recipe.CrystalInfuserRecipe;
+import net.diabolo.diabolomod.recipe.ModRecipes;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -208,6 +215,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('B', ModItems.TOPAZ.get())
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
+        buildCrystalInfuserRecipe();
+
         // Throws error
         // trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceKey.create(Registries.TRIM_PATTERN, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")),
         //         ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")));
@@ -232,4 +241,38 @@ public class ModRecipeProvider extends RecipeProvider {
                     .save(recipeOutput, DiaboloMod.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
     }
+
+    private void buildCrystalInfuserRecipe(){
+        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(Registries.RECIPE,
+                Identifier.fromNamespaceAndPath("diabolomod", "topaz_to_blue_topaz"));
+
+        CrystalInfuserRecipe recipeInstance = new CrystalInfuserRecipe(
+                Ingredient.of(ModItems.TOPAZ.get()),
+                5,
+                Ingredient.of(ModItems.COBALT_SOLUTION.get()),
+                1,
+                new ItemStack(ModItems.BLUE_TOPAZ.get()),
+                new ItemStack(Items.GLASS_BOTTLE),
+                1
+        );
+
+        output.accept(recipeKey, recipeInstance, null);
+
+        recipeInstance = new CrystalInfuserRecipe(
+                Ingredient.of(ModItems.BLUE_TOPAZ.get()),
+                5,
+                Ingredient.of(Items.GLASS_BOTTLE),
+                1,
+                new ItemStack(ModItems.TOPAZ.get()),
+                new ItemStack(ModItems.COBALT_SOLUTION.get()),
+                1
+        );
+
+        recipeKey = ResourceKey.create(Registries.RECIPE,
+                Identifier.fromNamespaceAndPath("diabolomod", "blue_topaz_to_topaz"));
+        output.accept(recipeKey, recipeInstance, null);
+    }
+
+
+
 }

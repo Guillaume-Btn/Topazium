@@ -6,6 +6,7 @@ import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -48,5 +49,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.TOPAZ_CHESTPLATE.get())
                 .add(ModItems.TOPAZ_LEGGINGS.get())
                 .add(ModItems.TOPAZ_BOOTS.get());
+
+        tag(ModTags.Items.CAN_BE_INFUSED)
+                .add(ModItems.TOPAZ.get())
+                .add(ModItems.BLUE_TOPAZ.get());
+
+        tag(ModTags.Items.IS_INFUSER)
+                .add(ModItems.COBALT_SOLUTION.get())
+                .add(Items.GLASS_BOTTLE);
     }
 }

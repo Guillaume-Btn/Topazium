@@ -18,7 +18,7 @@ public class ModArmorMaterials {
     public static ResourceKey<EquipmentAsset> TOPAZ = ResourceKey.create(ROOT_ID, Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "topaz"));
     public static ResourceKey<EquipmentAsset> BLUE_TOPAZ = ResourceKey.create(ROOT_ID, Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "blue_topaz"));
 
-    public static final ArmorMaterial TOPAZ_ARMOR_MATERIAL = new ArmorMaterial(1500,
+    public static final ArmorMaterial TOPAZ_ARMOR_MATERIAL = new ArmorMaterial(40,
             Util.make(new EnumMap<>(ArmorType.class), attribute -> {
                 attribute.put(ArmorType.BOOTS, 4);
                 attribute.put(ArmorType.LEGGINGS, 6);
@@ -28,7 +28,7 @@ public class ModArmorMaterials {
             }), 16, SoundEvents.ARMOR_EQUIP_IRON,
             2f, 0.1f, ModTags.Items.TOPAZ_REPAIRABLE, TOPAZ);
 
-    public static final ArmorMaterial BLUE_TOPAZ_ARMOR_MATERIAL = new ArmorMaterial(2500,
+    public static final ArmorMaterial BLUE_TOPAZ_ARMOR_MATERIAL = new ArmorMaterial(50,
             Util.make(new EnumMap<>(ArmorType.class), attribute -> {
                 attribute.put(ArmorType.BOOTS, 5);
                 attribute.put(ArmorType.LEGGINGS, 7);

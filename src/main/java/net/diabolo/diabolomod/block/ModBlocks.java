@@ -2,7 +2,7 @@ package net.diabolo.diabolomod.block;
 
 
 import net.diabolo.diabolomod.DiaboloMod;
-import net.diabolo.diabolomod.block.custom.InfuserBlock;
+import net.diabolo.diabolomod.block.custom.CrystalInfuserBlock;
 import net.diabolo.diabolomod.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -52,7 +52,7 @@ public class ModBlocks {
     );
 
     public static final  DeferredBlock<Block> CRYSTAL_INFUSER =BLOCKS.registerBlock("crystal_infuser",
-            InfuserBlock::new,BlockBehaviour.Properties.of().noOcclusion()
+            CrystalInfuserBlock::new,BlockBehaviour.Properties.of().noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()
     );
 
