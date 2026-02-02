@@ -8,11 +8,14 @@ import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -100,14 +103,6 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         };
     }
 
-    public float getRenderingRotation() {
-        rotation += 0.5f;
-        if(rotation >= 360) {
-            rotation = 0;
-        }
-        return rotation;
-    }
-
     public void clearContents() {
         itemHandler.setStackInSlot(0, ItemStack.EMPTY);
     }
@@ -166,18 +161,86 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         maxProgress_bubble = input.getIntOr("crystal_infuser.max_progress_bubble", 0);
     }
 
-    public void tick(Level level, BlockPos blockPos, BlockState blockState) {
-        if(hasRecipe() && canCraft()) {
-            increaseCraftingProgress();
-            setChanged(level, blockPos, blockState);
+    public float renderingRotation = 0f;
+    public float prevRenderingRotation = 0f; // Nécessaire pour l'interpolation
+    private float currentSpeed = 1.0f;
 
-            if(hasCraftingFinished()) {
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        // 1. LOGIQUE CLIENT (Animation, Rotation, Particules)
+        if (level.isClientSide()) {
+            prevRenderingRotation = renderingRotation;
+
+            float targetSpeed = isCrafting() ? 50.0f : 1.0f;
+
+            // Accélération douce (plus la valeur 0.5f est petite, plus c'est lent à accélérer)
+            if (currentSpeed < targetSpeed) {
+                currentSpeed += 0.5f; // Accélère
+            } else if (currentSpeed > targetSpeed) {
+                currentSpeed -= 0.5f; // Ralentit
+            }
+
+            // Applique la vitesse actuelle
+            renderingRotation += currentSpeed;
+
+            if (renderingRotation >= 360f) {
+                renderingRotation -= 360f;
+                prevRenderingRotation -= 360f;
+            }
+            return;
+        }
+
+        // 2. LOGIQUE SERVEUR (Craft, Inventaire, Son)
+
+        // Jouer le son toutes les 80 ticks si on craft
+        if (isCrafting()) {
+            // Joue un son toutes les 40 ticks (2 secondes) pour pas que ça soit insupportable
+            if (level.getGameTime() % 40 == 0) {
+                level.playSound(
+                        null, // null = joue pour tout le monde aux alentours
+                        pos,
+                        SoundEvents.BEACON_POWER_SELECT, // Choisis un son (ex: BEACON_AMBIENT, ANVIL_USE, BUBBLE_COLUMN_BUBBLE_POP)
+                        SoundSource.BLOCKS,
+                        1.0f, // Volume
+                        0.3f  // Pitch (Aigu/Grave)
+                );
+            }
+        }
+        boolean wasCrafting = isCrafting(); // On stocke l'état avant modif
+        boolean hasChanged = false;
+
+        if (hasRecipe()&&canCraft()) {
+            increaseCraftingProgress();
+            setChanged(level, pos, state);
+            hasChanged = true;
+
+            if (hasCraftingFinished()) {
                 craftItem();
                 resetProgress();
             }
         } else {
             resetProgress();
         }
+
+        // ✅ Si l'état de craft a changé (on commence ou on finit de travailler)
+        // On force la mise à jour du client pour qu'il accélère/ralentisse l'animation
+        if (wasCrafting != isCrafting()) {
+            level.sendBlockUpdated(pos, state, state, 3);
+        } else if (hasChanged) {
+            // Optionnel : sauvegarde disque sans envoi réseau inutile si on est juste en train d'avancer
+            setChanged(level, pos, state);
+        }
+    }
+
+
+    // Nouvelle méthode pour le renderer
+    public float getRenderingRotation(float partialTick) {
+        // Calcule la position "entre" le tick d'avant et le tick actuel
+        return prevRenderingRotation + (renderingRotation - prevRenderingRotation) * partialTick;
+    }
+
+    // Méthode utilitaire pour savoir si la machine tourne
+    private boolean isCrafting() {
+        return this.progressArrow > 0;
     }
 
     private void craftItem() {
@@ -187,8 +250,6 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
 
         ItemStack normalOutput = new ItemStack(r.output().getItem(), r.outputCount());
         ItemStack bottleOutput = new ItemStack(r.outputBottle().getItem(), r.outputCount());
-
-        System.out.println(itemHandler.getStackInSlot(INPUT_SLOT).getCount());
 
         itemHandler.extractItem(INPUT_SLOT, r.inputCount(), false);
         itemHandler.extractItem(FUEL_SLOT, r.fuelCount(), false);

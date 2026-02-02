@@ -1,6 +1,7 @@
 package net.diabolo.diabolomod.item;
 
 import net.diabolo.diabolomod.util.ModTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 

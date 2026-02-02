@@ -255,9 +255,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 new ItemStack(Items.GLASS_BOTTLE),
                 1
         );
-
         output.accept(recipeKey, recipeInstance, null);
 
+        recipeKey = ResourceKey.create(Registries.RECIPE,
+                Identifier.fromNamespaceAndPath("diabolomod", "blue_topaz_to_topaz"));
         recipeInstance = new CrystalInfuserRecipe(
                 Ingredient.of(ModItems.BLUE_TOPAZ.get()),
                 5,
@@ -267,9 +268,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 new ItemStack(ModItems.COBALT_SOLUTION.get()),
                 1
         );
+        output.accept(recipeKey, recipeInstance, null);
 
         recipeKey = ResourceKey.create(Registries.RECIPE,
-                Identifier.fromNamespaceAndPath("diabolomod", "blue_topaz_to_topaz"));
+                Identifier.fromNamespaceAndPath("diabolomod", "topaz_to_topaz_blue_from_dye"));
+        recipeInstance = new CrystalInfuserRecipe(
+                Ingredient.of(ModItems.TOPAZ.get()),
+                64,
+                Ingredient.of(Items.BLUE_DYE),
+                1,
+                new ItemStack(ModItems.BLUE_TOPAZ.get()),
+                new ItemStack(Items.GLASS_BOTTLE),
+                1
+        );
         output.accept(recipeKey, recipeInstance, null);
     }
 

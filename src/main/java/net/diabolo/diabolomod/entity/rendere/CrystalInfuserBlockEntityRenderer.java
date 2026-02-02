@@ -37,7 +37,10 @@ public class CrystalInfuserBlockEntityRenderer implements BlockEntityRenderer<Cr
 
         renderState.lightPosition = blockEntity.getBlockPos();
         renderState.blockEntityLevel = blockEntity.getLevel();
-        renderState.rotation = blockEntity.getRenderingRotation();
+
+        // --- MODIFICATION ICI ---
+        // On passe partialTick pour avoir l'interpolation fluide
+        renderState.rotation = blockEntity.getRenderingRotation(partialTick);
 
         itemModelResolver.updateForTopItem(renderState.itemStackRenderState,
                 blockEntity.itemHandler.getStackInSlot(0), ItemDisplayContext.FIXED, blockEntity.getLevel(), null, 0);
@@ -47,18 +50,13 @@ public class CrystalInfuserBlockEntityRenderer implements BlockEntityRenderer<Cr
     public void submit(CrystalInfuserBlockEntityRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
         poseStack.pushPose();
 
-        // --- MODIFICATION ICI ---
-        // Avant (Piédestal) : 1.15f en Y (c'est-à-dire 1.15 bloc de hauteur, donc au-dessus)
-        // poseStack.translate(0.5f, 1.15f, 0.5f);
-
-        // Maintenant (Infuseur) : 0.5f en Y (c'est-à-dire la moitié de la hauteur, pile au milieu)
+        // Position au centre
         poseStack.translate(0.5f, 0.5f, 0.5f);
 
-        // --- OPTIONNEL : LA TAILLE ---
-        // Si l'item touche les vitres de ton bloc, réduis un peu l'échelle ici (ex: 0.4f)
+        // Taille de l'item
         poseStack.scale(0.35f, 0.35f, 0.35f);
 
-        // La rotation (l'item tourne sur lui-même au centre)
+        // Rotation (qui sera maintenant rapide si ça craft)
         poseStack.mulPose(Axis.YP.rotationDegrees(renderState.rotation));
 
         renderState.itemStackRenderState.submit(poseStack, nodeCollector, getLightLevel(renderState.blockEntityLevel,
@@ -72,6 +70,4 @@ public class CrystalInfuserBlockEntityRenderer implements BlockEntityRenderer<Cr
         int sLight = level.getBrightness(LightLayer.SKY, pos);
         return LightTexture.pack(bLight, sLight);
     }
-
-
 }

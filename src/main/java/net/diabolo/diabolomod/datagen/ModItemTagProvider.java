@@ -56,6 +56,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ModTags.Items.IS_INFUSER)
                 .add(ModItems.COBALT_SOLUTION.get())
-                .add(Items.GLASS_BOTTLE);
+                .add(Items.GLASS_BOTTLE)
+                .add(Items.BLUE_DYE);
     }
 }

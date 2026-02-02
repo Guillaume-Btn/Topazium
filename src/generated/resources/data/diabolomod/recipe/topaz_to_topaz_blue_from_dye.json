@@ -1,0 +1,16 @@
+{
+  "type": "diabolomod:crystal_infuser",
+  "fuel_count": 1,
+  "fuel_item": "minecraft:blue_dye",
+  "input_count": 64,
+  "input_item": "diabolomod:topaz",
+  "output_count": 1,
+  "result": {
+    "count": 1,
+    "id": "diabolomod:blue_topaz"
+  },
+  "result_bottle": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  }
+}

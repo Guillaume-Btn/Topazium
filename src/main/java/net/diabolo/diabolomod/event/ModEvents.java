@@ -1,12 +1,21 @@
 package net.diabolo.diabolomod.event;
 
+import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.diabolo.diabolomod.DiaboloMod;
 
@@ -29,7 +38,6 @@ public class ModEvents {
             if(HARVESTED_BLOCKS.contains(initialBlockPos)) {
                 return;
             }
-            System.out.println(mainHandItem.getItem());
             if(mainHandItem.getItem().toString().equals("diabolomod:blue_topaz_hammer")){
                 for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(2, initialBlockPos, serverPlayer)) {
                     if(pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
@@ -52,6 +60,18 @@ public class ModEvents {
                 }
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
+        PotionBrewing.Builder builder = event.getBuilder();
+
+        ItemStack awkwardStack = PotionContents.createItemStack(Items.POTION, Potions.AWKWARD);
+        // Le "true" veut dire "match strict des composants" (donc que Awkward, pas Water)
+        Ingredient inputIngredient = DataComponentIngredient.of(true, awkwardStack);
+        Ingredient reagentIngredient = Ingredient.of(Items.LAPIS_LAZULI);
+        ItemStack resultStack = new ItemStack(ModItems.COBALT_SOLUTION.get());
+        builder.addRecipe(inputIngredient, reagentIngredient, resultStack);
     }
 
 }

@@ -51,19 +51,15 @@ public class CrystalInfuserBlock extends BaseEntityBlock {
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                           Player player, InteractionHand hand, BlockHitResult hitResult) {
 
-        // 1. On vérifie que c'est bien notre BlockEntity
         if (level.getBlockEntity(pos) instanceof CrystalInfuserBlockEntity crystalInfuserBlockEntity) {
 
-            // 2. On ouvre le menu UNIQUEMENT côté serveur (le client suit automatiquement)
             if (!level.isClientSide()) {
                 // Cette ligne demande au serveur d'ouvrir l'écran pour le joueur
                 player.openMenu(new SimpleMenuProvider(
                         crystalInfuserBlockEntity,
-                        Component.literal("Infuseur Cristallin") // Le titre en haut de la fenêtre
+                        Component.translatable("block.diabolomod.crystal_infuser") // Le titre en haut de la fenêtre
                 ), pos);
             }
-
-            // 3. On dit "C'est bon, j'ai géré le clic"
             return InteractionResult.SUCCESS;
         }
 
@@ -73,13 +69,10 @@ public class CrystalInfuserBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        if(level.isClientSide()) {
-            return null;
-        }
-
         return createTickerHelper(blockEntityType, ModBlockEntities.CRYSTAL_INFUSER_BE.get(),
                 (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
     }
+
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {

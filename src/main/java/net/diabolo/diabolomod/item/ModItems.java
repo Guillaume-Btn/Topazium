@@ -3,10 +3,7 @@ package net.diabolo.diabolomod.item;
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.item.custom.HammerItem;
 import net.diabolo.diabolomod.item.custom.ModArmorItem;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -45,33 +42,46 @@ public class ModItems {
 
 
 
-    public static final DeferredItem<Item> BLUE_TOPAZ = ITEMS.registerSimpleItem("blue_topaz", props -> props);
+    public static final DeferredItem<Item> BLUE_TOPAZ = ITEMS.registerSimpleItem("blue_topaz", Item.Properties::fireResistant);
     public static final DeferredItem<Item> BLUE_TOPAZ_SWORD = ITEMS.registerItem("blue_topaz_sword",
-            (properties) -> new Item(properties.sword(ModToolTiers.BLUE_TOPAZ, 7, -2.4f)));
+            (properties) -> new Item(properties.sword(ModToolTiers.BLUE_TOPAZ, 7, -2.4f).fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_PICKAXE = ITEMS.registerItem("blue_topaz_pickaxe",
-            (properties) -> new Item(properties.pickaxe(ModToolTiers.BLUE_TOPAZ, 1.0F, -2.8f)));
+            (properties) -> new Item(properties.pickaxe(ModToolTiers.BLUE_TOPAZ, 1.0F, -2.8f).fireResistant()));
     public static final DeferredItem<ShovelItem> BLUE_TOPAZ_SHOVEL = ITEMS.registerItem("blue_topaz_shovel",
-            (properties) -> new ShovelItem(ModToolTiers.BLUE_TOPAZ, 1.5F, -3.0f, properties));
+            (properties) -> new ShovelItem(ModToolTiers.BLUE_TOPAZ, 1.5F, -3.0f, properties.fireResistant()));
     public static final DeferredItem<AxeItem> BLUE_TOPAZ_AXE = ITEMS.registerItem("blue_topaz_axe",
-            (properties) -> new AxeItem(ModToolTiers.BLUE_TOPAZ, 6.0F, -3.2f, properties));
+            (properties) -> new AxeItem(ModToolTiers.BLUE_TOPAZ, 6.0F, -3.2f, properties.fireResistant()));
     public static final DeferredItem<HoeItem> BLUE_TOPAZ_HOE = ITEMS.registerItem("blue_topaz_hoe",
-            (properties) -> new HoeItem(ModToolTiers.BLUE_TOPAZ, 0F, -3.0f, properties));
+            (properties) -> new HoeItem(ModToolTiers.BLUE_TOPAZ, 0F, -3.0f, properties.fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_SPEAR = ITEMS.registerItem("blue_topaz_spear",
-            (properties) -> new Item(properties.spear(ModToolTiers.BLUE_TOPAZ, 0.85F, 1.3F, 0.3F, 2.0F, 5.5F, 4.5F, 5.1F, 6.75F, 4.6F)));
+            (properties) -> new Item(properties.spear(ModToolTiers.BLUE_TOPAZ, 0.85F, 1.3F, 0.3F,
+                    2.0F, 5.5F, 4.5F, 5.1F, 6.75F, 4.6F).fireResistant()));
 
     public static final DeferredItem<HammerItem> BLUE_TOPAZ_HAMMER = ITEMS.registerItem("blue_topaz_hammer",
-            (properties) -> new HammerItem(properties.pickaxe(ModToolTiers.BLUE_TOPAZ, 7F, -3.5f)));
+            (properties) -> new HammerItem(properties.pickaxe(ModToolTiers.BLUE_TOPAZ, 7F, -3.5f).fireResistant()));
 
     public static final DeferredItem<Item> BLUE_TOPAZ_HELMET = ITEMS.registerItem("blue_topaz_helmet",
-            (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.HELMET)));
+            (properties) -> new ModArmorItem(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.HELMET).fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_CHESTPLATE = ITEMS.registerItem("blue_topaz_chestplate",
-            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.CHESTPLATE).fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_LEGGINGS = ITEMS.registerItem("blue_topaz_leggings",
-            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.LEGGINGS).fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_BOOTS = ITEMS.registerItem("blue_topaz_boots",
-            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.BOOTS)));
+            (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.BOOTS).fireResistant()));
 
     public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.registerSimpleItem("cobalt_solution", props -> props);
+//    public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.register("cobalt_solution",
+//            () -> new Item(new Item.Properties()
+//                    .stacksTo(64) // ✅ C'est un ITEM, donc il se stack par 64 par défaut !
+//                    .craftRemainder(Items.GLASS_BOTTLE) // Rend la bouteille vide quand utilisé (optionnel)
+//            ));
+
+//    public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.register("cobalt_solution",
+//            () -> new Item(new Item.Properties()
+//                    .stacksTo(64) // ✅ C'est ICI qu'on définit le stack !
+//                    .craftRemainder(Items.GLASS_BOTTLE) // Rend la bouteille vide après craft
+//            ));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
