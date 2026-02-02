@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "diabolomod:raw_blue_topaz",
+  "result": {
+    "count": 1,
+    "id": "diabolomod:blue_topaz"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_blue_topaz": {
+      "conditions": {
+        "items": [
+          {
+            "items": "diabolomod:raw_blue_topaz"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:blue_topaz_from_raw_blue_topaz_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_blue_topaz"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:blue_topaz_from_raw_blue_topaz_stonecutting"
+    ]
+  }
+}

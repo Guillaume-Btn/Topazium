@@ -69,7 +69,7 @@ public class ModEvents {
         ItemStack awkwardStack = PotionContents.createItemStack(Items.POTION, Potions.AWKWARD);
         // Le "true" veut dire "match strict des composants" (donc que Awkward, pas Water)
         Ingredient inputIngredient = DataComponentIngredient.of(true, awkwardStack);
-        Ingredient reagentIngredient = Ingredient.of(Items.LAPIS_LAZULI);
+        Ingredient reagentIngredient = Ingredient.of(ModItems.COBALT_POWDER);
         ItemStack resultStack = new ItemStack(ModItems.COBALT_SOLUTION.get());
         builder.addRecipe(inputIngredient, reagentIngredient, resultStack);
     }

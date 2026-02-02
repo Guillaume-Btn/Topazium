@@ -215,6 +215,27 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('B', ModItems.TOPAZ.get())
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
+        shapeless(RecipeCategory.MISC, ModItems.COBALT_POWDER.get(), 2)
+                .requires(Items.LAPIS_LAZULI)
+                .requires(Items.IRON_NUGGET)
+                .unlockedBy("has_lapiz_lazuli", has(Items.LAPIS_LAZULI)).save(output);
+
+        shaped(RecipeCategory.MISC,ModBlocks.CRYSTAL_INFUSER.get())
+                .pattern("IGI")
+                .pattern("PDP")
+                .pattern("OTO")
+                .define('I',Items.IRON_INGOT)
+                .define('G',Items.GLASS)
+                .define('P',Items.PISTON)
+                .define('D',Items.DIAMOND)
+                .define('O',Items.OBSIDIAN)
+                .define('T',ModBlocks.TOPAZ_BLOCK)
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ))
+                .unlockedBy("has_diamond",has(Items.DIAMOND))
+                .unlockedBy("has_obsidian",has(Items.OBSIDIAN)).save(output);
+
+        stonecutterResultFromBase(RecipeCategory.MISC,ModItems.BLUE_TOPAZ.get(),ModItems.RAW_BLUE_TOPAZ);
+
         buildCrystalInfuserRecipe();
 
         // Throws error
@@ -251,7 +272,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 5,
                 Ingredient.of(ModItems.COBALT_SOLUTION.get()),
                 1,
-                new ItemStack(ModItems.BLUE_TOPAZ.get()),
+                new ItemStack(ModItems.RAW_BLUE_TOPAZ.get()),
                 new ItemStack(Items.GLASS_BOTTLE),
                 1
         );

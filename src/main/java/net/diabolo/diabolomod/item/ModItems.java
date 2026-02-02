@@ -43,6 +43,7 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> BLUE_TOPAZ = ITEMS.registerSimpleItem("blue_topaz", Item.Properties::fireResistant);
+    public static final DeferredItem<Item> RAW_BLUE_TOPAZ = ITEMS.registerSimpleItem("raw_blue_topaz", Item.Properties::fireResistant);
     public static final DeferredItem<Item> BLUE_TOPAZ_SWORD = ITEMS.registerItem("blue_topaz_sword",
             (properties) -> new Item(properties.sword(ModToolTiers.BLUE_TOPAZ, 7, -2.4f).fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_PICKAXE = ITEMS.registerItem("blue_topaz_pickaxe",
@@ -70,18 +71,8 @@ public class ModItems {
             (properties) -> new Item(properties.humanoidArmor(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL, ArmorType.BOOTS).fireResistant()));
 
     public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.registerSimpleItem("cobalt_solution", props -> props);
-//    public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.register("cobalt_solution",
-//            () -> new Item(new Item.Properties()
-//                    .stacksTo(64) // ✅ C'est un ITEM, donc il se stack par 64 par défaut !
-//                    .craftRemainder(Items.GLASS_BOTTLE) // Rend la bouteille vide quand utilisé (optionnel)
-//            ));
 
-//    public static final DeferredItem<Item> COBALT_SOLUTION = ITEMS.register("cobalt_solution",
-//            () -> new Item(new Item.Properties()
-//                    .stacksTo(64) // ✅ C'est ICI qu'on définit le stack !
-//                    .craftRemainder(Items.GLASS_BOTTLE) // Rend la bouteille vide après craft
-//            ));
-
+    public static final DeferredItem<Item> COBALT_POWDER=ITEMS.registerSimpleItem("cobalt_powder",props -> props);
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

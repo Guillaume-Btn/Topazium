@@ -27,6 +27,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TOPAZ.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_TOPAZ.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.COBALT_SOLUTION.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.COBALT_POWDER.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.TOPAZ_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TOPAZ_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -63,6 +64,7 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTrivialCube(ModBlocks.BLUE_TOPAZ_BLOCK.get());
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.RAW_BLUE_TOPAZ.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_TOPAZ_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

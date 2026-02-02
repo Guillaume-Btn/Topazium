@@ -1,4 +1,4 @@
-// 1.21.11	2026-01-31T02:07:40.804487	Model Definitions - diabolomod
+// 1.21.11	2026-02-02T15:03:37.5404419	Model Definitions - diabolomod
 87fc129b8bd9973f6a53041e7e3203e1657c9205 assets/diabolomod/blockstates/blue_topaz_block.json
 46aeaa99852f94d243c727fac8e43a71c4de329f assets/diabolomod/blockstates/topaz_block.json
 b988edf617448c999573b6431bdb0b58603aedcc assets/diabolomod/blockstates/topaz_deepslate_ore.json
@@ -16,8 +16,10 @@ f872a40e695ac25f6f21aa80c6298ab61b7c7ddd assets/diabolomod/items/blue_topaz_helm
 f94f67767cc18e0df041c31cdd27cf7ad6a16758 assets/diabolomod/items/blue_topaz_shovel.json
 d2a6cea1802a2c3f7769bc3d9d5401b9cfd691ba assets/diabolomod/items/blue_topaz_spear.json
 57b8515b27547e1e6d3837b45e97a0e71e16a19e assets/diabolomod/items/blue_topaz_sword.json
+c040cc45905d27d33883564227ffedc875230e6a assets/diabolomod/items/cobalt_powder.json
 6b3bef125b84476425e1b0a60cd429ed2c16fa8a assets/diabolomod/items/cobalt_solution.json
 32d02b22524d6d9d473309f775b5dae39e58f677 assets/diabolomod/items/crystal_infuser.json
+883c77d6062f2919492171f85482d75c013bd7e4 assets/diabolomod/items/raw_blue_topaz.json
 0f4c090ae7b875ba1e2198aac1c2036ba1f92041 assets/diabolomod/items/raw_topaz.json
 3a5b6fe0e380242f7349a623e39dcf64c78735ed assets/diabolomod/items/topaz.json
 6170c62182cd62bf8dbb5499d9819f5cd55a1a63 assets/diabolomod/items/topaz_axe.json
@@ -94,7 +96,9 @@ f5177b8e3b165ef11c0367a918ceae34814a5535 assets/diabolomod/models/item/blue_topa
 854fe8884c1daf08482b8fa6a5ccfc9eb8c50cd1 assets/diabolomod/models/item/blue_topaz_shovel.json
 1f6f2ca4916f9238df1014e1163bce8452192672 assets/diabolomod/models/item/blue_topaz_spear.json
 4584d1245d85149f96059fb59f58da7f6ed3c864 assets/diabolomod/models/item/blue_topaz_sword.json
+bd681d4f9ad12493fb0d237152c957e21f8711ae assets/diabolomod/models/item/cobalt_powder.json
 fc7ae23383d88d1233994de446b472da8e7ede35 assets/diabolomod/models/item/cobalt_solution.json
+9e4c8c4440ec6ac4fd478af3fa3123b5cb2d28bc assets/diabolomod/models/item/raw_blue_topaz.json
 7d495c1007fcf4c61acb180baf1fa7cf24f04515 assets/diabolomod/models/item/raw_topaz.json
 63b9ea93503be7593edc54127952a5b20a904bb9 assets/diabolomod/models/item/topaz.json
 916fc15be11c54f989e598f01e7758e76129d8ca assets/diabolomod/models/item/topaz_axe.json

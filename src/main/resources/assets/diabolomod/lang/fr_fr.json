@@ -16,6 +16,7 @@
 
 
   "item.diabolomod.blue_topaz": "Topaze Bleu",
+  "item.diabolomod.raw_blue_topaz": "Topaze Bleu brut",
   "item.diabolomod.blue_topaz_sword": "Épée en Topaze Bleu",
   "item.diabolomod.blue_topaz_pickaxe": "Pioche en Topaze Bleu",
   "item.diabolomod.blue_topaz_shovel": "Pelle en Topaze Bleu",
@@ -34,9 +35,10 @@
   "block.diabolomod.topaz_ore": "Minerais de Topaze",
   "block.diabolomod.topaz_deepslate_ore": "Minerais de Topaze des abîmes",
   "block.diabolomod.blue_topaz_block": "Bloc de Topaze Bleu",
-  "block.diabolomod.crystal_infuser": "Infuser de Crystal",
+  "block.diabolomod.crystal_infuser": "Infuseur de Crystal",
 
   "item.diabolomod.cobalt_solution": "Solution de Cobalt",
+  "item.diabolomod.cobalt_powder": "Poudre de Cobalt",
 
   "creativetab.diabolomod.items": "Items de DiaboloMod",
   "creativetab.diabolomod.blocks": "Blocs de DiaboloMod",

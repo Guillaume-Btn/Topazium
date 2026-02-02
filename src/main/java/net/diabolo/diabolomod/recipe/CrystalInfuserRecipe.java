@@ -47,6 +47,20 @@ public record CrystalInfuserRecipe(
     public int outputCount() { return outputCount; }
     public Ingredient fuelItem() { return fuelItem; }
 
+    public ItemStack output() {
+        return output;
+    }
+
+    @Override
+    public ItemStack outputBottle() {
+        return outputBottle;
+    }
+
+    @Override
+    public Ingredient inputItem() {
+        return inputItem;
+    }
+
     @Override
     public ItemStack assemble(CrystalInfuserRecipeInput crystalInfuserRecipeInput, HolderLookup.Provider provider) {
         return output.copy();
