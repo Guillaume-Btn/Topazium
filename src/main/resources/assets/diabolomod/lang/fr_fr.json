@@ -42,5 +42,7 @@
 
   "creativetab.diabolomod.items": "Items de DiaboloMod",
   "creativetab.diabolomod.blocks": "Blocs de DiaboloMod",
-  "creativetab.diabolomod.tools": "Outils de DiaboloMod"
+  "creativetab.diabolomod.tools": "Outils de DiaboloMod",
+
+  "entity.diabolomod.topaz_golem": "Golem de Topaz"
 }

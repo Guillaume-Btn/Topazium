@@ -1,6 +1,7 @@
 package net.diabolo.diabolomod;
 
 import net.diabolo.diabolomod.entity.ModBlockEntities;
+import net.diabolo.diabolomod.entity.ModEntities;
 import net.diabolo.diabolomod.entity.rendere.CrystalInfuserBlockEntityRenderer;
 import net.diabolo.diabolomod.item.ModCreativeModeTabs;
 import net.diabolo.diabolomod.recipe.ModRecipes;
@@ -55,6 +56,7 @@ public class DiaboloMod {
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
