@@ -1,0 +1,127 @@
+La Dimension Miroir "L'Éclat" (Monde Parallèle & Dualité)
+Le nom "Diabolo" évoque le jonglage, l'équilibre. Jouons sur le reflet.
+
+    Le Concept : Il existe une version "Cristallisée" de l'Overworld. Tout y est beau, mais mortel.
+
+    L'Accès :
+
+        - Tu dois construire un cadre de portail en Topaze, mais il ne s'allume pas avec un briquet.
+
+        - Il s'allume en sacrifiant un Golem à l'intérieur (il doit marcher dedans et se faire absorber).
+
+    La Mécanique : "La Corruption de Cristal"
+
+        - Dans cette dimension, si tu restes immobile, tu commences à te transformer en statue de cristal (Game Over si 100%). Tu dois bouger ou boire des potions de "Dissolution".
+
+    Le Contenu Exclusif :
+
+        - Arbres Miroirs : Leur bois est invisible ou transparent (super pour la déco).
+
+        - Monstres à Facettes : Des versions "low poly" / géométriques des mobs normaux (Creeper prismatique qui explose en shrapnel).
+
+        - Ressource "L'Éclat d'Âme" : Permet d'enchanter tes items au-delà du niveau max (ex: Fortune V, Sharpness VII), mais avec une chance que l'item se brise à chaque utilisation.
+
+
+
+L'Usine d'Automates (Golemancy & Industrialisation)
+Au lieu d'invoquer un golem avec 4 blocs, tu dois construire une infrastructure pour fabriquer et programmer une armée.
+
+    Le Concept : Tu deviens un créateur de robots magiques. Le "Topaz Golem" n'est que le début.
+
+    La Structure Multibloc principale : "L'Assembleur d'Âmes"
+
+        - Une structure 3x3 ou 5x5 au sol.
+
+        - Elle a besoin d'énergie (liquide de topaze fondue ? vapeur ?).
+
+        - Tu dois y placer un "Châssis" (le squelette du golem) et un "Noyau" (son cerveau).
+
+    Système de Modules (Customisation) :
+
+        - Tu ne craftes pas un "Golem", tu craftes des Bras, des Jambes, des Têtes.
+
+        - Bras de Mineur : Le golem casse les blocs.
+
+        - Bras de Garde : Il tire des lasers ou tape fort.
+
+        - Jambes Chenilles : Il va vite mais ne saute pas.
+
+        - Jambes Anti-Gravité : Il flotte.
+
+    L'IA Programmable (Le gros morceau) :
+
+        - Un item "Tablette de Commande".
+
+        - Tu cliques sur le golem, une GUI s'ouvre. Tu lui donnes des ordres complexes : "Va au point A, prends du bois dans le coffre, mets-le dans le four au point B".
+
+        - C'est un système de logistique (comme les Logistics Pipes ou les trains de Create) mais avec des entités.
+
+
+
+La Lithomancie (Magie des Pierres & Rituels)
+Utilise tes marteaux pour sculpter le monde et créer des structures de pouvoir. C'est un système de magie "lourde" et statique.
+
+    Le Concept : La magie ne vient pas d'une baguette, mais de Monolithes géants que tu dois construire et activer.
+
+    Nouveau Système : Les "Lignes de Ley" (Réseau d'énergie)
+
+        - Tu dois trouver des géodes de Topaze géantes sous terre.
+
+        - Tu dois construire des Pylônes (multiblocs) pour transporter cette énergie vers ta base (via des lasers ou des connexions au sol).
+
+    Le Crafting par "Sculpture" :
+
+        - Pour créer les items ultimes du mod, tu poses un bloc de "Raw Topaz" au sol.
+
+        - Tu dois taper dessus avec ton Marteau en suivant un rythme ou un pattern précis (ex: Clic Droit, Clic Gauche, Sneak + Clic).
+
+        - Si tu rates, le bloc explose. Si tu réussis, il se transforme en Rune.
+
+    Les Autels (Multiblocs fonctionnels) :
+
+        - L'Autel de Tempête : Change la météo ou frappe les ennemis proches avec la foudre.
+
+        - L'Autel de Gravité : Fait léviter les entités (ou les items droppés) dans une zone pour créer des ascenseurs à items.
+
+        - L'Autel de Transmutation : Transforme la Stone en minerais si elle est exposée assez longtemps au rayon du pylône.
+
+
+C'est un excellent choix. La fusion est très cohérente :
+
+L'Usine (Physique) : Tu construis les corps (hardware).
+
+La Lithomancie (Magie) : Tu leur donnes la vie/l'IA via des rituels (software/âme).
+
+La Dimension Miroir (Exploration) : C'est là que tu trouves les cristaux rares pour les golems "Tier 2" et "Tier 3" (l'endgame).
+
+Étape 1 : L'Usine d'Automates (Le Commencement)
+On ne va pas faire une simple table de craft. On va faire une "Station d'Assemblage".
+C'est un bloc qui va avoir un rendu visuel fort (tu verras les pièces flotter au-dessus avant que le golem ne spawn).
+
+Voici la Roadmap Technique pour cette première feature :
+
+1. Les Items "Pièces Détachées" (Le build simple)
+Avant de coder la machine, il te faut les composants. Crée ces items dans ton ModItems :
+
+topaz_golem_head (Tête)
+
+topaz_golem_core (Noyau - le cœur énergétique)
+
+topaz_golem_arm (Bras)
+
+topaz_golem_leg (Jambe)
+
+topaz_plating (Plaque de blindage)
+
+2. Le Bloc "Station d'Assemblage" (Le Cerveau)
+C'est un bloc avec une BlockEntity. Il ne s'ouvre pas forcément avec un clic droit (GUI), on peut faire plus immersif : tu fais Clic Droit avec les items pour les poser dessus physiquement.
+
+Comportement :
+
+Le joueur pose les 4 membres + le noyau sur la station.
+
+Les items sont stockés dans l'inventaire du bloc (ItemStackHandler).
+
+Une fois complet, le joueur doit frapper la station avec son Marteau (Lithomancie !) pour lancer le processus.
+
+Particules, son de forge, et POUF, l'entité Golem spawn au-dessus et les items disparaissent.

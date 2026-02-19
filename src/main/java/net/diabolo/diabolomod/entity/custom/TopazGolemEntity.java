@@ -23,10 +23,10 @@ public class TopazGolemEntity extends IronGolem {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 150.0)
+                .add(Attributes.MAX_HEALTH, 200.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.3)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.5)
-                .add(Attributes.ATTACK_DAMAGE, 20.0)
+                .add(Attributes.ATTACK_DAMAGE, 25.0)
                 .add(Attributes.STEP_HEIGHT, 1.0);
     }
 
