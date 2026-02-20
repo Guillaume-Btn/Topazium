@@ -29,6 +29,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.TOPAZ_BLOCK.get());
         dropSelf(ModBlocks.BLUE_TOPAZ_BLOCK.get());
         dropSelf(ModBlocks.CRYSTAL_INFUSER.get());
+        dropSelf(ModBlocks.COMPONENT_TABLE.get());
 
         add(ModBlocks.TOPAZ_ORE.get(),
                 block -> createOreDrop(ModBlocks.TOPAZ_ORE.get(), ModItems.RAW_TOPAZ.get()));

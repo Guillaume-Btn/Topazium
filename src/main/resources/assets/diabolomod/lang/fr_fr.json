@@ -30,12 +30,19 @@
   "item.diabolomod.blue_topaz_leggings": "Jambières en Topaze Bleu",
   "item.diabolomod.blue_topaz_boots": "Bottes en Topaze Bleu",
 
+  "item.diabolomod.golem_head_basic": "Tête de Golem",
+  "item.diabolomod.golem_arm_blaster": "Bras laser de Golem",
+  "item.diabolomod.golem_arm_miner": "Bras de Golem mineur",
+  "item.diabolomod.golem_arm_basic": "Bras basique de Golem",
+  "item.diabolomod.golem_leg_basic": "Jambes basiques de Golem",
+  "item.diabolomod.golem_leg_treads": "Jambes chenilles de Golem ",
 
   "block.diabolomod.topaz_block": "Bloc de Topaze",
   "block.diabolomod.topaz_ore": "Minerais de Topaze",
   "block.diabolomod.topaz_deepslate_ore": "Minerais de Topaze des abîmes",
   "block.diabolomod.blue_topaz_block": "Bloc de Topaze Bleu",
   "block.diabolomod.crystal_infuser": "Infuseur de Crystal",
+  "block.diabolomod.component_table": "Table à composants",
 
   "item.diabolomod.cobalt_solution": "Solution de Cobalt",
   "item.diabolomod.cobalt_powder": "Poudre de Cobalt",
@@ -43,6 +50,7 @@
   "creativetab.diabolomod.items": "Items de DiaboloMod",
   "creativetab.diabolomod.blocks": "Blocs de DiaboloMod",
   "creativetab.diabolomod.tools": "Outils de DiaboloMod",
+  "creativetab.diabolomod.golem": "Parties de golem",
 
   "entity.diabolomod.topaz_golem": "Golem de Topaz"
 }

@@ -30,6 +30,7 @@ public class ModTags {
         public static final TagKey<Item> BLUE_TOPAZ_REPAIRABLE =createTag("blue_topaz_repair");
         public static final TagKey<Item> CAN_BE_INFUSED=createTag("can_be_infused");
         public static final TagKey<Item> IS_INFUSER=createTag("is_infuser");
+        public static final TagKey<Item> CAN_BE_HAMMERED=createTag("can_be_hammered");
 
         private static TagKey<Item> createTag(String name){
             return ItemTags.create(Identifier.fromNamespaceAndPath(DiaboloMod.MODID,name));

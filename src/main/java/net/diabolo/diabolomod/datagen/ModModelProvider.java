@@ -2,17 +2,16 @@ package net.diabolo.diabolomod.datagen;
 
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.item.ModArmorMaterials;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.data.PackOutput;
 import net.diabolo.diabolomod.block.ModBlocks;
 import net.diabolo.diabolomod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
 
 
 import java.util.stream.Stream;
@@ -41,7 +40,6 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateTrimmableItem(ModItems.TOPAZ_CHESTPLATE.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
         itemModels.generateTrimmableItem(ModItems.TOPAZ_LEGGINGS.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
         itemModels.generateTrimmableItem(ModItems.TOPAZ_BOOTS.get(), ModArmorMaterials.TOPAZ, ItemModelGenerators.TRIM_PREFIX_BOOTS,  false);
-        
 
 
         /* BLOCKS */
@@ -78,7 +76,10 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateTrimmableItem(ModItems.BLUE_TOPAZ_LEGGINGS.get(), ModArmorMaterials.BLUE_TOPAZ, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
         itemModels.generateTrimmableItem(ModItems.BLUE_TOPAZ_BOOTS.get(), ModArmorMaterials.BLUE_TOPAZ, ItemModelGenerators.TRIM_PREFIX_BOOTS,  false);
 
-
+        blockModels.createTrivialBlock(
+                ModBlocks.COMPONENT_TABLE.get(),
+                TexturedModel.CUBE_TOP_BOTTOM
+        );
     }
 
     @Override
@@ -92,9 +93,14 @@ public class ModModelProvider extends ModelProvider {
 
     @Override
     protected Stream<? extends Holder<Item>> getKnownItems() {
-        return ModItems.ITEMS.getEntries().stream();
-        //.filter(x -> x.get() != ModBlocks.PEDESTAL.asItem() && x.get() != ModBlocks.CHAIR.asItem()
-        //                && !x.is(ModItems.TOMAHAWK))
-        // EXEMPLE POUR METTRE DES ITEMS QUI S'AFFICHE DIFFEREMENT
+        return ModItems.ITEMS.getEntries().stream()
+        .filter(x -> !x.is(ModItems.GOLEM_ARM_BASIC)
+                && !x.is(ModItems.GOLEM_HEAD_BASIC)
+                && !x.is(ModItems.GOLEM_ARM_BLASTER)
+                && !x.is(ModItems.GOLEM_ARM_MINER)
+                && !x.is(ModItems.GOLEM_LEG_BASIC)
+                && !x.is(ModItems.GOLEM_LEG_TREADS)
+        );
+//         EXEMPLE POUR METTRE DES ITEMS QUI S'AFFICHE DIFFEREMENT
     }
 }

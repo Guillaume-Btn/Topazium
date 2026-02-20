@@ -74,6 +74,24 @@ public class ModItems {
 
     public static final DeferredItem<Item> COBALT_POWDER=ITEMS.registerSimpleItem("cobalt_powder",props -> props);
 
+    // GOLEM
+    // Têtes
+    public static final DeferredItem<Item> GOLEM_HEAD_BASIC = ITEMS.registerSimpleItem("golem_head_basic",props -> props);
+
+    // Bras
+    public static final DeferredItem<Item> GOLEM_ARM_BASIC = ITEMS.registerSimpleItem("golem_arm_basic",props -> props);
+
+    public static final DeferredItem<Item> GOLEM_ARM_MINER = ITEMS.registerSimpleItem("golem_arm_miner",props -> props); // Le bras pioche
+
+    public static final DeferredItem<Item> GOLEM_ARM_BLASTER = ITEMS.registerSimpleItem("golem_arm_blaster",props -> props); // Le bras canon (tir distant)
+
+    // Jambes
+    public static final DeferredItem<Item> GOLEM_LEG_BASIC = ITEMS.registerSimpleItem("golem_leg_basic", props -> props); // Standard
+
+    public static final DeferredItem<Item> GOLEM_LEG_TREADS = ITEMS.registerSimpleItem("golem_leg_treads", props -> props); // Chenilles (Rapide mais ne saute pas)
+
+
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

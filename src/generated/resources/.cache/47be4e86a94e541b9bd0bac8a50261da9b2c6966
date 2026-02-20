@@ -1,5 +1,6 @@
-// 1.21.11	2026-02-02T08:54:55.128297	Tags for minecraft:item mod id diabolomod
+// 1.21.11	2026-02-20T17:29:18.6621874	Tags for minecraft:item mod id diabolomod
 197b52d6ea8286bf03325708f396787abcb9488b data/diabolomod/tags/item/blue_topaz_repair.json
+6a5e11eee05a93b4c7a85b7f5e3fa9a45e5fd19e data/diabolomod/tags/item/can_be_hammered.json
 3c71049ab729761d3daf41cf10bb99405381ccc4 data/diabolomod/tags/item/can_be_infused.json
 56707d3e8482e16a77e5d4b1763f5ae786c8103f data/diabolomod/tags/item/is_infuser.json
 a2e307b841156a1e485e487674d146e90d9c84ee data/diabolomod/tags/item/topaz_repair.json

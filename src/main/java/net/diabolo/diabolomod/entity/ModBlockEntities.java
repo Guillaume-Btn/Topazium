@@ -17,6 +17,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("infuser_be", () -> new BlockEntityType<>(
                     CrystalInfuserBlockEntity::new, ModBlocks.CRYSTAL_INFUSER.get()));
 
+    public static final Supplier<BlockEntityType<ComponentTableBlockEntity>> COMPONENT_TABLE_BE =
+            BLOCK_ENTITIES.register("component_table_be", () -> new BlockEntityType<>(
+                    ComponentTableBlockEntity::new, ModBlocks.COMPONENT_TABLE.get()));
+
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

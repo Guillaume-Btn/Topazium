@@ -1,7 +1,7 @@
-package net.diabolo.diabolomod.item;
+package net.diabolo.diabolomod;
 
-import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.block.ModBlocks;
+import net.diabolo.diabolomod.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -40,6 +40,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.TOPAZ_ORE);
                         output.accept(ModBlocks.TOPAZ_DEEPSLATE_ORE);
                         output.accept(ModBlocks.CRYSTAL_INFUSER);
+                        output.accept(ModBlocks.COMPONENT_TABLE);
                     }))
                     .build());
 
@@ -72,6 +73,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BLUE_TOPAZ_CHESTPLATE);
                         output.accept(ModItems.BLUE_TOPAZ_LEGGINGS);
                         output.accept(ModItems.BLUE_TOPAZ_BOOTS);
+                    }))
+                    .build());
+
+    public static final Supplier<CreativeModeTab> GOLEM_TAB=CREATIVE_MODE_TAB.register("golem_tab",
+            () -> CreativeModeTab.builder().icon(
+                            () -> new ItemStack(ModItems.GOLEM_HEAD_BASIC.get()))
+                    .title(Component.translatable("creativetab.diabolomod.golem"))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.GOLEM_HEAD_BASIC);
+                        output.accept(ModItems.GOLEM_ARM_BASIC);
+                        output.accept(ModItems.GOLEM_ARM_BLASTER);
+                        output.accept(ModItems.GOLEM_ARM_MINER);
+                        output.accept(ModItems.GOLEM_LEG_BASIC);
+                        output.accept(ModItems.GOLEM_LEG_TREADS);
                     }))
                     .build());
 

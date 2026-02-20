@@ -23,7 +23,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TOPAZ_ORE.get())
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
                 .add(ModBlocks.BLUE_TOPAZ_BLOCK.get())
-                .add(ModBlocks.CRYSTAL_INFUSER.get());
+                .add(ModBlocks.CRYSTAL_INFUSER.get())
+                .add(ModBlocks.COMPONENT_TABLE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.TOPAZ_ORE.get())
@@ -37,6 +38,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(ModTags.Blocks.NEEDS_TOPAZ_TOOL)
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
                 .add(ModBlocks.CRYSTAL_INFUSER.get())
+                .add(ModBlocks.COMPONENT_TABLE.get())
                 .addTag(BlockTags.NEEDS_IRON_TOOL);
 
         tag(ModTags.Blocks.INCORRECT_FOR_TOPAZ_TOOL)

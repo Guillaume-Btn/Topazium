@@ -1,6 +1,7 @@
 package net.diabolo.diabolomod.datagen;
 
 import net.diabolo.diabolomod.DiaboloMod;
+import net.diabolo.diabolomod.block.ModBlocks;
 import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -58,5 +59,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.COBALT_SOLUTION.get())
                 .add(Items.GLASS_BOTTLE)
                 .add(Items.BLUE_DYE);
+
+        tag(ModTags.Items.CAN_BE_HAMMERED)
+                .add(ModBlocks.TOPAZ_BLOCK.asItem())
+                .add(ModItems.GOLEM_ARM_BASIC.get())
+                .add(ModItems.GOLEM_ARM_MINER.get())
+                .add(ModItems.GOLEM_ARM_BLASTER.get())
+                .add(ModItems.GOLEM_LEG_BASIC.get())
+                .add(ModItems.GOLEM_LEG_TREADS.get())
+                .add(ModItems.GOLEM_HEAD_BASIC.get())
+        ;
     }
 }

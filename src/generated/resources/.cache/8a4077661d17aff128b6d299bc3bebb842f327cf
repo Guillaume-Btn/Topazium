@@ -1,5 +1,6 @@
-// 1.21.11	2026-02-02T15:03:37.5404419	Model Definitions - diabolomod
+// 1.21.11	2026-02-20T13:59:35.0161797	Model Definitions - diabolomod
 87fc129b8bd9973f6a53041e7e3203e1657c9205 assets/diabolomod/blockstates/blue_topaz_block.json
+e37cd0285aac2018d3aeb6213bb7698a02068ff9 assets/diabolomod/blockstates/component_table.json
 46aeaa99852f94d243c727fac8e43a71c4de329f assets/diabolomod/blockstates/topaz_block.json
 b988edf617448c999573b6431bdb0b58603aedcc assets/diabolomod/blockstates/topaz_deepslate_ore.json
 0e370b90287e002be3651a0f8ef7c05449b669c0 assets/diabolomod/blockstates/topaz_ore.json
@@ -18,6 +19,7 @@ d2a6cea1802a2c3f7769bc3d9d5401b9cfd691ba assets/diabolomod/items/blue_topaz_spea
 57b8515b27547e1e6d3837b45e97a0e71e16a19e assets/diabolomod/items/blue_topaz_sword.json
 c040cc45905d27d33883564227ffedc875230e6a assets/diabolomod/items/cobalt_powder.json
 6b3bef125b84476425e1b0a60cd429ed2c16fa8a assets/diabolomod/items/cobalt_solution.json
+5ce756cb26d65a74acc08a0d348fd34014bee312 assets/diabolomod/items/component_table.json
 32d02b22524d6d9d473309f775b5dae39e58f677 assets/diabolomod/items/crystal_infuser.json
 883c77d6062f2919492171f85482d75c013bd7e4 assets/diabolomod/items/raw_blue_topaz.json
 0f4c090ae7b875ba1e2198aac1c2036ba1f92041 assets/diabolomod/items/raw_topaz.json
@@ -37,6 +39,7 @@ d2aeef15e2dfd7c356397f2b9e20e4c87ded0fc6 assets/diabolomod/items/topaz_shovel.js
 ac7ebe3fa4ee98779ec506ec05a8bd557c7abf0f assets/diabolomod/items/topaz_spear.json
 c0495d8d189ca51d8946dbc8e88c764563854d25 assets/diabolomod/items/topaz_sword.json
 dcf90464fc976349b8d0ba60e40229f9ed4b338b assets/diabolomod/models/block/blue_topaz_block.json
+12c66be594b51ebcf998b5a3ea71fb0b4ae58fef assets/diabolomod/models/block/component_table.json
 bb1d54833145ccc2452c678f84bf301db33d2a45 assets/diabolomod/models/block/topaz_block.json
 e739507036c44302155ff2ad197df63d5cf638aa assets/diabolomod/models/block/topaz_deepslate_ore.json
 03e1d83820c75954d1fa387526e912ecc8c5c7a1 assets/diabolomod/models/block/topaz_ore.json

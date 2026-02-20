@@ -2,6 +2,7 @@ package net.diabolo.diabolomod.block;
 
 
 import net.diabolo.diabolomod.DiaboloMod;
+import net.diabolo.diabolomod.block.custom.ComponentTableBlock;
 import net.diabolo.diabolomod.block.custom.CrystalInfuserBlock;
 import net.diabolo.diabolomod.item.ModItems;
 import net.minecraft.world.level.block.Block;
@@ -56,12 +57,18 @@ public class ModBlocks {
                     .strength(4f).requiresCorrectToolForDrops()
     );
 
+    public static final  DeferredBlock<Block> COMPONENT_TABLE =BLOCKS.registerBlock("component_table",
+            ComponentTableBlock::new,BlockBehaviour.Properties.of().noOcclusion()
+                    .strength(4f).requiresCorrectToolForDrops()
+    );
+
     static {
         ModItems.ITEMS.registerSimpleBlockItem("topaz_block", TOPAZ_BLOCK);
         ModItems.ITEMS.registerSimpleBlockItem("topaz_ore", TOPAZ_ORE);
         ModItems.ITEMS.registerSimpleBlockItem("topaz_deepslate_ore", TOPAZ_DEEPSLATE_ORE);
         ModItems.ITEMS.registerSimpleBlockItem("blue_topaz_block", BLUE_TOPAZ_BLOCK);
         ModItems.ITEMS.registerSimpleBlockItem("crystal_infuser", CRYSTAL_INFUSER);
+        ModItems.ITEMS.registerSimpleBlockItem("component_table", COMPONENT_TABLE);
     }
 
     public static void register(IEventBus eventBus){

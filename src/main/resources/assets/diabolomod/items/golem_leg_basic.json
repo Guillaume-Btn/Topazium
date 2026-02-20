@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "diabolomod:block/crystal_infuser"
+    "model": "diabolomod:item/golem_leg_basic"
   }
 }
