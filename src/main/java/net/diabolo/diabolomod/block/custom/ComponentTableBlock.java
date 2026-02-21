@@ -2,17 +2,14 @@ package net.diabolo.diabolomod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.diabolo.diabolomod.entity.ComponentTableBlockEntity;
-import net.diabolo.diabolomod.entity.CrystalInfuserBlockEntity;
 import net.diabolo.diabolomod.entity.ModBlockEntities;
 import net.diabolo.diabolomod.item.custom.HammerItem;
-import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -26,12 +23,10 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-import static net.minecraft.world.level.block.state.BlockBehaviour.simpleCodec;
-
-public class ComponentTableBlock extends BaseEntityBlock{
+public class ComponentTableBlock extends BaseEntityBlock {
     public static final MapCodec<ComponentTableBlock> CODEC = simpleCodec(ComponentTableBlock::new);
 
-    public ComponentTableBlock(Properties properties){
+    public ComponentTableBlock(Properties properties) {
         super(properties);
     }
 
@@ -62,28 +57,27 @@ public class ComponentTableBlock extends BaseEntityBlock{
         if (!(be instanceof ComponentTableBlockEntity shaper)) return InteractionResult.FAIL;
 
         // 1. SI LE JOUEUR A UN MARTEAU -> ON FAÇONNE
-        if (stack.getItem() instanceof HammerItem) { // Remplace par ta classe HammerItem
+        if (stack.getItem() instanceof HammerItem) {
             if (!shaper.getItemHandler().getStackInSlot(0).isEmpty()) {
                 // Particules (On pourrait ajouter un packet pour ça plus tard)
-                boolean crafted;
-                if(can_be_hammered(shaper.getItemHandler().getStackInSlot(0))){
+                boolean crafted = shaper.hammerHit();
+                if (shaper.canHit()) {
                     level.playSound(null, pos, SoundEvents.ANVIL_PLACE, SoundSource.BLOCKS, 0.5f, 1.2f); // Son métallique lourd
-                    crafted= shaper.hammerHit();
-                }
-                else {
-                    crafted=false;
+                    int amount = (int) (Math.random() * 10 + 10); // entre 10 et 20
+                    stack.hurtAndBreak(amount, player, hand);
                 }
                 if (crafted) {
                     level.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1f, 1f);
                     player.displayClientMessage(Component.literal("Pièce terminée !"), true);
+                    int amount = (int) (Math.random() * 10 + 20); // entre 20 et 30
+                    stack.hurtAndBreak(amount, player, hand);
                 }
                 return InteractionResult.SUCCESS;
             }
         }
         // 2. SI LE JOUEUR A UN BLOC DE TOPAZE (ou autre input) -> ON POSE
-        // (Ici on accepte tout pour l'exemple, mais tu devrais filtrer)
         if (!stack.isEmpty() && shaper.getItemHandler().getStackInSlot(0).isEmpty()) {
-            if(can_be_hammered(stack)){
+            if (shaper.can_be_hammered()) {
                 shaper.getItemHandler().insertItem(0, stack.split(1), false);
                 level.playSound(null, pos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1f, 1f);
                 return InteractionResult.SUCCESS;
@@ -109,10 +103,6 @@ public class ComponentTableBlock extends BaseEntityBlock{
         }
 
         return InteractionResult.FAIL;
-    }
-
-    private boolean can_be_hammered(ItemStack stack){
-        return stack.is(ModTags.Items.CAN_BE_HAMMERED);
     }
 
     @Nullable

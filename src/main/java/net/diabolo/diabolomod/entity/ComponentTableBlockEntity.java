@@ -1,6 +1,7 @@
 package net.diabolo.diabolomod.entity;
 
 import net.diabolo.diabolomod.item.ModItems;
+import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -21,16 +22,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ComponentTableBlockEntity extends BlockEntity {
-    private final ItemStackHandler itemHandler= new ItemStackHandler(1){
+    private final ItemStackHandler itemHandler = new ItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if(level != null && !level.isClientSide()) {
+            if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 4);
             }
         }
     };
-
     private final List<Item> AVAILABLE_PATTERNS = List.of(
             ModItems.GOLEM_HEAD_BASIC.get(),
             ModItems.GOLEM_ARM_BASIC.get(),
@@ -39,12 +39,15 @@ public class ComponentTableBlockEntity extends BlockEntity {
             ModItems.GOLEM_LEG_BASIC.get(),
             ModItems.GOLEM_LEG_TREADS.get()
     );
+    private final int HITS_REQUIRED = 4; // Il faut taper 4 fois
     private int selectedPatternIndex = 0; // Quel item on va crafter ?
     private int hammerHits = 0; // Progression du craft
-    private final int HITS_REQUIRED = 4; // Il faut taper 4 fois
-
     public ComponentTableBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.COMPONENT_TABLE_BE.get(), pos, blockState);
+    }
+
+    public boolean can_be_hammered() {
+        return itemHandler.getStackInSlot(0).is(ModTags.Items.CAN_BE_HAMMERED);
     }
 
     public void cyclePattern() {
@@ -60,9 +63,15 @@ public class ComponentTableBlockEntity extends BlockEntity {
         return AVAILABLE_PATTERNS.get(selectedPatternIndex);
     }
 
-    public boolean hammerHit() {
+    public boolean canHit() {
         if (itemHandler.getStackInSlot(0).isEmpty()) return false;
+        if (!can_be_hammered()) return false;
+        if (itemHandler.getStackInSlot(0).getItem().equals(AVAILABLE_PATTERNS.get(selectedPatternIndex))) return false;
+        return true;
+    }
 
+    public boolean hammerHit() {
+        if (!canHit()) return false;
         hammerHits++;
         setChanged();
 
@@ -82,7 +91,7 @@ public class ComponentTableBlockEntity extends BlockEntity {
         // Crée le résultat
         ItemStack result = new ItemStack(getCurrentPatternOutput());
 
-        itemHandler.insertItem(0,result,false);
+        itemHandler.insertItem(0, result, false);
         // Drop l'item sur le bloc (ou spawn dans le monde)
 //        Containers.dropItemStack(level, worldPosition.getX() + 0.5, worldPosition.getY() + 1, worldPosition.getZ() + 0.5, result);
     }
@@ -122,7 +131,7 @@ public class ComponentTableBlockEntity extends BlockEntity {
 
     public void drops() {
         SimpleContainer inv = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
             inv.setItem(i, itemHandler.getStackInSlot(i));
         }
 

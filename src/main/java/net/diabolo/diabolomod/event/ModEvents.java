@@ -50,16 +50,6 @@ public class ModEvents {
                 return;
             }
             if(mainHandItem.getItem().toString().equals("diabolomod:blue_topaz_hammer")){
-                for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(2, initialBlockPos, serverPlayer)) {
-                    if(pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
-                        continue;
-                    }
-
-                    HARVESTED_BLOCKS.add(pos);
-                    serverPlayer.gameMode.destroyBlock(pos);
-                    HARVESTED_BLOCKS.remove(pos);
-                }
-            } else {
                 for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
                     if(pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
                         continue;
@@ -70,6 +60,17 @@ public class ModEvents {
                     HARVESTED_BLOCKS.remove(pos);
                 }
             }
+//            else {
+//                for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
+//                    if(pos == initialBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+//                        continue;
+//                    }
+//
+//                    HARVESTED_BLOCKS.add(pos);
+//                    serverPlayer.gameMode.destroyBlock(pos);
+//                    HARVESTED_BLOCKS.remove(pos);
+//                }
+//            }
         }
     }
 
