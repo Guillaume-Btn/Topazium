@@ -65,14 +65,6 @@ public record CrystalInfuserRecipe(
     public ItemStack assemble(CrystalInfuserRecipeInput crystalInfuserRecipeInput, HolderLookup.Provider provider) {
         return output.copy();
     }
-//
-//    @Override
-//    public List<ItemStack> assemble(CrystalInfuserRecipeInput crystalInfuserRecipeInput, HolderLookup.Provider provider) {
-//        List<ItemStack> list=new ArrayList<>();
-//        list.add(output.copy());
-//        list.add(outputBottle.copy());
-//        return list;
-//    }
 
     @Override
     public RecipeSerializer<? extends Recipe<CrystalInfuserRecipeInput>> getSerializer() {

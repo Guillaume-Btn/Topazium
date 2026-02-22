@@ -13,9 +13,6 @@ public class ModPotions {
     public static final DeferredRegister<Potion> POTIONS =
             DeferredRegister.create(BuiltInRegistries.POTION, DiaboloMod.MODID);
 
-//    public static final Holder<Potion> COBALT_SOLUTION = POTIONS.register("cobalt_solution",
-//            () -> new Potion("cobalt_solution", new MobEffectInstance(MobEffects.NAUSEA, 1200, 0)));
-
     public static void register(IEventBus eventBus) {
         POTIONS.register(eventBus);
     }

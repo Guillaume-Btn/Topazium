@@ -1,8 +1,7 @@
-package net.diabolo.diabolomod.entity.rendere;
+package net.diabolo.diabolomod.entity.custom.crystal_infuser;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.diabolo.diabolomod.entity.CrystalInfuserBlockEntity;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -18,20 +17,20 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
-public class CrystalInfuserBlockEntityRenderer implements BlockEntityRenderer<CrystalInfuserBlockEntity, CrystalInfuserBlockEntityRenderState> {
+public class CrystalInfuserRenderer implements BlockEntityRenderer<CrystalInfuserBlockEntity, CrystalInfuserRenderState> {
     private final ItemModelResolver itemModelResolver;
 
-    public CrystalInfuserBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+    public CrystalInfuserRenderer(BlockEntityRendererProvider.Context context) {
         itemModelResolver = context.itemModelResolver();
     }
 
     @Override
-    public CrystalInfuserBlockEntityRenderState createRenderState() {
-        return new CrystalInfuserBlockEntityRenderState();
+    public CrystalInfuserRenderState createRenderState() {
+        return new CrystalInfuserRenderState();
     }
 
     @Override
-    public void extractRenderState(CrystalInfuserBlockEntity blockEntity, CrystalInfuserBlockEntityRenderState renderState, float partialTick,
+    public void extractRenderState(CrystalInfuserBlockEntity blockEntity, CrystalInfuserRenderState renderState, float partialTick,
                                    Vec3 cameraPosition, @Nullable ModelFeatureRenderer.CrumblingOverlay breakProgress) {
         BlockEntityRenderer.super.extractRenderState(blockEntity, renderState, partialTick, cameraPosition, breakProgress);
 
@@ -47,7 +46,7 @@ public class CrystalInfuserBlockEntityRenderer implements BlockEntityRenderer<Cr
     }
 
     @Override
-    public void submit(CrystalInfuserBlockEntityRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
+    public void submit(CrystalInfuserRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
         poseStack.pushPose();
 
         // Position au centre

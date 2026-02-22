@@ -1,7 +1,7 @@
 package net.diabolo.diabolomod.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.diabolo.diabolomod.entity.CrystalInfuserBlockEntity; // L'import correct de TA classe
+import net.diabolo.diabolomod.entity.custom.crystal_infuser.CrystalInfuserBlockEntity; // L'import correct de TA classe
 import net.diabolo.diabolomod.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

@@ -1,9 +1,8 @@
 package net.diabolo.diabolomod.event;
 
-import net.diabolo.diabolomod.block.ModBlocks;
 import net.diabolo.diabolomod.entity.ModEntities;
-import net.diabolo.diabolomod.entity.custom.TopazGolemEntity;
-import net.diabolo.diabolomod.entity.custom.TopazGolemPattern;
+import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemEntity;
+import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemPattern;
 import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.item.custom.HammerItem;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -148,46 +147,4 @@ public class ModEvents {
             }
         }
     }
-
-//    private static void checkAndSpawnGolem(Level level, BlockPos headPos) {
-//        // Vérifie que le bloc dessous est un bloc de Topaze
-//        BlockPos bodyPos = headPos.below();
-//        if (!level.getBlockState(bodyPos).is(ModBlocks.TOPAZ_BLOCK.get())) return;
-//
-//        // Vérifie le bloc en dessous du corps (Jambes)
-//        BlockPos legsPos = bodyPos.below();
-//        if (!level.getBlockState(legsPos).is(ModBlocks.TOPAZ_BLOCK.get())) return;
-//
-//        // Vérifie les bras (Gauche/Droite OU Nord/Sud selon l'axe)
-//        // On doit tester les deux axes possibles
-//        boolean axisX = checkArm(level, bodyPos.east()) && checkArm(level, bodyPos.west());
-//        boolean axisZ = checkArm(level, bodyPos.north()) && checkArm(level, bodyPos.south());
-//
-//        if (!axisX && !axisZ) return; // Pas de bras valides
-//
-//        // Si on est là, la forme est bonne !
-//        // Supprimer les blocs
-//        level.setBlock(headPos, Blocks.AIR.defaultBlockState(), 3);
-//        level.setBlock(bodyPos, Blocks.AIR.defaultBlockState(), 3);
-//        level.setBlock(legsPos, Blocks.AIR.defaultBlockState(), 3);
-//
-//        if (axisX) {
-//            level.setBlock(bodyPos.east(), Blocks.AIR.defaultBlockState(), 3);
-//            level.setBlock(bodyPos.west(), Blocks.AIR.defaultBlockState(), 3);
-//        } else {
-//            level.setBlock(bodyPos.north(), Blocks.AIR.defaultBlockState(), 3);
-//            level.setBlock(bodyPos.south(), Blocks.AIR.defaultBlockState(), 3);
-//        }
-//
-//        // Spawn le golem
-//        TopazGolemEntity golem = ModEntities.TOPAZ_GOLEM.get().create(level);
-//        if (golem != null) {
-//            golem.moveTo(bodyPos.getX() + 0.5, bodyPos.getY(), bodyPos.getZ() + 0.5, 0.0F, 0.0F);
-//            level.addFreshEntity(golem);
-//        }
-//    }
-//
-//    private static boolean checkArm(Level level, BlockPos pos) {
-//        return level.getBlockState(pos).is(ModBlocks.TOPAZ_BLOCK.get());
-//    }
 }

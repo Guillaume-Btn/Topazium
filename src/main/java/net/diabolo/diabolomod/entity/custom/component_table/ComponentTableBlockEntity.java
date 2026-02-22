@@ -1,5 +1,6 @@
-package net.diabolo.diabolomod.entity;
+package net.diabolo.diabolomod.entity.custom.component_table;
 
+import net.diabolo.diabolomod.entity.ModBlockEntities;
 import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.BlockPos;
@@ -39,7 +40,6 @@ public class ComponentTableBlockEntity extends BlockEntity {
             ModItems.GOLEM_LEG_BASIC.get(),
             ModItems.GOLEM_LEG_TREADS.get()
     );
-    private final int HITS_REQUIRED = 4; // Il faut taper 4 fois
     private int selectedPatternIndex = 0; // Quel item on va crafter ?
     private int hammerHits = 0; // Progression du craft
     public ComponentTableBlockEntity(BlockPos pos, BlockState blockState) {
@@ -76,6 +76,8 @@ public class ComponentTableBlockEntity extends BlockEntity {
         setChanged();
 
         // C'est prêt ?
+        // Il faut taper 4 fois
+        int HITS_REQUIRED = 4;
         if (hammerHits >= HITS_REQUIRED) {
             craftItem();
             hammerHits = 0;

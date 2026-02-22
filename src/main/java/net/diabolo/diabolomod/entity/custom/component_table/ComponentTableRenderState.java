@@ -1,4 +1,4 @@
-package net.diabolo.diabolomod.entity.rendere;
+package net.diabolo.diabolomod.entity.custom.component_table;
 
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 import net.minecraft.client.renderer.item.ItemStackRenderState;

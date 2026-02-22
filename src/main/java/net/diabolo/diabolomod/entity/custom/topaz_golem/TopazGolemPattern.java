@@ -1,4 +1,4 @@
-package net.diabolo.diabolomod.entity.custom;
+package net.diabolo.diabolomod.entity.custom.topaz_golem;
 
 import net.diabolo.diabolomod.block.ModBlocks;
 import net.minecraft.world.level.block.Blocks;

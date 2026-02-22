@@ -2,6 +2,8 @@ package net.diabolo.diabolomod.entity;
 
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.block.ModBlocks;
+import net.diabolo.diabolomod.entity.custom.component_table.ComponentTableBlockEntity;
+import net.diabolo.diabolomod.entity.custom.crystal_infuser.CrystalInfuserBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;

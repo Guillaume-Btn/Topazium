@@ -74,11 +74,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(ModBlocks.BLUE_TOPAZ_BLOCK)
                 .unlockedBy("has_blue_topaz_block", has(ModBlocks.BLUE_TOPAZ_BLOCK)).save(output);
 
-//        shapeless(RecipeCategory.MISC, ModItems.BISMUTH.get(), 18)
-//                .requires(ModBlocks.MAGIC_BLOCK)
-//                .unlockedBy("has_magic_block", has(ModBlocks.MAGIC_BLOCK))
-//                .save(output, "tutorialmod:bismuth_from_magic_block");//
-
         oreSmelting(output, TOPAZ_SMELTABLES, RecipeCategory.MISC, ModItems.TOPAZ.get(), 0.25f, 200, "topaz");
         oreBlasting(output, TOPAZ_SMELTABLES, RecipeCategory.MISC, ModItems.TOPAZ.get(), 0.25f, 100, "topaz");
 

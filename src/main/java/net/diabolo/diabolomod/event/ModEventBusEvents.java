@@ -2,11 +2,10 @@ package net.diabolo.diabolomod.event;
 
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.entity.ModEntities;
-import net.diabolo.diabolomod.entity.client.TopazGolemModel;
-import net.diabolo.diabolomod.entity.custom.TopazGolemEntity;
+import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemModel;
+import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

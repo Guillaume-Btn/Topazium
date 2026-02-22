@@ -1,9 +1,9 @@
 package net.diabolo.diabolomod.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.diabolo.diabolomod.entity.ComponentTableBlockEntity;
-import net.diabolo.diabolomod.entity.ModBlockEntities;
+import net.diabolo.diabolomod.entity.custom.component_table.ComponentTableBlockEntity;
 import net.diabolo.diabolomod.item.custom.HammerItem;
+import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -16,12 +16,9 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.Nullable;
 
 public class ComponentTableBlock extends BaseEntityBlock {
     public static final MapCodec<ComponentTableBlock> CODEC = simpleCodec(ComponentTableBlock::new);
@@ -54,7 +51,7 @@ public class ComponentTableBlock extends BaseEntityBlock {
         if (level.isClientSide()) return InteractionResult.SUCCESS;
 
         BlockEntity be = level.getBlockEntity(pos);
-        if (!(be instanceof ComponentTableBlockEntity shaper)) return InteractionResult.FAIL;
+        if (!(be instanceof ComponentTableBlockEntity shaper)) return InteractionResult.PASS;
 
         // 1. SI LE JOUEUR A UN MARTEAU -> ON FAÇONNE
         if (stack.getItem() instanceof HammerItem) {
@@ -77,7 +74,7 @@ public class ComponentTableBlock extends BaseEntityBlock {
         }
         // 2. SI LE JOUEUR A UN BLOC DE TOPAZE (ou autre input) -> ON POSE
         if (!stack.isEmpty() && shaper.getItemHandler().getStackInSlot(0).isEmpty()) {
-            if (shaper.can_be_hammered()) {
+            if (stack.is(ModTags.Items.CAN_BE_HAMMERED)) {
                 shaper.getItemHandler().insertItem(0, stack.split(1), false);
                 level.playSound(null, pos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1f, 1f);
                 return InteractionResult.SUCCESS;
@@ -104,14 +101,6 @@ public class ComponentTableBlock extends BaseEntityBlock {
 
         return InteractionResult.FAIL;
     }
-
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, ModBlockEntities.CRYSTAL_INFUSER_BE.get(),
-                (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
-    }
-
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {

@@ -1,9 +1,8 @@
 package net.diabolo.diabolomod.screen.custom;
 
 import net.diabolo.diabolomod.block.ModBlocks;
-import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.screen.ModMenuTypes;
-import net.diabolo.diabolomod.entity.CrystalInfuserBlockEntity;
+import net.diabolo.diabolomod.entity.custom.crystal_infuser.CrystalInfuserBlockEntity;
 import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;

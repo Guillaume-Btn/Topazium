@@ -2,8 +2,8 @@ package net.diabolo.diabolomod;
 
 import net.diabolo.diabolomod.entity.ModBlockEntities;
 import net.diabolo.diabolomod.entity.ModEntities;
-import net.diabolo.diabolomod.entity.rendere.ComponentTableRenderer;
-import net.diabolo.diabolomod.entity.rendere.CrystalInfuserBlockEntityRenderer;
+import net.diabolo.diabolomod.entity.custom.component_table.ComponentTableRenderer;
+import net.diabolo.diabolomod.entity.custom.crystal_infuser.CrystalInfuserRenderer;
 import net.diabolo.diabolomod.recipe.ModRecipes;
 import net.diabolo.diabolomod.screen.ModMenuTypes;
 import net.diabolo.diabolomod.screen.custom.CrystalInfuserScreen;
@@ -103,7 +103,7 @@ public class DiaboloMod {
 
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(ModBlockEntities.CRYSTAL_INFUSER_BE.get(), CrystalInfuserBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.CRYSTAL_INFUSER_BE.get(), CrystalInfuserRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.COMPONENT_TABLE_BE.get(), ComponentTableRenderer::new);
         }
 

@@ -1,5 +1,6 @@
-package net.diabolo.diabolomod.entity;
+package net.diabolo.diabolomod.entity.custom.crystal_infuser;
 
+import net.diabolo.diabolomod.entity.ModBlockEntities;
 import net.diabolo.diabolomod.recipe.CrystalInfuserRecipe;
 import net.diabolo.diabolomod.recipe.CrystalInfuserRecipeInput;
 import net.diabolo.diabolomod.recipe.ModRecipes;
@@ -8,7 +9,6 @@ import net.diabolo.diabolomod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
