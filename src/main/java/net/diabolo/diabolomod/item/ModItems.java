@@ -79,16 +79,16 @@ public class ModItems {
     public static final DeferredItem<Item> GOLEM_HEAD_BASIC = ITEMS.registerSimpleItem("golem_head_basic",props -> props);
 
     // Bras
-    public static final DeferredItem<Item> GOLEM_ARM_BASIC = ITEMS.registerSimpleItem("golem_arm_basic",props -> props);
+    public static final DeferredItem<Item> GOLEM_ARMS_BASIC = ITEMS.registerSimpleItem("golem_arms_basic", props -> props);
 
-    public static final DeferredItem<Item> GOLEM_ARM_MINER = ITEMS.registerSimpleItem("golem_arm_miner",props -> props); // Le bras pioche
+    public static final DeferredItem<Item> GOLEM_ARMS_MINER = ITEMS.registerSimpleItem("golem_arms_miner", props -> props); // Le bras pioche
 
-    public static final DeferredItem<Item> GOLEM_ARM_BLASTER = ITEMS.registerSimpleItem("golem_arm_blaster",props -> props); // Le bras canon (tir distant)
+    public static final DeferredItem<Item> GOLEM_ARMS_BLASTER = ITEMS.registerSimpleItem("golem_arms_blaster", props -> props); // Le bras canon (tir distant)
 
     // Jambes
-    public static final DeferredItem<Item> GOLEM_LEG_BASIC = ITEMS.registerSimpleItem("golem_leg_basic", props -> props); // Standard
+    public static final DeferredItem<Item> GOLEM_LEGS_BASIC = ITEMS.registerSimpleItem("golem_legs_basic", props -> props); // Standard
 
-    public static final DeferredItem<Item> GOLEM_LEG_TREADS = ITEMS.registerSimpleItem("golem_leg_treads", props -> props); // Chenilles (Rapide mais ne saute pas)
+    public static final DeferredItem<Item> GOLEM_LEGS_WHEELS = ITEMS.registerSimpleItem("golem_legs_wheels", props -> props); // Chenilles (Rapide mais ne saute pas)
 
 
 

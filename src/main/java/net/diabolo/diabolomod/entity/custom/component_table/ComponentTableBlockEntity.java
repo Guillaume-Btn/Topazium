@@ -34,11 +34,11 @@ public class ComponentTableBlockEntity extends BlockEntity {
     };
     private final List<Item> AVAILABLE_PATTERNS = List.of(
             ModItems.GOLEM_HEAD_BASIC.get(),
-            ModItems.GOLEM_ARM_BASIC.get(),
-            ModItems.GOLEM_ARM_MINER.get(),
-            ModItems.GOLEM_ARM_BLASTER.get(),
-            ModItems.GOLEM_LEG_BASIC.get(),
-            ModItems.GOLEM_LEG_TREADS.get()
+            ModItems.GOLEM_ARMS_BASIC.get(),
+            ModItems.GOLEM_ARMS_MINER.get(),
+            ModItems.GOLEM_ARMS_BLASTER.get(),
+            ModItems.GOLEM_LEGS_BASIC.get(),
+            ModItems.GOLEM_LEGS_WHEELS.get()
     );
     private int selectedPatternIndex = 0; // Quel item on va crafter ?
     private int hammerHits = 0; // Progression du craft

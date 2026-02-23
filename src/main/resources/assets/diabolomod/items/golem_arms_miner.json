@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "diabolomod:item/golem_leg_basic"
+    "model": "diabolomod:item/golem_arms_miner"
   }
 }

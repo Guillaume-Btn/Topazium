@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "diabolomod:item/golem_leg_treads",
-		"particle": "diabolomod:item/golem_leg_treads"
+		"2": "diabolomod:item/golem_legs_basic",
+		"particle": "diabolomod:item/golem_legs_basic"
 	},
 	"elements": [
 		{
@@ -26,6 +26,9 @@
 		"thirdperson_righthand": {
 			"translation": [0, 3, 1],
 			"scale": [0.55, 0.55, 0.55]
+		},
+		"ground": {
+			"scale": [0.35, 0.35, 0.35]
 		},
 		"gui": {
 			"rotation": [0, -40, 50],

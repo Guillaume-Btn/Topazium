@@ -34,6 +34,8 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 import javax.annotation.Nullable;
 
+import static net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemVariant.isSpeedVariant;
+
 public class TopazGolemEntity extends PathfinderMob {
     private static final EntityDataAccessor<Integer> VARIANT =
             SynchedEntityData.defineId(TopazGolemEntity.class, EntityDataSerializers.INT);
@@ -48,13 +50,13 @@ public class TopazGolemEntity extends PathfinderMob {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return PathfinderMob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 200.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1.5)
-                .add(Attributes.ATTACK_DAMAGE, 25.0)
-                .add(Attributes.STEP_HEIGHT, 1.0)
-                .add(Attributes.JUMP_STRENGTH, 1.0);
+            return PathfinderMob.createMobAttributes()
+                    .add(Attributes.MAX_HEALTH, 200.0)
+                    .add(Attributes.MOVEMENT_SPEED, 0.3)
+                    .add(Attributes.KNOCKBACK_RESISTANCE, 1.5)
+                    .add(Attributes.ATTACK_DAMAGE, 25.0)
+                    .add(Attributes.STEP_HEIGHT, 1.0)
+                    .add(Attributes.JUMP_STRENGTH, 1.0);
     }
 
     // 3. L'IA de combat et de marche
@@ -172,9 +174,7 @@ public class TopazGolemEntity extends PathfinderMob {
         stepAttribute.removeModifier(STEP_MODIFIER_ID);
         jumpAttribute.removeModifier(JUMP_MODIFIER_ID);
 
-        if (variant == TopazGolemVariant.BASIC_SPEED ||
-                variant == TopazGolemVariant.BLASTER_SPEED ||
-                variant == TopazGolemVariant.MINER_SPEED) {
+        if (isSpeedVariant(variant)) {
 
             AttributeModifier speedBoost = new AttributeModifier(
                     SPEED_MODIFIER_ID,

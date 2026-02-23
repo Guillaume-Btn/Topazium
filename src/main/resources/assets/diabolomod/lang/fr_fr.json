@@ -31,11 +31,11 @@
   "item.diabolomod.blue_topaz_boots": "Bottes en Topaze Bleu",
 
   "item.diabolomod.golem_head_basic": "Tête de Golem",
-  "item.diabolomod.golem_arm_blaster": "Bras laser de Golem",
-  "item.diabolomod.golem_arm_miner": "Bras de Golem mineur",
-  "item.diabolomod.golem_arm_basic": "Bras basique de Golem",
-  "item.diabolomod.golem_leg_basic": "Jambes basiques de Golem",
-  "item.diabolomod.golem_leg_treads": "Jambes chenilles de Golem ",
+  "item.diabolomod.golem_arms_blaster": "Bras laser de Golem",
+  "item.diabolomod.golem_arms_miner": "Bras de Golem mineur",
+  "item.diabolomod.golem_arms_basic": "Bras basique de Golem",
+  "item.diabolomod.golem_legs_basic": "Jambes basiques de Golem",
+  "item.diabolomod.golem_legs_wheels": "Jambes chenilles de Golem ",
 
   "block.diabolomod.topaz_block": "Bloc de Topaze",
   "block.diabolomod.topaz_ore": "Minerais de Topaze",

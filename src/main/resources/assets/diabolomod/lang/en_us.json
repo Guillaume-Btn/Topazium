@@ -1,0 +1,56 @@
+{
+  "item.diabolomod.topaz": "Topaz",
+  "item.diabolomod.raw_topaz": "Raw Topaz",
+  "item.diabolomod.topaz_sword": "Topaz Sword",
+  "item.diabolomod.topaz_pickaxe": "Topaz Pickaxe",
+  "item.diabolomod.topaz_shovel": "Topaz Shovel",
+  "item.diabolomod.topaz_axe": "Topaz Axe",
+  "item.diabolomod.topaz_hoe": "Topaz Hoe",
+  "item.diabolomod.topaz_hammer": "Topaz Hammer",
+  "item.diabolomod.topaz_spear": "Topaz Spear",
+
+  "item.diabolomod.topaz_helmet": "Topaz Helmet",
+  "item.diabolomod.topaz_chestplate": "Topaz Chestplate",
+  "item.diabolomod.topaz_leggings": "Topaz Leggings",
+  "item.diabolomod.topaz_boots": "Topaz Boots",
+
+
+  "item.diabolomod.blue_topaz": "Blue Topaz",
+  "item.diabolomod.raw_blue_topaz": "Raw Blue Topaz",
+  "item.diabolomod.blue_topaz_sword": "Blue Topaz Sword",
+  "item.diabolomod.blue_topaz_pickaxe": "Blue Topaz Pickaxe",
+  "item.diabolomod.blue_topaz_shovel": "Blue Topaz Shovel",
+  "item.diabolomod.blue_topaz_axe": "Blue Topaz Axe",
+  "item.diabolomod.blue_topaz_hoe": "Blue Topaz Hoe",
+  "item.diabolomod.blue_topaz_hammer": "Blue Topaz Hammer",
+  "item.diabolomod.blue_topaz_spear": "Blue Topaz Spear",
+
+  "item.diabolomod.blue_topaz_helmet": "Blue Topaz Helmet",
+  "item.diabolomod.blue_topaz_chestplate": "Blue Topaz Chestplate",
+  "item.diabolomod.blue_topaz_leggings": "Blue Topaz Leggings",
+  "item.diabolomod.blue_topaz_boots": "Blue Topaz Boots",
+
+  "item.diabolomod.golem_head_basic": "Golem Head",
+  "item.diabolomod.golem_arms_blaster": "Golem Blaster Arm",
+  "item.diabolomod.golem_arms_miner": "Golem Miner Arm",
+  "item.diabolomod.golem_arms_basic": "Golem Basic Arm",
+  "item.diabolomod.golem_legs_basic": "Golem Basic legs",
+  "item.diabolomod.golem_legs_wheels": "Golem Wheel legs",
+
+  "block.diabolomod.topaz_block": "Block of Topaz",
+  "block.diabolomod.topaz_ore": "Topaz Ore",
+  "block.diabolomod.topaz_deepslate_ore": "Topaz Deepslate Ore",
+  "block.diabolomod.blue_topaz_block": "Block of Blue Topaz",
+  "block.diabolomod.crystal_infuser": "Crystal Infuser",
+  "block.diabolomod.component_table": "Component Table",
+
+  "item.diabolomod.cobalt_solution": "Cobalt Solution",
+  "item.diabolomod.cobalt_powder": "Cobalt Powder",
+
+  "creativetab.diabolomod.items": "DiaboloMod's Items",
+  "creativetab.diabolomod.blocks": "DiaboloMod's Blocks",
+  "creativetab.diabolomod.tools": "DiaboloMod's Tools",
+  "creativetab.diabolomod.golem": "Parties de golem",
+
+  "entity.diabolomod.topaz_golem": "Topaz Golem"
+}

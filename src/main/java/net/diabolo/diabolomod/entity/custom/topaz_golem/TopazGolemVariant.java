@@ -26,4 +26,10 @@ public enum TopazGolemVariant {
     public static TopazGolemVariant byId(int id) {
         return BY_ID[id % BY_ID.length];
     }
+
+    public static boolean isSpeedVariant(TopazGolemVariant v){
+        return (v == TopazGolemVariant.BASIC_SPEED ||
+                v == TopazGolemVariant.BLASTER_SPEED ||
+                v == TopazGolemVariant.MINER_SPEED);
+    }
 }

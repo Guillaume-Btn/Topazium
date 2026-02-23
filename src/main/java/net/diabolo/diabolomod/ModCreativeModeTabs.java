@@ -82,11 +82,11 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.diabolomod.golem"))
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ModItems.GOLEM_HEAD_BASIC);
-                        output.accept(ModItems.GOLEM_ARM_BASIC);
-                        output.accept(ModItems.GOLEM_ARM_BLASTER);
-                        output.accept(ModItems.GOLEM_ARM_MINER);
-                        output.accept(ModItems.GOLEM_LEG_BASIC);
-                        output.accept(ModItems.GOLEM_LEG_TREADS);
+                        output.accept(ModItems.GOLEM_ARMS_BASIC);
+                        output.accept(ModItems.GOLEM_ARMS_BLASTER);
+                        output.accept(ModItems.GOLEM_ARMS_MINER);
+                        output.accept(ModItems.GOLEM_LEGS_BASIC);
+                        output.accept(ModItems.GOLEM_LEGS_WHEELS);
                     }))
                     .build());
 

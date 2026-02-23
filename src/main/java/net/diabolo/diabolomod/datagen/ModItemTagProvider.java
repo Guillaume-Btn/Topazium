@@ -62,11 +62,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ModTags.Items.CAN_BE_HAMMERED)
                 .add(ModBlocks.TOPAZ_BLOCK.asItem())
-                .add(ModItems.GOLEM_ARM_BASIC.get())
-                .add(ModItems.GOLEM_ARM_MINER.get())
-                .add(ModItems.GOLEM_ARM_BLASTER.get())
-                .add(ModItems.GOLEM_LEG_BASIC.get())
-                .add(ModItems.GOLEM_LEG_TREADS.get())
+                .add(ModItems.GOLEM_ARMS_BASIC.get())
+                .add(ModItems.GOLEM_ARMS_MINER.get())
+                .add(ModItems.GOLEM_ARMS_BLASTER.get())
+                .add(ModItems.GOLEM_LEGS_BASIC.get())
+                .add(ModItems.GOLEM_LEGS_WHEELS.get())
                 .add(ModItems.GOLEM_HEAD_BASIC.get())
         ;
     }

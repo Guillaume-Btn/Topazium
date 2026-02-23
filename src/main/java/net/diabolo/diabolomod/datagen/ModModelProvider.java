@@ -94,12 +94,12 @@ public class ModModelProvider extends ModelProvider {
     @Override
     protected Stream<? extends Holder<Item>> getKnownItems() {
         return ModItems.ITEMS.getEntries().stream()
-        .filter(x -> !x.is(ModItems.GOLEM_ARM_BASIC)
+        .filter(x -> !x.is(ModItems.GOLEM_ARMS_BASIC)
                 && !x.is(ModItems.GOLEM_HEAD_BASIC)
-                && !x.is(ModItems.GOLEM_ARM_BLASTER)
-                && !x.is(ModItems.GOLEM_ARM_MINER)
-                && !x.is(ModItems.GOLEM_LEG_BASIC)
-                && !x.is(ModItems.GOLEM_LEG_TREADS)
+                && !x.is(ModItems.GOLEM_ARMS_BLASTER)
+                && !x.is(ModItems.GOLEM_ARMS_MINER)
+                && !x.is(ModItems.GOLEM_LEGS_BASIC)
+                && !x.is(ModItems.GOLEM_LEGS_WHEELS)
         );
 //         EXEMPLE POUR METTRE DES ITEMS QUI S'AFFICHE DIFFEREMENT
     }
