@@ -19,11 +19,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -31,6 +32,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
@@ -39,40 +41,43 @@ import static net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemVariant
 public class TopazGolemEntity extends PathfinderMob {
     private static final EntityDataAccessor<Integer> VARIANT =
             SynchedEntityData.defineId(TopazGolemEntity.class, EntityDataSerializers.INT);
-
-    private int attackAnimationTick;
     private static final Identifier SPEED_MODIFIER_ID = Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "speed_variant_boost");
-    private static final Identifier JUMP_MODIFIER_ID = Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "speed_variant_boost");
-    private static final Identifier STEP_MODIFIER_ID = Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "speed_variant_boost");
+    private static final Identifier JUMP_MODIFIER_ID = Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "jump_variant_nerf");
+    private static final Identifier STEP_MODIFIER_ID = Identifier.fromNamespaceAndPath(DiaboloMod.MODID, "step_variant_nerf");
+    private int attackAnimationTick;
+    private Vec3 lastPhysicalPos = null;
+    private int physicalStuckTicks = 0;
 
     public TopazGolemEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-            return PathfinderMob.createMobAttributes()
-                    .add(Attributes.MAX_HEALTH, 200.0)
-                    .add(Attributes.MOVEMENT_SPEED, 0.3)
-                    .add(Attributes.KNOCKBACK_RESISTANCE, 1.5)
-                    .add(Attributes.ATTACK_DAMAGE, 25.0)
-                    .add(Attributes.STEP_HEIGHT, 1.0)
-                    .add(Attributes.JUMP_STRENGTH, 1.0);
+        return PathfinderMob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 200.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.3)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.5)
+                .add(Attributes.ATTACK_DAMAGE, 25.0)
+                .add(Attributes.STEP_HEIGHT, 1.0)
+                .add(Attributes.JUMP_STRENGTH, 1.0);
     }
 
     // 3. L'IA de combat et de marche
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.addGoal(1, new SpeedGolemMeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.9D));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        // Attaque tous les monstres hostiles
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PathfinderMob.class, 5, false, false, (entity, level) -> entity instanceof Enemy));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(
+                this, PathfinderMob.class, 5, false, false,
+                (entity, level) -> entity instanceof Enemy
+        ));
     }
 
-    // 4. Ta réparation au Topaze
+    //réparation au Topaze
     @Override
     protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
@@ -92,11 +97,11 @@ public class TopazGolemEntity extends PathfinderMob {
         }
     }
 
-    // 5. Gestion de l'animation d'attaque (Le golem lève les bras)
+    // Gestion de l'animation d'attaque (Le golem lève les bras)
     @Override
     public boolean doHurtTarget(ServerLevel level, Entity target) {
         this.attackAnimationTick = 10;
-        level.broadcastEntityEvent(this, (byte)4);
+        level.broadcastEntityEvent(this, (byte) 4);
         return super.doHurtTarget(level, target);
     }
 
@@ -114,12 +119,81 @@ public class TopazGolemEntity extends PathfinderMob {
     }
 
     @Override
+    public void jumpFromGround() {
+        if (isSpeedVariant(this.getVariant())) {
+            return; // Aucune impulsion verticale
+        }
+        super.jumpFromGround();
+    }
+
+    @Override
     public void aiStep() {
+        if (isSpeedVariant(this.getVariant())) {
+            this.setJumping(false);
+        }
         super.aiStep();
         if (this.attackAnimationTick > 0) {
             this.attackAnimationTick--;
         }
+        if (!this.level().isClientSide() && isSpeedVariant(this.getVariant())) {
+            this.handlePhysicalUnstuck();
+        }
     }
+
+    private void handlePhysicalUnstuck() {
+        // On n'agit que si le golem suit un chemin actif
+        if (this.getNavigation().isDone() || this.getNavigation().getPath() == null) {
+            this.physicalStuckTicks = 0;
+            this.lastPhysicalPos = this.position();
+            return;
+        }
+
+        Vec3 current = this.position();
+        if (this.lastPhysicalPos != null && current.distanceToSqr(this.lastPhysicalPos) < 0.001D) {
+            // Quasi immobile (< 0.032 bloc/tick) malgré un chemin valide
+            this.physicalStuckTicks++;
+
+            if (this.physicalStuckTicks >= 8) { // 0.4s → réaction rapide
+                var path = this.getNavigation().getPath();
+
+                // Si le chemin existe et n'est pas fini
+                if (path != null && !path.isDone()) {
+                    // On récupère la position visée par le prochain nœud du chemin
+                    Vec3 nextNodePos = path.getNextNode().asVec3();
+
+                    // On calcule la direction vers ce nœud
+                    Vec3 dirToNextNode = nextNodePos.subtract(this.position());
+
+                    // Si la direction est valide
+                    if (dirToNextNode.lengthSqr() > 1.0E-6) {
+                        dirToNextNode = dirToNextNode.normalize();
+
+                        // On calcule un vecteur perpendiculaire (90 degrés)
+                        // pour "glisser" le long du mur qui bloque
+                        Vec3 sideSlip = new Vec3(-dirToNextNode.z, 0, dirToNextNode.x);
+
+                        // On choisit un côté (gauche ou droite)
+                        double sign = this.random.nextBoolean() ? 1.0 : -1.0;
+
+                        // On applique la force latérale
+                        this.setDeltaMovement(
+                                this.getDeltaMovement().x + (sideSlip.x * 0.18 * sign),
+                                this.getDeltaMovement().y,
+                                this.getDeltaMovement().z + (sideSlip.z * 0.18 * sign)
+                        );
+                    }
+                }
+
+                // Arrêt du chemin : le goal le recalculera proprement depuis la nouvelle position débloquée
+                this.getNavigation().stop();
+                this.physicalStuckTicks = 0;
+            }
+        } else {
+            this.physicalStuckTicks = 0;
+        }
+        this.lastPhysicalPos = current;
+    }
+
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
@@ -138,6 +212,15 @@ public class TopazGolemEntity extends PathfinderMob {
     private void setVariant(TopazGolemVariant variant) {
         this.entityData.set(VARIANT, variant.getId() & 255);
         this.updateForVariant(variant);
+    }
+
+    @Override
+    public void setJumping(boolean jumping) {
+        if (isSpeedVariant(this.getVariant())) {
+            super.setJumping(false);
+            return;
+        }
+        super.setJumping(jumping);
     }
 
     @Override
@@ -199,10 +282,6 @@ public class TopazGolemEntity extends PathfinderMob {
         }
     }
 
-    public enum Crackiness {
-        NONE, LOW, MEDIUM, HIGH
-    }
-
     public Crackiness getCrackiness() {
         if (this.isDeadOrDying()) {
             return Crackiness.HIGH;
@@ -212,16 +291,53 @@ public class TopazGolemEntity extends PathfinderMob {
             return Crackiness.NONE;
         }
         float currentHealth = this.getHealth();
-        // On calcule le ratio et on le bloque strictement entre 0.0 (0%) et 1.0 (100%)
+// On calcule le ratio et on le bloque strictement entre 0.0 (0%) et 1.0 (100%)
         float ratio = Mth.clamp(currentHealth / maxHealth, 0.0F, 1.0F);
         if (ratio < 0.25F) {
-            return Crackiness.HIGH;    // Moins de 25% de vie
+            return Crackiness.HIGH; // Moins de 25% de vie
         } else if (ratio < 0.50F) {
-            return Crackiness.MEDIUM;  // Entre 25% et 50% de vie
+            return Crackiness.MEDIUM; // Entre 25% et 50% de vie
         } else if (ratio < 0.75F) {
-            return Crackiness.LOW;     // Entre 50% et 75% de vie
+            return Crackiness.LOW; // Entre 50% et 75% de vie
         } else {
-            return Crackiness.NONE;    // Plus de 75% de vie
+            return Crackiness.NONE; // Plus de 75% de vie
         }
+    }
+
+    @Override
+    protected PathNavigation createNavigation(Level level) {
+        GroundPathNavigation navigation = new GroundPathNavigation(this, level) {
+            @Override
+            protected net.minecraft.world.level.pathfinder.PathFinder createPathFinder(int maxVisitedNodes) {
+                this.nodeEvaluator = new TopazGolemNodeEvaluator();
+                this.nodeEvaluator.setCanPassDoors(true);
+                return new net.minecraft.world.level.pathfinder.PathFinder(this.nodeEvaluator, 1000);
+            }
+        };
+        // CRUCIAL : Interdit de passer en diagonale si un bloc gêne
+        navigation.setCanWalkOverFences(false);
+        return navigation;
+    }
+
+    @Override
+    public boolean isWithinMeleeAttackRange(LivingEntity target) {
+        // Si c'est le variant Speed ET qu'il ne voit pas la cible (cachée par un mur plein)
+        // -> Il n'est PAS à portée (même s'il est proche physiquement), il doit contourner !
+        if ( !this.getSensing().hasLineOfSight(target)) {
+            return false;
+        }
+        double distanceToTarget = this.distanceToSqr(target);
+
+        // Formule de portée améliorée :
+        // La largeur du golem * 2 + la largeur de la cible, PLUS un bonus de portée.
+        // Un bonus de 4.0D (qui correspond à +2.0 blocs de portée au carré) permet au golem
+        // de frapper un zombie de l'autre côté d'un muret sans se coincer le ventre !
+        double reachSqr = (double) (this.getBbWidth() * 2.0F * this.getBbWidth() * 2.0F + target.getBbWidth()) + 4.0D;
+
+        return distanceToTarget <= reachSqr;
+    }
+
+    public enum Crackiness {
+        NONE, LOW, MEDIUM, HIGH
     }
 }

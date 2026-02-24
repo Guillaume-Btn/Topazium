@@ -194,8 +194,4 @@ public class TopazGolemModel extends EntityModel<TopazGolemRenderState> {
         }
     }
 
-    public ModelPart getFlowerHoldingArm() {
-        return this.arm0;
-    }
-
 }
