@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.ItemStack;
+import org.jspecify.annotations.NonNull;
 
 public class CrystalInfuserScreen extends AbstractContainerScreen<CrystalInfuserMenu> {
     private static final Identifier GUI_TEXTURE =
@@ -17,9 +17,6 @@ public class CrystalInfuserScreen extends AbstractContainerScreen<CrystalInfuser
     private static final Identifier BUBBLE_TEXTURE =
             Identifier.fromNamespaceAndPath(DiaboloMod.MODID,"textures/gui/bubbles.png"); // ← Nouvelle texture 16x16
 
-    // Compteurs pour animation des bulles
-    private int bubbleTimer1 = 0;
-    private int bubbleTimer2 = 0;
 
     public CrystalInfuserScreen(CrystalInfuserMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
@@ -61,7 +58,7 @@ public class CrystalInfuserScreen extends AbstractContainerScreen<CrystalInfuser
 
 
     @Override
-    public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(@NonNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
     }

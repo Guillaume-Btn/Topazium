@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public class TopazGolemCracksLayer extends RenderLayer<TopazGolemRenderState, To
     }
 
     @Override
-    public void submit(PoseStack poseStack, SubmitNodeCollector nodeCollector, int packedLight, TopazGolemRenderState state, float yRot, float xRot) {
+    public void submit(@NonNull PoseStack poseStack, @NonNull SubmitNodeCollector nodeCollector, int packedLight, TopazGolemRenderState state, float yRot, float xRot) {
         if (state.crackiness == TopazGolemEntity.Crackiness.NONE) {
             return;
         }

@@ -1,8 +1,8 @@
 package net.diabolo.diabolomod.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.diabolo.diabolomod.entity.custom.crystal_infuser.CrystalInfuserBlockEntity; // L'import correct de TA classe
 import net.diabolo.diabolomod.entity.ModBlockEntities;
+import net.diabolo.diabolomod.entity.custom.crystal_infuser.CrystalInfuserBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 public class CrystalInfuserBlock extends BaseEntityBlock {
     public static final MapCodec<CrystalInfuserBlock> CODEC = simpleCodec(CrystalInfuserBlock::new);
@@ -29,27 +30,27 @@ public class CrystalInfuserBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NonNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     /* BLOCK ENTITY */
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) {
+    protected @NonNull RenderShape getRenderShape(@NonNull BlockState state) {
         return RenderShape.MODEL;
     }
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public BlockEntity newBlockEntity(@NonNull BlockPos blockPos, @NonNull BlockState blockState) {
         // On crée bien une instance de TON InfuserBlockEntity
         return new CrystalInfuserBlockEntity(blockPos, blockState);
     }
 
     @Override
-    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected @NonNull InteractionResult useItemOn(@NonNull ItemStack stack, @NonNull BlockState state, Level level, @NonNull BlockPos pos,
+                                                   @NonNull Player player, @NonNull InteractionHand hand, @NonNull BlockHitResult hitResult) {
 
         if (level.getBlockEntity(pos) instanceof CrystalInfuserBlockEntity crystalInfuserBlockEntity) {
 
@@ -68,7 +69,7 @@ public class CrystalInfuserBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NonNull Level level, @NonNull BlockState state, @NonNull BlockEntityType<T> blockEntityType) {
         return createTickerHelper(blockEntityType, ModBlockEntities.CRYSTAL_INFUSER_BE.get(),
                 (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
     }
@@ -81,12 +82,12 @@ public class CrystalInfuserBlock extends BaseEntityBlock {
     }
 
     @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
+    public @NonNull BlockState rotate(BlockState state, @NonNull Rotation rot) {
         return state.cycle(HorizontalDirectionalBlock.FACING); // ✅ CYCLE au lieu de rotate()
     }
 
     @Override
-    public BlockState mirror(BlockState state, Mirror mirror) {
+    public @NonNull BlockState mirror(BlockState state, @NonNull Mirror mirror) {
         return state.mirror(mirror); // ✅ Ça c'est correct
     }
 

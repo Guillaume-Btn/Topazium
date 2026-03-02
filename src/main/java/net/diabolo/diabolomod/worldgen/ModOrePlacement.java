@@ -1,6 +1,5 @@
 package net.diabolo.diabolomod.worldgen;
 
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;

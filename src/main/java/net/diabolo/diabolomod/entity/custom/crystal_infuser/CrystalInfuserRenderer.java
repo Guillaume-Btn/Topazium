@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 public class CrystalInfuserRenderer implements BlockEntityRenderer<CrystalInfuserBlockEntity, CrystalInfuserRenderState> {
     private final ItemModelResolver itemModelResolver;
@@ -31,7 +32,7 @@ public class CrystalInfuserRenderer implements BlockEntityRenderer<CrystalInfuse
 
     @Override
     public void extractRenderState(CrystalInfuserBlockEntity blockEntity, CrystalInfuserRenderState renderState, float partialTick,
-                                   Vec3 cameraPosition, @Nullable ModelFeatureRenderer.CrumblingOverlay breakProgress) {
+                                   @NonNull Vec3 cameraPosition, @Nullable ModelFeatureRenderer.CrumblingOverlay breakProgress) {
         BlockEntityRenderer.super.extractRenderState(blockEntity, renderState, partialTick, cameraPosition, breakProgress);
 
         renderState.lightPosition = blockEntity.getBlockPos();
@@ -42,11 +43,11 @@ public class CrystalInfuserRenderer implements BlockEntityRenderer<CrystalInfuse
         renderState.rotation = blockEntity.getRenderingRotation(partialTick);
 
         itemModelResolver.updateForTopItem(renderState.itemStackRenderState,
-                blockEntity.itemHandler.getStackInSlot(0), ItemDisplayContext.FIXED, blockEntity.getLevel(), null, 0);
+                blockEntity.itemHandler.getResource(0).toStack(), ItemDisplayContext.FIXED, blockEntity.getLevel(), null, 0);
     }
 
     @Override
-    public void submit(CrystalInfuserRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
+    public void submit(CrystalInfuserRenderState renderState, PoseStack poseStack, @NonNull SubmitNodeCollector nodeCollector, @NonNull CameraRenderState cameraRenderState) {
         poseStack.pushPose();
 
         // Position au centre

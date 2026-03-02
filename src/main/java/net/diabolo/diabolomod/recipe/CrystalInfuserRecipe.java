@@ -6,14 +6,11 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.jspecify.annotations.NonNull;
 
 public record CrystalInfuserRecipe(
         Ingredient inputItem,
@@ -62,27 +59,27 @@ public record CrystalInfuserRecipe(
     }
 
     @Override
-    public ItemStack assemble(CrystalInfuserRecipeInput crystalInfuserRecipeInput, HolderLookup.Provider provider) {
+    public @NonNull ItemStack assemble(CrystalInfuserRecipeInput crystalInfuserRecipeInput, HolderLookup.@NonNull Provider provider) {
         return output.copy();
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<CrystalInfuserRecipeInput>> getSerializer() {
+    public @NonNull RecipeSerializer<? extends Recipe<CrystalInfuserRecipeInput>> getSerializer() {
         return ModRecipes.CRYSTAL_INFUSER_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<? extends Recipe<CrystalInfuserRecipeInput>> getType() {
+    public @NonNull RecipeType<? extends Recipe<CrystalInfuserRecipeInput>> getType() {
         return ModRecipes.CRYSTAL_INFUSER_TYPE.get();
     }
 
     @Override
-    public PlacementInfo placementInfo() {
+    public @NonNull PlacementInfo placementInfo() {
         return PlacementInfo.create(inputItem);
     }
 
     @Override
-    public RecipeBookCategory recipeBookCategory() {
+    public @NonNull RecipeBookCategory recipeBookCategory() {
         return RecipeBookCategories.CRAFTING_MISC;
     }
 
@@ -98,7 +95,7 @@ public record CrystalInfuserRecipe(
         ).apply(inst, CrystalInfuserRecipe::new));
 
         public static final StreamCodec<RegistryFriendlyByteBuf, CrystalInfuserRecipe> STREAM_CODEC =
-                new StreamCodec<RegistryFriendlyByteBuf, CrystalInfuserRecipe>() {
+                new StreamCodec<>() {
                     @Override
                     public CrystalInfuserRecipe decode(RegistryFriendlyByteBuf buf) {
                         Ingredient input = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
@@ -108,7 +105,7 @@ public record CrystalInfuserRecipe(
                         ItemStack output = ItemStack.STREAM_CODEC.decode(buf);
                         int outPutCount = buf.readVarInt();
                         ItemStack output2 = ItemStack.STREAM_CODEC.decode(buf);
-                        return new CrystalInfuserRecipe(input, inputCount, fuel, fuelCount, output,output2,outPutCount);
+                        return new CrystalInfuserRecipe(input, inputCount, fuel, fuelCount, output, output2, outPutCount);
                     }
 
                     @Override
@@ -125,12 +122,12 @@ public record CrystalInfuserRecipe(
 
 
         @Override
-        public MapCodec<CrystalInfuserRecipe> codec() {
+        public @NonNull MapCodec<CrystalInfuserRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, CrystalInfuserRecipe> streamCodec() {
+        public @NonNull StreamCodec<RegistryFriendlyByteBuf, CrystalInfuserRecipe> streamCodec() {
             return STREAM_CODEC;
         }
     }

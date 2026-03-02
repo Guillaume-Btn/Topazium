@@ -1,14 +1,10 @@
 package net.diabolo.diabolomod.datagen;
 
-import com.google.gson.JsonObject;
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.block.ModBlocks;
 import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.recipe.CrystalInfuserRecipe;
-import net.diabolo.diabolomod.recipe.ModRecipes;
-import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -21,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import org.jspecify.annotations.NonNull;
 
 
 import java.util.List;
@@ -37,12 +34,12 @@ public class ModRecipeProvider extends RecipeProvider {
         }
 
         @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
             return new ModRecipeProvider(provider, recipeOutput);
         }
 
         @Override
-        public String getName() {
+        public @NonNull String getName() {
             return "My Recipes";
         }
     }
@@ -232,10 +229,6 @@ public class ModRecipeProvider extends RecipeProvider {
         stonecutterResultFromBase(RecipeCategory.MISC,ModItems.BLUE_TOPAZ.get(),ModItems.RAW_BLUE_TOPAZ);
 
         buildCrystalInfuserRecipe();
-
-        // Throws error
-        // trimSmithing(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceKey.create(Registries.TRIM_PATTERN, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")),
-        //         ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "kaupen")));
     }
 
     protected void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

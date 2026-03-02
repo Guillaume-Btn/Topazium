@@ -12,6 +12,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import org.jspecify.annotations.NonNull;
 
 
 import java.util.stream.Stream;
@@ -83,7 +84,7 @@ public class ModModelProvider extends ModelProvider {
     }
 
     @Override
-    protected Stream<? extends Holder<Block>> getKnownBlocks() {
+    protected @NonNull Stream<? extends Holder<Block>> getKnownBlocks() {
 
         return ModBlocks.BLOCKS.getEntries().stream()
                 // AJOUTE CE FILTRE :
@@ -92,14 +93,14 @@ public class ModModelProvider extends ModelProvider {
     }
 
     @Override
-    protected Stream<? extends Holder<Item>> getKnownItems() {
+    protected @NonNull Stream<? extends Holder<Item>> getKnownItems() {
         return ModItems.ITEMS.getEntries().stream()
-        .filter(x -> !x.is(ModItems.GOLEM_ARMS_BASIC)
-                && !x.is(ModItems.GOLEM_HEAD_BASIC)
-                && !x.is(ModItems.GOLEM_ARMS_BLASTER)
-                && !x.is(ModItems.GOLEM_ARMS_MINER)
-                && !x.is(ModItems.GOLEM_LEGS_BASIC)
-                && !x.is(ModItems.GOLEM_LEGS_WHEELS)
+        .filter(x -> !x.is(ModItems.GOLEM_ARMS_BASIC.getId())
+                && !x.is(ModItems.GOLEM_HEAD_BASIC.getId())
+                && !x.is(ModItems.GOLEM_ARMS_BLASTER.getId())
+                && !x.is(ModItems.GOLEM_ARMS_MINER.getId())
+                && !x.is(ModItems.GOLEM_LEGS_BASIC.getId())
+                && !x.is(ModItems.GOLEM_LEGS_WHEELS.getId())
         );
 //         EXEMPLE POUR METTRE DES ITEMS QUI S'AFFICHE DIFFEREMENT
     }

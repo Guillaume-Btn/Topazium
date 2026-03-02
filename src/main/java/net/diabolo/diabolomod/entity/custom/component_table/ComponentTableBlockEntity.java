@@ -13,22 +13,26 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 
 public class ComponentTableBlockEntity extends BlockEntity {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(1) {
+    private final ItemStacksResourceHandler itemHandler = new ItemStacksResourceHandler(1) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack previousContents) {
             setChanged();
             if (level != null && !level.isClientSide()) {
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 4);
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_INVISIBLE);
             }
         }
     };
@@ -42,12 +46,13 @@ public class ComponentTableBlockEntity extends BlockEntity {
     );
     private int selectedPatternIndex = 0; // Quel item on va crafter ?
     private int hammerHits = 0; // Progression du craft
+
     public ComponentTableBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.COMPONENT_TABLE_BE.get(), pos, blockState);
     }
 
     public boolean can_be_hammered() {
-        return itemHandler.getStackInSlot(0).is(ModTags.Items.CAN_BE_HAMMERED);
+        return itemHandler.getResource(0).is(ModTags.Items.CAN_BE_HAMMERED);
     }
 
     public void cyclePattern() {
@@ -64,10 +69,9 @@ public class ComponentTableBlockEntity extends BlockEntity {
     }
 
     public boolean canHit() {
-        if (itemHandler.getStackInSlot(0).isEmpty()) return false;
+        if (itemHandler.getResource(0).isEmpty()) return false;
         if (!can_be_hammered()) return false;
-        if (itemHandler.getStackInSlot(0).getItem().equals(AVAILABLE_PATTERNS.get(selectedPatternIndex))) return false;
-        return true;
+        return !itemHandler.getResource(0).getItem().equals(AVAILABLE_PATTERNS.get(selectedPatternIndex));
     }
 
     public boolean hammerHit() {
@@ -87,28 +91,29 @@ public class ComponentTableBlockEntity extends BlockEntity {
     }
 
     private void craftItem() {
-        // Consomme le bloc d'entrée
-        itemHandler.extractItem(0, 1, false);
-
-        // Crée le résultat
-        ItemStack result = new ItemStack(getCurrentPatternOutput());
-
-        itemHandler.insertItem(0, result, false);
-        // Drop l'item sur le bloc (ou spawn dans le monde)
-//        Containers.dropItemStack(level, worldPosition.getX() + 0.5, worldPosition.getY() + 1, worldPosition.getZ() + 0.5, result);
+        try (Transaction tx = Transaction.openRoot()) {
+            int extracted = itemHandler.extract(0, itemHandler.getResource(0), 1, tx);
+            if (extracted == 1) {
+                // 2. Insérer le résultat (1 quantité)
+                int inserted = itemHandler.insert(0, ItemResource.of(getCurrentPatternOutput()), 1, tx);
+                if (inserted == 1) {
+                    tx.commit();
+                }
+            }
+        }
     }
 
-    public ItemStackHandler getItemHandler() {
+    public ItemStacksResourceHandler getItemHandler() {
         return itemHandler;
     }
 
     public ItemStack getDisplayedStack() {
-        return itemHandler.getStackInSlot(0); // adapte si ton handler a un autre nom
+        return itemHandler.getResource(0).toStack(); // adapte si ton handler a un autre nom
     }
 
 
     @Override
-    protected void saveAdditional(ValueOutput output) {
+    protected void saveAdditional(@NonNull ValueOutput output) {
         itemHandler.serialize(output);
         output.putInt("component_table.hits", hammerHits);
         output.putInt("component_table.pattern", selectedPatternIndex);
@@ -117,7 +122,7 @@ public class ComponentTableBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void loadAdditional(ValueInput input) {
+    protected void loadAdditional(@NonNull ValueInput input) {
         super.loadAdditional(input);
 
         itemHandler.deserialize(input);
@@ -132,22 +137,28 @@ public class ComponentTableBlockEntity extends BlockEntity {
     }
 
     public void drops() {
-        SimpleContainer inv = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inv.setItem(i, itemHandler.getStackInSlot(i));
+        // size() remplace l'ancien getSlots()
+        SimpleContainer inv = new SimpleContainer(itemHandler.size());
+        for (int i = 0; i < itemHandler.size(); i++) {
+            ItemResource res = itemHandler.getResource(i);
+            if (!res.isEmpty()) {
+                inv.setItem(i, res.toStack((int) itemHandler.getAmountAsLong(i)));
+            }
         }
 
-        Containers.dropContents(this.level, this.worldPosition, inv);
+        if (this.level != null) {
+            Containers.dropContents(this.level, this.worldPosition, inv);
+        }
     }
 
     @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+    public void preRemoveSideEffects(@NonNull BlockPos pos, @NonNull BlockState state) {
         drops();
         super.preRemoveSideEffects(pos, state);
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+    public @NonNull CompoundTag getUpdateTag(HolderLookup.@NonNull Provider registries) {
         // Utilise la version vanilla/NeoForge qui s’appuie sur saveAdditional
         return saveWithoutMetadata(registries);
     }

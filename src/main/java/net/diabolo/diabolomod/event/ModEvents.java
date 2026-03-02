@@ -112,7 +112,7 @@ public class ModEvents {
                         BlockInWorld blockinworld = match.getBlock(i, j, k);
                         // On retire les blocs qui font partie du golem (sauf l'air)
                         if (!blockinworld.getState().isAir()) {
-                            level.setBlock(blockinworld.getPos(), Blocks.AIR.defaultBlockState(), 2);
+                            level.setBlock(blockinworld.getPos(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                             level.levelEvent(2001, blockinworld.getPos(), Block.getId(blockinworld.getState()));
                         }
                     }

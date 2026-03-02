@@ -3,7 +3,7 @@ package net.diabolo.diabolomod.event;
 import net.diabolo.diabolomod.DiaboloMod;
 import net.diabolo.diabolomod.entity.ModEntities;
 import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemModel;
-import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemRenderer;
+import net.diabolo.diabolomod.entity.custom.topaz_golem.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

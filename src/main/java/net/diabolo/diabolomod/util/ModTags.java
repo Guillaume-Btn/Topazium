@@ -13,7 +13,6 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_TOPAZ_TOOL=createTag("needs_topaz_tool");
         public static final TagKey<Block> INCORRECT_FOR_TOPAZ_TOOL=createTag("incorrect_for_topaz_tool");
 
-        public  static final TagKey<Block> CAN_BREAK_BEDROCK=createTag("can_break_bedrock");
 
         public static final TagKey<Block> NEEDS_BLUE_TOPAZ_TOOL=createTag("needs_blue_topaz_tool");
         public static final TagKey<Block> INCORRECT_FOR_BLUE_TOPAZ_TOOL=createTag("incorrect_for_blue_topaz_tool");

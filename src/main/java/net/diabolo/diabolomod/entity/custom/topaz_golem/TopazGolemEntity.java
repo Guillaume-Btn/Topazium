@@ -30,9 +30,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.pathfinder.PathFinder;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import org.jspecify.annotations.NonNull;
 
 import javax.annotation.Nullable;
 
@@ -59,7 +61,7 @@ public class TopazGolemEntity extends PathfinderMob {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.5)
                 .add(Attributes.ATTACK_DAMAGE, 25.0)
                 .add(Attributes.STEP_HEIGHT, 1.0)
-                .add(Attributes.JUMP_STRENGTH, 1.0);
+                .add(Attributes.JUMP_STRENGTH, 0.42);
     }
 
     // 3. L'IA de combat et de marche
@@ -79,7 +81,7 @@ public class TopazGolemEntity extends PathfinderMob {
 
     //réparation au Topaze
     @Override
-    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+    protected @NonNull InteractionResult mobInteract(Player player, @NonNull InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (!itemstack.is(ModItems.TOPAZ)) {
             return InteractionResult.PASS;
@@ -99,7 +101,7 @@ public class TopazGolemEntity extends PathfinderMob {
 
     // Gestion de l'animation d'attaque (Le golem lève les bras)
     @Override
-    public boolean doHurtTarget(ServerLevel level, Entity target) {
+    public boolean doHurtTarget(ServerLevel level, @NonNull Entity target) {
         this.attackAnimationTick = 10;
         level.broadcastEntityEvent(this, (byte) 4);
         return super.doHurtTarget(level, target);
@@ -196,7 +198,7 @@ public class TopazGolemEntity extends PathfinderMob {
 
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(SynchedEntityData.@NonNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(VARIANT, 0);
     }
@@ -224,13 +226,13 @@ public class TopazGolemEntity extends PathfinderMob {
     }
 
     @Override
-    public void addAdditionalSaveData(ValueOutput output) {
+    public void addAdditionalSaveData(@NonNull ValueOutput output) {
         super.addAdditionalSaveData(output);
         output.putInt("Variant", this.getTypeVariant());
     }
 
     @Override
-    public void readAdditionalSaveData(ValueInput input) {
+    public void readAdditionalSaveData(@NonNull ValueInput input) {
         super.readAdditionalSaveData(input);
         int variantId = input.getIntOr("Variant", 0);
         this.entityData.set(VARIANT, variantId);
@@ -239,12 +241,14 @@ public class TopazGolemEntity extends PathfinderMob {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty,
-                                        EntitySpawnReason spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public SpawnGroupData finalizeSpawn(@NonNull ServerLevelAccessor level, @NonNull DifficultyInstance difficulty,
+                                        @NonNull EntitySpawnReason spawnType, @Nullable SpawnGroupData spawnGroupData) {
         TopazGolemVariant variant = Util.getRandom(TopazGolemVariant.values(), this.random);
         this.setVariant(variant);
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
+
+
 
     private void updateForVariant(TopazGolemVariant variant) {
         AttributeInstance speedAttribute = this.getAttribute(Attributes.MOVEMENT_SPEED);
@@ -305,13 +309,13 @@ public class TopazGolemEntity extends PathfinderMob {
     }
 
     @Override
-    protected PathNavigation createNavigation(Level level) {
+    protected @NonNull PathNavigation createNavigation(@NonNull Level level) {
         GroundPathNavigation navigation = new GroundPathNavigation(this, level) {
             @Override
-            protected net.minecraft.world.level.pathfinder.PathFinder createPathFinder(int maxVisitedNodes) {
+            protected @NonNull PathFinder createPathFinder(int maxVisitedNodes) {
                 this.nodeEvaluator = new TopazGolemNodeEvaluator();
                 this.nodeEvaluator.setCanPassDoors(true);
-                return new net.minecraft.world.level.pathfinder.PathFinder(this.nodeEvaluator, 1000);
+                return new PathFinder(this.nodeEvaluator, 1000);
             }
         };
         // CRUCIAL : Interdit de passer en diagonale si un bloc gêne
@@ -320,10 +324,8 @@ public class TopazGolemEntity extends PathfinderMob {
     }
 
     @Override
-    public boolean isWithinMeleeAttackRange(LivingEntity target) {
-        // Si c'est le variant Speed ET qu'il ne voit pas la cible (cachée par un mur plein)
-        // -> Il n'est PAS à portée (même s'il est proche physiquement), il doit contourner !
-        if ( !this.getSensing().hasLineOfSight(target)) {
+    public boolean isWithinMeleeAttackRange(@NonNull LivingEntity target) {
+        if (!this.getSensing().hasLineOfSight(target)) {
             return false;
         }
         double distanceToTarget = this.distanceToSqr(target);

@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.Equippable;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class ModArmorItem extends Item {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
+    public void inventoryTick(@NonNull ItemStack stack, @NonNull ServerLevel level, @NonNull Entity entity, @Nullable EquipmentSlot slot) {
         if(entity instanceof Player player && hasFullSuitOfArmorOn(player)) {
             evaluateArmorEffects(player, TOPAZ_TO_EFFECT_MAP);
             evaluateArmorEffects(player, BLUE_TOPAZ_TO_EFFECT_MAP);
@@ -75,6 +76,10 @@ public class ModArmorItem extends Item {
         Equippable equippableComponentBreastplate = player.getItemBySlot(EquipmentSlot.CHEST).getComponents().get(DataComponents.EQUIPPABLE);
         Equippable equippableComponentHelmet = player.getItemBySlot(EquipmentSlot.HEAD).getComponents().get(DataComponents.EQUIPPABLE);
 
+        assert equippableComponentBoots != null;
+        assert equippableComponentLeggings != null;
+        assert equippableComponentBreastplate != null;
+        assert equippableComponentHelmet != null;
         return equippableComponentBoots.assetId().get().equals(mapArmorMaterial.assetId()) &&
                 equippableComponentLeggings.assetId().get().equals(mapArmorMaterial.assetId()) &&
                 equippableComponentBreastplate.assetId().get().equals(mapArmorMaterial.assetId()) &&

@@ -26,51 +26,58 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Optional;
 
-public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler itemHandler = new ItemStackHandler(4) {
-        @Override
-        protected int getStackLimit(int slot, ItemStack stack) {
-            return 1;
-        }
+import static net.minecraft.world.level.block.Block.UPDATE_CLIENTS;
 
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-            if(!level.isClientSide()) {
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 4);
-            }
-        }
-        @Override
-        public boolean isItemValid(int slot, ItemStack stack) {
-            return switch (slot) {
-                case 0 -> stack.is(ModTags.Items.CAN_BE_INFUSED);  // Slot 0 : Accepte tout (ou filtre pour Topaz seulement)
-                case 1 -> stack.is(ModTags.Items.IS_INFUSER);
-                case 2, 3 -> false; // Slots Output : On ne peut rien insérer (pour les hoppers)
-                default -> super.isItemValid(slot, stack);
-            };
-        }
-    };
-    private float rotation;
+public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvider {
     private static final int INPUT_SLOT = 0;
     private static final int FUEL_SLOT = 1;
     private static final int OUTPUT_SLOT = 2;
     private static final int OUTPUT_FUEL_SLOT = 3;
+    public final ItemStacksResourceHandler itemHandler = new ItemStacksResourceHandler(4) {
 
+        @Override
+        protected void onContentsChanged(int slot, ItemStack previousContents) {
+            setChanged();
+            if (level != null && !level.isClientSide()) {
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_INVISIBLE);
+            }
+        }
 
+        // isItemValid devient isValid et prend un ItemResource
+        @Override
+        public boolean isValid(int slot, ItemResource resource) {
+            if (resource.isEmpty()) return true;
+
+            return switch (slot) {
+                case 0 -> resource.is(ModTags.Items.CAN_BE_INFUSED);
+                case 1 -> resource.is(ModTags.Items.IS_INFUSER);
+                case 2, 3 -> false; // Slots Output : On ne peut rien insérer
+                default -> super.isValid(slot, resource);
+            };
+        }
+    };
     protected final ContainerData data;
+    public float renderingRotation = 0f;
+    public float prevRenderingRotation = 0f; // Nécessaire pour l'interpolation
+    private float rotation;
     private int progressArrow = 0;
     private int progressBubble = 0;
     private int maxProgress = 72;
     private int maxProgress_bubble = 72; // Temps total
+    private float currentSpeed = 1.0f;
 
     public CrystalInfuserBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.CRYSTAL_INFUSER_BE.get(), pos, blockState);
@@ -89,10 +96,14 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
             @Override
             public void set(int i, int value) {
                 switch (i) {
-                    case 0: CrystalInfuserBlockEntity.this.progressArrow = value;
-                    case 1: CrystalInfuserBlockEntity.this.maxProgress = value;
-                    case 2: CrystalInfuserBlockEntity.this.progressBubble= value;
-                    case 3: CrystalInfuserBlockEntity.this.maxProgress_bubble= value;
+                    case 0:
+                        CrystalInfuserBlockEntity.this.progressArrow = value;
+                    case 1:
+                        CrystalInfuserBlockEntity.this.maxProgress = value;
+                    case 2:
+                        CrystalInfuserBlockEntity.this.progressBubble = value;
+                    case 3:
+                        CrystalInfuserBlockEntity.this.maxProgress_bubble = value;
                 }
             }
 
@@ -104,26 +115,31 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
     }
 
     public void clearContents() {
-        itemHandler.setStackInSlot(0, ItemStack.EMPTY);
+        itemHandler.set(INPUT_SLOT, ItemResource.of(ItemStack.EMPTY), 0);
     }
 
     public void drops() {
-        SimpleContainer inv = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            inv.setItem(i, itemHandler.getStackInSlot(i));
+        SimpleContainer inv = new SimpleContainer(itemHandler.size());
+        for (int i = 0; i < itemHandler.size(); i++) {
+            ItemResource res = itemHandler.getResource(i);
+            if (!res.isEmpty()) {
+                inv.setItem(i, res.toStack((int) itemHandler.getAmountAsLong(i)));
+            }
         }
 
-        Containers.dropContents(this.level, this.worldPosition, inv);
+        if (this.level != null) {
+            Containers.dropContents(this.level, this.worldPosition, inv);
+        }
     }
 
     @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+    public void preRemoveSideEffects(@NonNull BlockPos pos, @NonNull BlockState state) {
         drops();
         super.preRemoveSideEffects(pos, state);
     }
 
     @Override
-    public Component getDisplayName() {
+    public @NonNull Component getDisplayName() {
         return Component.literal("Crystal Infuser");
     }
 
@@ -135,12 +151,12 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
 
     @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+    public AbstractContainerMenu createMenu(int i, @NonNull Inventory inventory, @NonNull Player player) {
         return new CrystalInfuserMenu(i, inventory, this, this.data);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput output) {
+    protected void saveAdditional(@NonNull ValueOutput output) {
         itemHandler.serialize(output);
         output.putInt("crystal_infuser.progress", progressArrow);
         output.putInt("crystal_infuser.max_progress", maxProgress);
@@ -151,7 +167,7 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
     }
 
     @Override
-    protected void loadAdditional(ValueInput input) {
+    protected void loadAdditional(@NonNull ValueInput input) {
         super.loadAdditional(input);
 
         itemHandler.deserialize(input);
@@ -160,10 +176,6 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         progressBubble = input.getIntOr("crystal_infuser.progress_bubble", 0);
         maxProgress_bubble = input.getIntOr("crystal_infuser.max_progress_bubble", 0);
     }
-
-    public float renderingRotation = 0f;
-    public float prevRenderingRotation = 0f; // Nécessaire pour l'interpolation
-    private float currentSpeed = 1.0f;
 
     public void tick(Level level, BlockPos pos, BlockState state) {
         // 1. LOGIQUE CLIENT (Animation, Rotation, Particules)
@@ -208,7 +220,7 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         boolean wasCrafting = isCrafting(); // On stocke l'état avant modif
         boolean hasChanged = false;
 
-        if (hasRecipe()&&canCraft()) {
+        if (hasRecipe() && canCraft()) {
             increaseCraftingProgress();
             setChanged(level, pos, state);
             hasChanged = true;
@@ -224,7 +236,7 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         // ✅ Si l'état de craft a changé (on commence ou on finit de travailler)
         // On force la mise à jour du client pour qu'il accélère/ralentisse l'animation
         if (wasCrafting != isCrafting()) {
-            level.sendBlockUpdated(pos, state, state, 3);
+            level.sendBlockUpdated(pos, state, state, Block.UPDATE_NEIGHBORS | UPDATE_CLIENTS);
         } else if (hasChanged) {
             // Optionnel : sauvegarde disque sans envoi réseau inutile si on est juste en train d'avancer
             setChanged(level, pos, state);
@@ -247,18 +259,17 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         Optional<RecipeHolder<CrystalInfuserRecipe>> recipe = getCurrentRecipe();
         if (recipe.isEmpty()) return;
         CrystalInfuserRecipe r = recipe.get().value();
-
-        ItemStack normalOutput = new ItemStack(r.output().getItem(), r.outputCount());
-        ItemStack bottleOutput = new ItemStack(r.outputBottle().getItem(), r.outputCount());
-
-        itemHandler.extractItem(INPUT_SLOT, r.inputCount(), false);
-        itemHandler.extractItem(FUEL_SLOT, r.fuelCount(), false);
-
-        itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(normalOutput.getItem(),
-                itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + normalOutput.getCount()));
-
-        itemHandler.setStackInSlot(OUTPUT_FUEL_SLOT, new ItemStack(bottleOutput.getItem(),
-                itemHandler.getStackInSlot(OUTPUT_FUEL_SLOT).getCount() + bottleOutput.getCount()));
+        try (Transaction tx = Transaction.openRoot()) {
+            int extractedInput = itemHandler.extract(INPUT_SLOT, itemHandler.getResource(INPUT_SLOT), r.inputCount(), tx);
+            int extractedFuel = itemHandler.extract(FUEL_SLOT, itemHandler.getResource(FUEL_SLOT), r.fuelCount(), tx);
+            if (extractedInput == r.inputCount() && extractedFuel == r.fuelCount()) {
+                int currentOutCount = (int) itemHandler.getAmountAsLong(OUTPUT_SLOT);
+                int currentBottleCount = (int) itemHandler.getAmountAsLong(OUTPUT_FUEL_SLOT);
+                itemHandler.set(OUTPUT_SLOT, ItemResource.of(r.output().getItem()), currentOutCount + r.outputCount());
+                itemHandler.set(OUTPUT_FUEL_SLOT, ItemResource.of(r.outputBottle().getItem()), currentBottleCount + r.outputCount());
+                tx.commit();
+            }
+        }
     }
 
     private void resetProgress() {
@@ -277,20 +288,21 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         progressBubble++;
     }
 
-    private boolean canInsertItemIntoOutputSlot(ItemStack normalOutput, ItemStack bottleOutput) {
-        return (itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
-                itemHandler.getStackInSlot(OUTPUT_SLOT).getItem() == normalOutput.getItem())
-                && (itemHandler.getStackInSlot(OUTPUT_FUEL_SLOT).isEmpty() ||
-                itemHandler.getStackInSlot(OUTPUT_FUEL_SLOT).getItem() == bottleOutput.getItem());
+    private boolean canInsertItemIntoOutputSlot(ItemResource normalOutput, ItemResource bottleOutput) {
+        ItemResource outRes = itemHandler.getResource(OUTPUT_SLOT);
+        ItemResource bottleRes = itemHandler.getResource(OUTPUT_FUEL_SLOT);
+
+        return (outRes.isEmpty() || outRes.equals(normalOutput)) &&
+                (bottleRes.isEmpty() || bottleRes.equals(bottleOutput));
     }
 
     private boolean hasRecipe() {
         Optional<RecipeHolder<CrystalInfuserRecipe>> recipe = getCurrentRecipe();
-        if(recipe.isEmpty()) return false;
+        if (recipe.isEmpty()) return false;
 
         CrystalInfuserRecipe r = recipe.get().value();
-        ItemStack normalOutput = new ItemStack(r.output().getItem(), r.outputCount());
-        ItemStack bottleOutput = new ItemStack(r.outputBottle().getItem(), r.outputCount());
+        ItemResource normalOutput = ItemResource.of(r.output().getItem());
+        ItemResource bottleOutput = ItemResource.of(r.outputBottle().getItem());
 
         return canInsertItemIntoOutputSlot(normalOutput, bottleOutput) &&
                 canInsertAmountIntoOutputSlot(r.outputCount());
@@ -298,36 +310,40 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
 
 
     private Optional<RecipeHolder<CrystalInfuserRecipe>> getCurrentRecipe() {
+        ItemStack inputStack = itemHandler.getResource(INPUT_SLOT).toStack((int) itemHandler.getAmountAsLong(INPUT_SLOT));
+        ItemStack fuelStack = itemHandler.getResource(FUEL_SLOT).toStack((int) itemHandler.getAmountAsLong(FUEL_SLOT));
+
+        assert level != null;
         return ((ServerLevel) level).recipeAccess()
                 .getRecipeFor(ModRecipes.CRYSTAL_INFUSER_TYPE.get(),
-                        new CrystalInfuserRecipeInput(
-                                itemHandler.getStackInSlot(INPUT_SLOT),    // slot 0
-                                itemHandler.getStackInSlot(FUEL_SLOT)      // slot 1
-                        ), level);
+                        new CrystalInfuserRecipeInput(inputStack, fuelStack), level);
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
-        int maxCountNormal = itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ? 64 :
-                itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
-        int currentCountNormal = itemHandler.getStackInSlot(OUTPUT_SLOT).getCount();
+        // maxStackSize() n'est plus accessible directement, on passe par toStack temporaire ou getCapacity
+        ItemResource outRes = itemHandler.getResource(OUTPUT_SLOT);
+        int maxCountNormal = outRes.isEmpty() ? 64 : outRes.toStack().getMaxStackSize();
+        int currentCountNormal = (int) itemHandler.getAmountAsLong(OUTPUT_SLOT);
 
-        int maxCountBottle = itemHandler.getStackInSlot(OUTPUT_FUEL_SLOT).isEmpty() ? 64 :
-                itemHandler.getStackInSlot(OUTPUT_FUEL_SLOT).getMaxStackSize();
-        int currentCountBottle = itemHandler.getStackInSlot(OUTPUT_FUEL_SLOT).getCount();
+        ItemResource bottleRes = itemHandler.getResource(OUTPUT_FUEL_SLOT);
+        int maxCountBottle = bottleRes.isEmpty() ? 64 : bottleRes.toStack().getMaxStackSize();
+        int currentCountBottle = (int) itemHandler.getAmountAsLong(OUTPUT_FUEL_SLOT);
 
         return (maxCountNormal >= currentCountNormal + count) &&
                 (maxCountBottle >= currentCountBottle + count);
     }
 
-    private boolean canCraft(){
+    private boolean canCraft() {
         Optional<RecipeHolder<CrystalInfuserRecipe>> recipe = getCurrentRecipe();
-        boolean enoughItem = itemHandler.getStackInSlot(INPUT_SLOT).getCount()>=recipe.get().value().inputCount();
-        boolean enoughFuel = itemHandler.getStackInSlot(FUEL_SLOT).getCount()>=recipe.get().value().fuelCount();
+        if (recipe.isEmpty()) return false;
+
+        boolean enoughItem = itemHandler.getAmountAsLong(INPUT_SLOT) >= recipe.get().value().inputCount();
+        boolean enoughFuel = itemHandler.getAmountAsLong(FUEL_SLOT) >= recipe.get().value().fuelCount();
         return enoughItem && enoughFuel;
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+    public @NonNull CompoundTag getUpdateTag(HolderLookup.@NonNull Provider pRegistries) {
         return saveWithoutMetadata(pRegistries);
     }
 }

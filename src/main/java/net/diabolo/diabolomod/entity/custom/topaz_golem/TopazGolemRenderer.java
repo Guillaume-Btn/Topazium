@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class TopazGolemRenderer extends MobRenderer<TopazGolemEntity, TopazGolem
     }
 
     @Override
-    public Identifier getTextureLocation(TopazGolemRenderState state) {
+    public @NonNull Identifier getTextureLocation(TopazGolemRenderState state) {
         return LOCATION_BY_VARIANT.getOrDefault(state.variant, LOCATION_BY_VARIANT.get(TopazGolemVariant.BASIC_BASIC));
     }
 

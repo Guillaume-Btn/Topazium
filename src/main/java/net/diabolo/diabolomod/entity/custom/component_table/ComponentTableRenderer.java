@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
+import org.jspecify.annotations.NonNull;
 
 import javax.annotation.Nullable;
 
@@ -36,7 +37,7 @@ public class ComponentTableRenderer implements BlockEntityRenderer<ComponentTabl
     public void extractRenderState(ComponentTableBlockEntity blockEntity,
                                    ComponentTableRenderState renderState,
                                    float partialTick,
-                                   Vec3 cameraPosition,
+                                   @NonNull Vec3 cameraPosition,
                                    @Nullable ModelFeatureRenderer.CrumblingOverlay breakProgress) {
         BlockEntityRenderer.super.extractRenderState(blockEntity, renderState, partialTick, cameraPosition, breakProgress);
 
@@ -58,9 +59,9 @@ public class ComponentTableRenderer implements BlockEntityRenderer<ComponentTabl
 
     @Override
     public void submit(ComponentTableRenderState renderState,
-                       PoseStack poseStack,
-                       SubmitNodeCollector nodeCollector,
-                       CameraRenderState cameraRenderState) {
+                       @NonNull PoseStack poseStack,
+                       @NonNull SubmitNodeCollector nodeCollector,
+                       @NonNull CameraRenderState cameraRenderState) {
         if (renderState.itemStackRenderState.isEmpty()) return;
 
         poseStack.pushPose();
