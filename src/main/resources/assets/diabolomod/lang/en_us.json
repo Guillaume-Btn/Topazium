@@ -44,6 +44,14 @@
   "block.diabolomod.crystal_infuser": "Crystal Infuser",
   "block.diabolomod.component_table": "Component Table",
 
+  "block.diabolomod.golem_maker_foundation": "Golem maker Foundation",
+  "block.diabolomod.golem_maker_casing": "Golem maker Casing",
+  "block.diabolomod.golem_maker_controller": "Golem maker Controller",
+  "block.diabolomod.golem_maker_assembler": "Golem maker Assembler",
+  "block.diabolomod.golem_maker_cooler": "Golem maker Cooler",
+  "block.diabolomod.golem_maker_catalyst": "Golem maker Catalyst",
+  "block.diabolomod.golem_maker_transformer": "Golem maker Transformer",
+
   "item.diabolomod.cobalt_solution": "Cobalt Solution",
   "item.diabolomod.cobalt_powder": "Cobalt Powder",
 

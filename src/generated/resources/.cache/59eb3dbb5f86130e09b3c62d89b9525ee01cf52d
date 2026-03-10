@@ -1,7 +1,14 @@
-// 1.21.11	2026-02-19T18:09:07.6222528	Loot Tables
+// 1.21.11	2026-03-10T11:31:39.3604964	Loot Tables
 4fab42ace0950e57e4a6f93532decc60f98c6b04 data/diabolomod/loot_table/blocks/blue_topaz_block.json
 09e56eee620cd219f10f33e285fff026e9cf80b9 data/diabolomod/loot_table/blocks/component_table.json
 59d0eb916812d3621cfd3eb2f467eacfe9b91de0 data/diabolomod/loot_table/blocks/crystal_infuser.json
+126476f85797bf2adeeae864d58f2d3f3e94a16a data/diabolomod/loot_table/blocks/golem_maker_assembler.json
+a6e7f6bd3c5fab367adfbaa667af14a2c39f74bb data/diabolomod/loot_table/blocks/golem_maker_casing.json
+a72ef518e1bba88a213b1c7044663530f20085fa data/diabolomod/loot_table/blocks/golem_maker_catalyst.json
+fda55be553e1471165ab5cea12d36e97f4e48011 data/diabolomod/loot_table/blocks/golem_maker_controller.json
+539aaf090c8cf4cd3541cbd2a5d87f9b29ab4bc2 data/diabolomod/loot_table/blocks/golem_maker_cooler.json
+21b581f5d6fbd33d822bc8c52fa3bafe18cb4b96 data/diabolomod/loot_table/blocks/golem_maker_foundation.json
+38c93cc5a0f25ce02321de6e47dcc4a5dc48e038 data/diabolomod/loot_table/blocks/golem_maker_transformer.json
 7ebe9c5974362ceb966a189d9ac3227f0078d31f data/diabolomod/loot_table/blocks/topaz_block.json
 a3c2545b715c4267f5a898ea048425e8b79c4d9d data/diabolomod/loot_table/blocks/topaz_deepslate_ore.json
 ffddd16481fc1d9103f1a4595b03433e23fb18ec data/diabolomod/loot_table/blocks/topaz_ore.json

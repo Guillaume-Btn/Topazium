@@ -41,6 +41,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.TOPAZ_DEEPSLATE_ORE);
                         output.accept(ModBlocks.CRYSTAL_INFUSER);
                         output.accept(ModBlocks.COMPONENT_TABLE);
+                        output.accept(ModBlocks.GOLEM_MAKER_FOUNDATION);
+                        output.accept(ModBlocks.GOLEM_MAKER_CASING);
+                        output.accept(ModBlocks.GOLEM_MAKER_CONTROLLER);
+                        output.accept(ModBlocks.GOLEM_MAKER_ASSEMBLER);
+                        output.accept(ModBlocks.GOLEM_MAKER_COOLER);
+                        output.accept(ModBlocks.GOLEM_MAKER_CATALYST);
+                        output.accept(ModBlocks.GOLEM_MAKER_TRANSFORMER);
                     }))
                     .build());
 

@@ -44,6 +44,14 @@
   "block.diabolomod.crystal_infuser": "Infuseur de Crystal",
   "block.diabolomod.component_table": "Table à composants",
 
+  "block.diabolomod.golem_maker_foundation": "Fondation du créateur de Golem",
+  "block.diabolomod.golem_maker_casing": "Structure du créateur de Golem",
+  "block.diabolomod.golem_maker_controller": "Controleur du créateur de Golem",
+  "block.diabolomod.golem_maker_assembler": "Assembleur du créateur de Golem",
+  "block.diabolomod.golem_maker_cooler": "Refroidisseur du créateur de Golem",
+  "block.diabolomod.golem_maker_catalyst": "Catalyseur du créateur de Golem",
+  "block.diabolomod.golem_maker_transformer": "Transformateur du créateur de Golem",
+
   "item.diabolomod.cobalt_solution": "Solution de Cobalt",
   "item.diabolomod.cobalt_powder": "Poudre de Cobalt",
 

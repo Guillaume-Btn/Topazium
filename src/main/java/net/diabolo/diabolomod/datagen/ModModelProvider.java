@@ -46,6 +46,13 @@ public class ModModelProvider extends ModelProvider {
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.TOPAZ_ORE.get());
         blockModels.createTrivialCube(ModBlocks.TOPAZ_DEEPSLATE_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_FOUNDATION.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_CASING.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_CONTROLLER.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_ASSEMBLER.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_COOLER.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_CATALYST.get());
+        blockModels.createTrivialCube(ModBlocks.GOLEM_MAKER_TRANSFORMER.get());
 
         //itemModels.generateFlatItem(ModBlocks.CRYSTAL_INFUSER.asItem(), ModelTemplates.FLAT_ITEM);
 

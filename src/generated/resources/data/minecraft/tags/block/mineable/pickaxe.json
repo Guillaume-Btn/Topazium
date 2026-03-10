@@ -5,6 +5,13 @@
     "diabolomod:topaz_deepslate_ore",
     "diabolomod:blue_topaz_block",
     "diabolomod:crystal_infuser",
-    "diabolomod:component_table"
+    "diabolomod:component_table",
+    "diabolomod:golem_maker_foundation",
+    "diabolomod:golem_maker_casing",
+    "diabolomod:golem_maker_controller",
+    "diabolomod:golem_maker_assembler",
+    "diabolomod:golem_maker_cooler",
+    "diabolomod:golem_maker_catalyst",
+    "diabolomod:golem_maker_transformer"
   ]
 }

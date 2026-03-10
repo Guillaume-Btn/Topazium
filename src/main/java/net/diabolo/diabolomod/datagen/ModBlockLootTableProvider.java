@@ -31,6 +31,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BLUE_TOPAZ_BLOCK.get());
         dropSelf(ModBlocks.CRYSTAL_INFUSER.get());
         dropSelf(ModBlocks.COMPONENT_TABLE.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_FOUNDATION.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_CONTROLLER.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_CASING.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_ASSEMBLER.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_COOLER.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_CATALYST.get());
+        dropSelf(ModBlocks.GOLEM_MAKER_TRANSFORMER.get());
 
         add(ModBlocks.TOPAZ_ORE.get(),
                 block -> createOreDrop(ModBlocks.TOPAZ_ORE.get(), ModItems.RAW_TOPAZ.get()));

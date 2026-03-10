@@ -24,7 +24,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get())
                 .add(ModBlocks.BLUE_TOPAZ_BLOCK.get())
                 .add(ModBlocks.CRYSTAL_INFUSER.get())
-                .add(ModBlocks.COMPONENT_TABLE.get());
+                .add(ModBlocks.COMPONENT_TABLE.get())
+                .add(ModBlocks.GOLEM_MAKER_FOUNDATION.get())
+                .add(ModBlocks.GOLEM_MAKER_CASING.get())
+                .add(ModBlocks.GOLEM_MAKER_CONTROLLER.get())
+                .add(ModBlocks.GOLEM_MAKER_ASSEMBLER.get())
+                .add(ModBlocks.GOLEM_MAKER_COOLER.get())
+                .add(ModBlocks.GOLEM_MAKER_CATALYST.get())
+                .add(ModBlocks.GOLEM_MAKER_TRANSFORMER.get())
+        ;
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.TOPAZ_ORE.get())
