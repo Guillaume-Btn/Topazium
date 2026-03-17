@@ -4,7 +4,7 @@ import net.diabolo.diabolomod.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.NonNull; // ou l'import que tu utilises pour @NonNull
+import org.jspecify.annotations.NonNull;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
@@ -59,4 +59,5 @@ public class GolemMakerPartEntity extends BlockEntity {
             this.masterPos = null;
         }
     }
+
 }

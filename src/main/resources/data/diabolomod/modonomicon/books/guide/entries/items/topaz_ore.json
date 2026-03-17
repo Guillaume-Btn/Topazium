@@ -1,0 +1,19 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.topaz_ore.name",
+  "icon": "diabolomod:topaz_ore",
+  "x": -10,
+  "y": -5,
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:topaz_ore",
+      "text": "diabolomod.page.topaz_ore.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.topaz_ore.usage"
+    }
+  ]
+}

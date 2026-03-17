@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.topaz_shovel.name",
+  "icon": "diabolomod:topaz_shovel",
+  "x": -2,
+  "y": -8,
+  "parents": [
+    {
+      "entry": "diabolomod:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:topaz_shovel",
+      "text": "diabolomod.page.topaz_shovel.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.topaz_shovel.usage"
+    }
+  ]
+}

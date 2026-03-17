@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.topaz_leggings.name",
+  "icon": "diabolomod:topaz_leggings",
+  "x": -3,
+  "y": -2,
+  "parents": [
+    {
+      "entry": "diabolomod:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:topaz_leggings",
+      "text": "diabolomod.page.topaz_leggings.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.topaz_leggings.usage"
+    }
+  ]
+}

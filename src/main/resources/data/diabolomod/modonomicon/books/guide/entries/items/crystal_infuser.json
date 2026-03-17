@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.crystal_infuser.name",
+  "icon": "diabolomod:crystal_infuser",
+  "x": 2,
+  "y": -3,
+  "parents": [
+    {
+      "entry": "diabolomod:items/topaz_block"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:crystal_infuser",
+      "text": "diabolomod.page.crystal_infuser.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.crystal_infuser.usage"
+    }
+  ]
+}

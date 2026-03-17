@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.golem_head_basic.name",
+  "icon": "diabolomod:golem_head_basic",
+  "x": 8,
+  "y": -5,
+  "parents": [
+    {
+      "entry": "diabolomod:items/component_table"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:golem_head_basic",
+      "text": "diabolomod.page.golem_head_basic.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.golem_head_basic.usage"
+    }
+  ]
+}

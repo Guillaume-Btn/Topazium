@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.topaz_boots.name",
+  "icon": "diabolomod:topaz_boots",
+  "x": -2,
+  "y": -2,
+  "parents": [
+    {
+      "entry": "diabolomod:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:topaz_boots",
+      "text": "diabolomod.page.topaz_boots.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.topaz_boots.usage"
+    }
+  ]
+}

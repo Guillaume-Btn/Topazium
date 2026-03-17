@@ -60,5 +60,14 @@
   "creativetab.diabolomod.tools": "DiaboloMod's Tools",
   "creativetab.diabolomod.golem": "Parties de golem",
 
-  "entity.diabolomod.topaz_golem": "Topaz Golem"
+  "entity.diabolomod.topaz_golem": "Topaz Golem",
+
+
+  "diabolomod.book.name": "DiaboloMod Guide",
+  "diabolomod.book.tooltip": "Everything you need to know about the mod.",
+  "diabolomod.category.machines.name": "Machines and Multiblocks",
+  "diabolomod.entry.golemmaker.name": "The Golem Maker",
+  "diabolomod.page.golemmaker.intro": "The **Golem Maker** is the main machine in this mod. <br> It lets you craft different kinds of Golems by supplying the required parts.",
+  "diabolomod.page.golemmaker.preview": "Click the eye above to project the structure into the world."
+
 }

@@ -1,0 +1,64 @@
+{
+  "type": "modonomicon:dense",
+  "pattern": [
+    [
+      "______",
+      "_D____",
+      "______"
+    ],
+    [
+      "CCC___",
+      "CTC___",
+      "CCC___"
+    ],
+    [
+      "CRC___",
+      "RA0___",
+      "CRC___"
+    ],
+    [
+      "CRC___",
+      "RAC___",
+      "CRC___"
+    ],
+    [
+      "FFFFFF",
+      "FFFFCF",
+      "FFFFFF"
+    ]
+  ],
+  "mapping": {
+    "C": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_casing"
+    },
+    "F": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_foundation"
+    },
+    "0": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_controller"
+    },
+    "D": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_catalyst"
+    },
+    "T": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_transformer"
+    },
+    "R": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_cooler"
+    },
+    "A": {
+      "type": "modonomicon:block",
+      "block": "diabolomod:golem_maker_assembler"
+    },
+    "_": {
+      "type": "modonomicon:block",
+      "block": "minecraft:air"
+    }
+  }
+}

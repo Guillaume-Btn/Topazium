@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.golem_arms_miner.name",
+  "icon": "diabolomod:golem_arms_miner",
+  "x": 7,
+  "y": -6,
+  "parents": [
+    {
+      "entry": "diabolomod:items/component_table"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:golem_arms_miner",
+      "text": "diabolomod.page.golem_arms_miner.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.golem_arms_miner.usage"
+    }
+  ]
+}

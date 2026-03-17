@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.golem_arms_blaster.name",
+  "icon": "diabolomod:golem_arms_blaster",
+  "x": 6,
+  "y": -6,
+  "parents": [
+    {
+      "entry": "diabolomod:items/component_table"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:golem_arms_blaster",
+      "text": "diabolomod.page.golem_arms_blaster.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.golem_arms_blaster.usage"
+    }
+  ]
+}

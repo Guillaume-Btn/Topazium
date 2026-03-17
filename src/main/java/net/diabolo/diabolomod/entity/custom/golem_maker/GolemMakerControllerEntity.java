@@ -28,6 +28,10 @@ public class GolemMakerControllerEntity extends BlockEntity {
     private int tickCounter = 0;
     private boolean isFirstTick = true;
 
+    public boolean isAssembled(){
+        return isAssembled;
+    }
+
     public GolemMakerControllerEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.GOLEM_MAKER_CONTROLLER_BE.get(), pos, state);
     }
@@ -143,7 +147,6 @@ public class GolemMakerControllerEntity extends BlockEntity {
         }
         return true;
     }
-
 
     private boolean isValidBlock(char character, Block blockInWorld) {
         return switch (character) {

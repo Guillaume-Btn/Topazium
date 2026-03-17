@@ -1,0 +1,27 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.blue_topaz.name",
+  "icon": "diabolomod:blue_topaz",
+  "x": 2,
+  "y": 0,
+  "parents": [
+    {
+      "entry": "diabolomod:items/crystal_infuser"
+    },
+    {
+      "entry": "diabolomod:items/cobalt_solution"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:blue_topaz",
+      "text": "diabolomod.page.blue_topaz.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.blue_topaz.usage"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.topaz_block.name",
+  "icon": "diabolomod:topaz_block",
+  "x": 0,
+  "y": -5,
+  "parents": [
+    {
+      "entry": "diabolomod:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:topaz_block",
+      "text": "diabolomod.page.topaz_block.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.topaz_block.usage"
+    }
+  ]
+}

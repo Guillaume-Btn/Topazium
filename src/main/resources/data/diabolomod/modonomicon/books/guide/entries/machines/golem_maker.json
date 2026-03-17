@@ -1,0 +1,19 @@
+{
+  "category": "diabolomod:machines",
+  "name": "diabolomod.entry.golemmaker.name",
+  "icon": "diabolomod:golem_maker_controller",
+  "x": 3,
+  "y": 3,
+  "pages": [
+    {
+      "type": "modonomicon:text",
+      "text": "diabolomod.page.golemmaker.intro"
+    },
+    {
+      "type": "modonomicon:multiblock",
+      "multiblock_id": "diabolomod:golem_maker",
+      "multiblock_name": "Le Golem Maker",
+      "text": "diabolomod.page.golemmaker.preview"
+    }
+  ]
+}

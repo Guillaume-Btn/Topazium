@@ -20,7 +20,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> TOPAZ_BLOCK = BLOCKS.registerBlock(
             "topaz_block",
-            Block::new, // factory qui reçoit les properties avec l'id déjà mis
+            Block::new,
             () -> BlockBehaviour.Properties.of()
                     .strength(2.4f)
                     .requiresCorrectToolForDrops()

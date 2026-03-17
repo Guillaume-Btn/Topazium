@@ -60,5 +60,29 @@
   "creativetab.diabolomod.tools": "Outils de DiaboloMod",
   "creativetab.diabolomod.golem": "Parties de golem",
 
-  "entity.diabolomod.topaz_golem": "Golem de Topaz"
+  "entity.diabolomod.topaz_golem": "Golem de Topaz",
+
+  "diabolomod.book.name": "Guide de DiaboloMod",
+  "diabolomod.book.tooltip": "Toutes les informations pour le mod.",
+
+  "diabolomod.category.machines.name": "Machines et Multiblocks",
+  "diabolomod.category.items.name": "Ressources & Objets",
+
+
+  "diabolomod.entry.golemmaker.name": "Le Golem Maker",
+  "diabolomod.page.golemmaker.intro": "Le Golem Maker est la machine principale de ce mod. Elle permet de crafter différents types de Golems en fournissant les bonnes pièces.",
+  "diabolomod.page.golemmaker.preview": "Cliquez sur l'œil ci-dessus pour projeter la structure dans le monde.",
+
+  "diabolomod.entry.topaz.name": "Le Topaze",
+  "diabolomod.page.topaz.info": "Le Topaze est le matériau de base du mod. Elle permet de fabriquer de nouveaux outils comme des machines.",
+  "diabolomod.page.topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines.",
+
+  "diabolomod.entry.blue_topaz.name": "Le Topaze Bleu",
+  "diabolomod.page.blue_topaz.info": "Le Topaze Bleu est la version amélioré du Topaze. Elle permet de fabriquer de puissants outils.",
+  "diabolomod.page.blue_topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines.",
+
+  "diabolomod.entry.raw_topaz.name": "Le Topaze Brut",
+  "diabolomod.page.raw_topaz.info": "Le Topaze Brut est la version amélioré du Topaze. Elle permet de fabriquer de puissants outils.",
+  "diabolomod.page.raw_topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines."
+
 }

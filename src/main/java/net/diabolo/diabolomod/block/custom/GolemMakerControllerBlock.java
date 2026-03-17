@@ -74,11 +74,26 @@ public class GolemMakerControllerBlock extends BaseEntityBlock {
                 (lvl, pos, st, blockEntity) -> blockEntity.tick(lvl, pos, st));
     }
 
+    // Plus besoin de la méthode useItemOn ici !
+
     @Override
-    protected @NonNull InteractionResult useWithoutItem(@NonNull BlockState state, Level level, @NonNull BlockPos pos, @NonNull Player player, @NonNull BlockHitResult hitResult) {
-        if (!level.isClientSide()) {
-            player.displayClientMessage(Component.literal("§a[Golem Maker] : §f Menu pas encore dispo"), false);
+    public @NonNull InteractionResult useWithoutItem(@NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, @NonNull Player player, @NonNull BlockHitResult hitResult) {
+        if (state.getValue(ASSEMBLED)) {
+            if (!level.isClientSide()) {
+                BlockEntity be = level.getBlockEntity(pos);
+                if (be instanceof GolemMakerControllerEntity controller) {
+                    player.displayClientMessage(Component.literal("§a[Golem Maker] : §f Menu pas encore dispoo"), false);
+                    //menu plus tard
+                }
+                return InteractionResult.SUCCESS;
+            }
+            return InteractionResult.CONSUME;
         }
-        return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
+
+
+
+
+
 }

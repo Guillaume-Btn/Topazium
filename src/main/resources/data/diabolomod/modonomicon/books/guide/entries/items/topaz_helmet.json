@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.topaz_helmet.name",
+  "icon": "diabolomod:topaz_helmet",
+  "x": -5,
+  "y": -2,
+  "parents": [
+    {
+      "entry": "diabolomod:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:topaz_helmet",
+      "text": "diabolomod.page.topaz_helmet.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.topaz_helmet.usage"
+    }
+  ]
+}
