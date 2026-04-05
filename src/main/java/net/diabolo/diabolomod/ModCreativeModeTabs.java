@@ -26,7 +26,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BLUE_TOPAZ);
                         output.accept(ModItems.COBALT_SOLUTION);
                         output.accept(ModItems.COBALT_POWDER);
-                        output.accept(ModItems.RAW_BLUE_TOPAZ);
                     }))
                     .build());
 

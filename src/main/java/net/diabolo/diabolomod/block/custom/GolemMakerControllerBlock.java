@@ -74,8 +74,6 @@ public class GolemMakerControllerBlock extends BaseEntityBlock {
                 (lvl, pos, st, blockEntity) -> blockEntity.tick(lvl, pos, st));
     }
 
-    // Plus besoin de la méthode useItemOn ici !
-
     @Override
     public @NonNull InteractionResult useWithoutItem(@NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, @NonNull Player player, @NonNull BlockHitResult hitResult) {
         if (state.getValue(ASSEMBLED)) {
@@ -91,9 +89,5 @@ public class GolemMakerControllerBlock extends BaseEntityBlock {
         }
         return InteractionResult.PASS;
     }
-
-
-
-
 
 }

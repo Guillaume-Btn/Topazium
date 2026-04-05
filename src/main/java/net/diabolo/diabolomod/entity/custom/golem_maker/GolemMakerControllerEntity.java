@@ -42,56 +42,57 @@ public class GolemMakerControllerEntity extends BlockEntity {
         if (tickCounter % 20 == 0) {
             Direction facing = state.getValue(GolemMakerControllerBlock.FACING);
             boolean isValid = checkStructure(level, pos, facing);
-            if (isFirstTick) {
-                this.isAssembled = isValid;
-                this.isFirstTick = false;
-                if (isValid) {
-                    updateStructureState(level, state, true);
+            if (isFirstTick || isValid != isAssembled) {
+                if (isFirstTick && !isValid) {
+                    this.isFirstTick = false;
+                    return;
                 }
-                return;
-            }
-            if (isValid != isAssembled) {
                 this.isAssembled = isValid;
                 updateStructureState(level, state, isValid);
-                AABB machineBox = new AABB(
-                        pos.getX() - 2, pos.getY() - 2, pos.getZ() - 2,
-                        pos.getX() + 3, pos.getY() + 2, pos.getZ() + 2
-                );
-                AABB searchArea = machineBox.inflate(5.0D);
-                List<Player> nearbyPlayers = level.getEntitiesOfClass(Player.class, searchArea);
-                for (Player player : nearbyPlayers) {
-                    if (isValid) {
-                        player.displayClientMessage(Component.literal("§a[Golem Maker] : ON"), false);
-                    } else {
-                        player.displayClientMessage(Component.literal("§c[Golem Maker] : OFF"), false);
-                    }
-                }
+                notifyPlayers(level, pos, isValid);
+                this.isFirstTick = false;
             }
         }
     }
 
+    private void notifyPlayers(Level level, BlockPos pos, boolean isValid) {
+        AABB machineBox = new AABB(
+                pos.getX() - 2, pos.getY() - 2, pos.getZ() - 2,
+                pos.getX() + 3, pos.getY() + 2, pos.getZ() + 2
+        );
+        AABB searchArea = machineBox.inflate(5.0D);
+        List<Player> nearbyPlayers = level.getEntitiesOfClass(Player.class, searchArea);
+        for (Player player : nearbyPlayers) {
+            if (isValid) {
+                player.displayClientMessage(Component.literal("§a[Golem Maker] : ON"), false);
+            } else {
+                player.displayClientMessage(Component.literal("§c[Golem Maker] : OFF"), false);
+            }
+        }
+    }
+
+
     private void updateStructureState(Level level, BlockState state, boolean assembled) {
         level.setBlock(this.worldPosition, state.setValue(GolemMakerControllerBlock.ASSEMBLED, assembled), Block.UPDATE_NEIGHBORS | UPDATE_CLIENTS);
-
         for (BlockPos partPos : structureBlocks) {
             BlockState partState = level.getBlockState(partPos);
             if (partState.hasProperty(GolemMakerPartBlock.ASSEMBLED)) {
-                level.setBlock(partPos, partState.setValue(GolemMakerPartBlock.ASSEMBLED, assembled), Block.UPDATE_NEIGHBORS | UPDATE_CLIENTS);
+                level.setBlock(partPos, partState.setValue(GolemMakerPartBlock.ASSEMBLED, assembled), Block.UPDATE_NEIGHBORS | Block.UPDATE_CLIENTS);
 
                 BlockEntity be = level.getBlockEntity(partPos);
                 if (be instanceof GolemMakerPartEntity partEntity) {
                     if (assembled) {
-                        partEntity.setMasterPos(this.worldPosition); // Donne la position
+                        partEntity.setMasterPos(this.worldPosition);
                     } else {
-                        partEntity.setMasterPos(null); // Retire la position si la machine se casse
+                        partEntity.setMasterPos(null);
                     }
+                    partEntity.setChanged();
                 }
             }
         }
-        if (!assembled) {
-            structureBlocks.clear();
-        }
+
     }
+
 
     private boolean checkStructure(Level level, BlockPos center, Direction facing) {
         structureBlocks.clear();
@@ -126,16 +127,21 @@ public class GolemMakerControllerEntity extends BlockEntity {
             for (int z = 0; z < pattern[y].length; z++) {
                 for (int x = 0; x < pattern[y][z].length; x++) {
                     char expectedBlock = pattern[y][z][x];
-                    // On ignore 'Y' (vide/n'importe quoi) et 'B' (le contrôleur lui-même)
-                    if (expectedBlock == 'Y' || expectedBlock == 'B') continue;
+                    if (expectedBlock == 'B') continue;
 
-                    // IMPORTANT : On doit calculer l'offset par rapport au contrôleur 'B'
-                    // 'B' est à y=2, z=1, x=2 dans ce tableau.
                     int offsetX = x - 2;
-                    int offsetY = y - 2; // attention, la couche 1 dans ton tab c'est y=0, mais physiquement c'est y=-1
+                    int offsetY = y - 2;
                     int offsetZ = z - 1;
 
                     BlockPos targetPos = rotateOffset(center, offsetX, offsetY, offsetZ, facing);
+
+                    if (expectedBlock == 'Y') {
+                        if (!level.isEmptyBlock(targetPos)) {
+                            structureBlocks.clear();
+                            return false;
+                        }
+                        continue;
+                    }
                     if (!isValidBlock(expectedBlock, level.getBlockState(targetPos).getBlock())) {
                         structureBlocks.clear();
                         return false;
@@ -168,6 +174,37 @@ public class GolemMakerControllerEntity extends BlockEntity {
             case NORTH -> center.offset(offsetZ, offsetY, -offsetX);
             default -> center.offset(offsetX, offsetY, offsetZ);
         };
+    }
+
+    public void clearStructure() {
+        if (this.level == null || this.level.isClientSide()) return;
+        for (BlockPos partPos : structureBlocks) {
+            BlockState partState = this.level.getBlockState(partPos);
+            if (partState.hasProperty(GolemMakerPartBlock.ASSEMBLED)) {
+                this.level.setBlock(partPos, partState.setValue(GolemMakerPartBlock.ASSEMBLED, false), Block.UPDATE_ALL);
+                BlockEntity be = this.level.getBlockEntity(partPos);
+                if (be instanceof GolemMakerPartEntity partEntity) {
+                    partEntity.setMasterPos(null);
+                    partEntity.setChanged();
+                }
+            }
+        }
+
+        if (this.isAssembled) {
+            notifyPlayers(this.level, this.worldPosition, false);
+        }
+
+        this.structureBlocks.clear(); // ON VIDE LA LISTE ICI SEULEMENT
+        this.isAssembled = false;
+    }
+
+
+
+
+    @Override
+    public void preRemoveSideEffects(@NonNull BlockPos pos, @NonNull BlockState state) {
+        super.preRemoveSideEffects(pos, state);
+        this.clearStructure();
     }
 
     @Override

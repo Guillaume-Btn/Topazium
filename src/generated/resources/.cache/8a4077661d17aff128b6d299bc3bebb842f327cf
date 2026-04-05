@@ -1,4 +1,4 @@
-// 1.21.11	2026-03-10T11:31:39.3604964	Model Definitions - diabolomod
+// 1.21.11	2026-03-19T11:40:08.185757	Model Definitions - diabolomod
 87fc129b8bd9973f6a53041e7e3203e1657c9205 assets/diabolomod/blockstates/blue_topaz_block.json
 e37cd0285aac2018d3aeb6213bb7698a02068ff9 assets/diabolomod/blockstates/component_table.json
 191bc406802b7acdbd6a888b9b7135781d8613e9 assets/diabolomod/blockstates/golem_maker_assembler.json
@@ -35,7 +35,6 @@ c0b649b8573aa52a86884d72f812453650ad289a assets/diabolomod/items/golem_maker_cat
 753ae68ed2e4423d330fe6097ab98c91c2593c75 assets/diabolomod/items/golem_maker_cooler.json
 b0c6419f6c36034803162382a6d1c04deb561429 assets/diabolomod/items/golem_maker_foundation.json
 b2bc69c941e89216b4717a23edb046d1b6810c86 assets/diabolomod/items/golem_maker_transformer.json
-883c77d6062f2919492171f85482d75c013bd7e4 assets/diabolomod/items/raw_blue_topaz.json
 0f4c090ae7b875ba1e2198aac1c2036ba1f92041 assets/diabolomod/items/raw_topaz.json
 3a5b6fe0e380242f7349a623e39dcf64c78735ed assets/diabolomod/items/topaz.json
 6170c62182cd62bf8dbb5499d9819f5cd55a1a63 assets/diabolomod/items/topaz_axe.json
@@ -122,7 +121,6 @@ f5177b8e3b165ef11c0367a918ceae34814a5535 assets/diabolomod/models/item/blue_topa
 4584d1245d85149f96059fb59f58da7f6ed3c864 assets/diabolomod/models/item/blue_topaz_sword.json
 bd681d4f9ad12493fb0d237152c957e21f8711ae assets/diabolomod/models/item/cobalt_powder.json
 fc7ae23383d88d1233994de446b472da8e7ede35 assets/diabolomod/models/item/cobalt_solution.json
-9e4c8c4440ec6ac4fd478af3fa3123b5cb2d28bc assets/diabolomod/models/item/raw_blue_topaz.json
 7d495c1007fcf4c61acb180baf1fa7cf24f04515 assets/diabolomod/models/item/raw_topaz.json
 63b9ea93503be7593edc54127952a5b20a904bb9 assets/diabolomod/models/item/topaz.json
 916fc15be11c54f989e598f01e7758e76129d8ca assets/diabolomod/models/item/topaz_axe.json

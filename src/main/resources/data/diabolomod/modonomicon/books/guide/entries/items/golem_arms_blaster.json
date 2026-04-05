@@ -3,7 +3,7 @@
   "name": "diabolomod.entry.golem_arms_blaster.name",
   "icon": "diabolomod:golem_arms_blaster",
   "x": 6,
-  "y": -6,
+  "y": -7,
   "parents": [
     {
       "entry": "diabolomod:items/component_table"

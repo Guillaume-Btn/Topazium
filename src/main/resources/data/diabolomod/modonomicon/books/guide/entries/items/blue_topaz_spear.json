@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.blue_topaz_spear.name",
+  "icon": "diabolomod:blue_topaz_spear",
+  "x": 7,
+  "y": 4,
+  "parents": [
+    {
+      "entry": "diabolomod:items/blue_topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:blue_topaz_spear",
+      "text": "diabolomod.page.blue_topaz_spear.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.blue_topaz_spear.usage"
+    }
+  ]
+}

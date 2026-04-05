@@ -3,7 +3,7 @@
   "name": "diabolomod.entry.golem_legs_basic.name",
   "icon": "diabolomod:golem_legs_basic",
   "x": 5,
-  "y": -4,
+  "y": -3,
   "parents": [
     {
       "entry": "diabolomod:items/component_table"

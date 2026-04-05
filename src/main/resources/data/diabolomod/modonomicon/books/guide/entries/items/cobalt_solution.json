@@ -3,7 +3,7 @@
   "name": "diabolomod.entry.cobalt_solution.name",
   "icon": "diabolomod:cobalt_solution",
   "x": -6,
-  "y": -1,
+  "y": 1,
   "parents": [
     {
       "entry": "diabolomod:items/cobalt_powder"

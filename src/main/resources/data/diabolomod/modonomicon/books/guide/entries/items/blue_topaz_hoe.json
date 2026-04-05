@@ -1,0 +1,24 @@
+{
+  "category": "diabolomod:items",
+  "name": "diabolomod.entry.blue_topaz_hoe.name",
+  "icon": "diabolomod:blue_topaz_hoe",
+  "x": 7,
+  "y": -2,
+  "parents": [
+    {
+      "entry": "diabolomod:items/blue_topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "diabolomod:blue_topaz_hoe",
+      "text": "diabolomod.page.blue_topaz_hoe.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "diabolomod.page.blue_topaz_hoe.usage"
+    }
+  ]
+}

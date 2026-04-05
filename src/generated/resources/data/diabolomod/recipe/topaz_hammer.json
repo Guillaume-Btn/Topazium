@@ -3,10 +3,11 @@
   "category": "equipment",
   "key": {
     "A": "minecraft:stick",
-    "B": "diabolomod:topaz"
+    "B": "diabolomod:topaz",
+    "C": "diabolomod:topaz_block"
   },
   "pattern": [
-    "BBB",
+    "BCB",
     "BAB",
     " A "
   ],

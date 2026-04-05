@@ -5,8 +5,11 @@ import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemEntity;
 import net.diabolo.diabolomod.entity.custom.topaz_golem.TopazGolemPattern;
 import net.diabolo.diabolomod.item.ModItems;
 import net.diabolo.diabolomod.item.custom.HammerItem;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.player.Player;
@@ -26,6 +29,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.diabolo.diabolomod.DiaboloMod;
 import java.util.HashSet;
@@ -147,5 +151,14 @@ public class ModEvents {
             }
         }
     }
-
+    @SubscribeEvent
+    public static void onTooltip(ItemTooltipEvent event) {
+        String registryName = BuiltInRegistries.ITEM.getKey(event.getItemStack().getItem()).toString();
+        if (registryName.startsWith("diabolomod:")) {
+            if (!event.getToolTip().isEmpty()) {
+                Component originalName = event.getToolTip().getFirst();
+                event.getToolTip().set(0, Component.literal(originalName.getString()).withStyle(ChatFormatting.WHITE));
+            }
+        }
+    }
 }

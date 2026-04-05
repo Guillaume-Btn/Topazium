@@ -75,7 +75,7 @@ public class CrystalInfuserRecipeCategory implements IRecipeCategory<CrystalInfu
                 .addIngredients(recipe.inputItem());
 
         // Input Secondaire (Solvant) - Slot 1
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 51, 48)
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 51, 50)
                 .addIngredients(recipe.fuelItem());
 
         // Output (Résultat) - Slot 2 (Le gros slot à droite)

@@ -19,29 +19,12 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import org.jspecify.annotations.NonNull;
 
-
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
         super(provider, recipeOutput);
-    }
-
-    public static class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
-            super(packOutput, provider);
-        }
-
-        @Override
-        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
-            return new ModRecipeProvider(provider, recipeOutput);
-        }
-
-        @Override
-        public @NonNull String getName() {
-            return "My Recipes";
-        }
     }
 
     @Override
@@ -124,11 +107,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HAMMER.get())
-                .pattern("BBB")
+                .pattern("BCB")
                 .pattern("BAB")
                 .pattern(" A ")
-                .define('A',Items.STICK).define('B',ModItems.TOPAZ.get())
-                .unlockedBy("has_topaz",has(ModItems.TOPAZ)).save(output);
+                .define('A', Items.STICK)
+                .define('B', ModItems.TOPAZ.get())
+                .define('C', ModBlocks.TOPAZ_BLOCK)
+                .unlockedBy("has_topaz", has(ModItems.TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_SWORD.get())
                 .pattern(" B ")
@@ -172,11 +157,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.BLUE_TOPAZ_HAMMER.get())
-                .pattern("BBB")
+                .pattern("BCB")
                 .pattern("BAB")
                 .pattern(" A ")
                 .define('B', ModItems.BLUE_TOPAZ.get())
                 .define('A', Items.STICK)
+                .define('C', ModBlocks.BLUE_TOPAZ_BLOCK)
                 .unlockedBy("has_blue_topaz", has(ModItems.BLUE_TOPAZ)).save(output);
 
         shaped(RecipeCategory.TOOLS, ModItems.TOPAZ_HELMET.get())
@@ -212,21 +198,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(Items.IRON_NUGGET)
                 .unlockedBy("has_lapiz_lazuli", has(Items.LAPIS_LAZULI)).save(output);
 
-        shaped(RecipeCategory.MISC,ModBlocks.CRYSTAL_INFUSER.get())
+        shaped(RecipeCategory.MISC, ModBlocks.CRYSTAL_INFUSER.get())
                 .pattern("IGI")
                 .pattern("PDP")
                 .pattern("OTO")
-                .define('I',Items.IRON_INGOT)
-                .define('G',Items.GLASS)
-                .define('P',Items.PISTON)
-                .define('D',Items.DIAMOND)
-                .define('O',Items.OBSIDIAN)
-                .define('T',ModBlocks.TOPAZ_BLOCK)
+                .define('I', Items.IRON_INGOT)
+                .define('G', Items.GLASS)
+                .define('P', Items.PISTON)
+                .define('D', Items.DIAMOND)
+                .define('O', Items.OBSIDIAN)
+                .define('T', ModBlocks.TOPAZ_BLOCK)
                 .unlockedBy("has_topaz", has(ModItems.TOPAZ))
-                .unlockedBy("has_diamond",has(Items.DIAMOND))
-                .unlockedBy("has_obsidian",has(Items.OBSIDIAN)).save(output);
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .unlockedBy("has_obsidian", has(Items.OBSIDIAN)).save(output);
 
-        stonecutterResultFromBase(RecipeCategory.MISC,ModItems.BLUE_TOPAZ.get(),ModItems.RAW_BLUE_TOPAZ);
+//        stonecutterResultFromBase(RecipeCategory.MISC,ModItems.BLUE_TOPAZ.get(),ModItems.RAW_BLUE_TOPAZ);
 
         buildCrystalInfuserRecipe();
     }
@@ -245,13 +231,13 @@ public class ModRecipeProvider extends RecipeProvider {
 
     protected <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,
                                                                 List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
-        for(ItemLike itemlike : pIngredients) {
+        for (ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(recipeOutput, DiaboloMod.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
     }
 
-    private void buildCrystalInfuserRecipe(){
+    private void buildCrystalInfuserRecipe() {
         ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(Registries.RECIPE,
                 Identifier.fromNamespaceAndPath("diabolomod", "topaz_to_blue_topaz"));
 
@@ -260,7 +246,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 5,
                 Ingredient.of(ModItems.COBALT_SOLUTION.get()),
                 1,
-                new ItemStack(ModItems.RAW_BLUE_TOPAZ.get()),
+                new ItemStack(ModItems.BLUE_TOPAZ.get()),
                 new ItemStack(Items.GLASS_BOTTLE),
                 1
         );
@@ -293,6 +279,21 @@ public class ModRecipeProvider extends RecipeProvider {
         output.accept(recipeKey, recipeInstance, null);
     }
 
+    public static class Runner extends RecipeProvider.Runner {
+        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
+            super(packOutput, provider);
+        }
+
+        @Override
+        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
+            return new ModRecipeProvider(provider, recipeOutput);
+        }
+
+        @Override
+        public @NonNull String getName() {
+            return "My Recipes";
+        }
+    }
 
 
 }

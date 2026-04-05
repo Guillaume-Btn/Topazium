@@ -3,7 +3,7 @@
   "name": "diabolomod.entry.cobalt_powder.name",
   "icon": "diabolomod:cobalt_powder",
   "x": -8,
-  "y": -1,
+  "y": 1,
   "pages": [
     {
       "type": "modonomicon:spotlight",

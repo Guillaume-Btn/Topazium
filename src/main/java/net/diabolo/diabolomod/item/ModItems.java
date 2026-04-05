@@ -43,7 +43,6 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> BLUE_TOPAZ = ITEMS.registerSimpleItem("blue_topaz", Item.Properties::fireResistant);
-    public static final DeferredItem<Item> RAW_BLUE_TOPAZ = ITEMS.registerSimpleItem("raw_blue_topaz", Item.Properties::fireResistant);
     public static final DeferredItem<Item> BLUE_TOPAZ_SWORD = ITEMS.registerItem("blue_topaz_sword",
             (properties) -> new Item(properties.sword(ModToolTiers.BLUE_TOPAZ, 7, -2.4f).fireResistant()));
     public static final DeferredItem<Item> BLUE_TOPAZ_PICKAXE = ITEMS.registerItem("blue_topaz_pickaxe",
