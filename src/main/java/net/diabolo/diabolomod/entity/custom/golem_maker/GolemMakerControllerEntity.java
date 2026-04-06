@@ -64,9 +64,9 @@ public class GolemMakerControllerEntity extends BlockEntity {
         List<Player> nearbyPlayers = level.getEntitiesOfClass(Player.class, searchArea);
         for (Player player : nearbyPlayers) {
             if (isValid) {
-                player.displayClientMessage(Component.literal("§a[Golem Maker] : ON"), false);
+                player.sendOverlayMessage(Component.literal("§a[Golem Maker] : ON"));
             } else {
-                player.displayClientMessage(Component.literal("§c[Golem Maker] : OFF"), false);
+                player.sendOverlayMessage(Component.literal("§c[Golem Maker] : OFF"));
             }
         }
     }

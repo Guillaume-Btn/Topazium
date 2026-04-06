@@ -219,20 +219,31 @@ public class ModRecipeProvider extends RecipeProvider {
 
     protected void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                float pExperience, int pCookingTIme, String pGroup) {
-        oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
+        oreCooking(recipeOutput, SmeltingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
 
     protected void oreBlasting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                float pExperience, int pCookingTime, String pGroup) {
-        oreCooking(recipeOutput, RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, pIngredients, pCategory, pResult,
+        oreCooking(recipeOutput, BlastingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTime, pGroup, "_from_blasting");
     }
 
-    protected <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,
-                                                                List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+
+    protected <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, AbstractCookingRecipe.Factory<T> factory, List<ItemLike> pIngredients, RecipeCategory pCategory,
+                                ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
         for (ItemLike itemlike : pIngredients) {
-            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
+            CookingBookCategory cookingCategory = CookingBookCategory.MISC;
+            SimpleCookingRecipeBuilder.generic(
+                            Ingredient.of(itemlike),
+                            pCategory,
+                            cookingCategory,
+                            pResult,
+                            pExperience,
+                            pCookingTime,
+                            factory)
+                    .group(pGroup)
+                    .unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(recipeOutput, DiaboloMod.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
     }
@@ -246,8 +257,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 5,
                 Ingredient.of(ModItems.COBALT_SOLUTION.get()),
                 1,
-                new ItemStack(ModItems.BLUE_TOPAZ.get()),
-                new ItemStack(Items.GLASS_BOTTLE),
+                ModItems.BLUE_TOPAZ.get(),
+                Items.GLASS_BOTTLE,
                 1
         );
         output.accept(recipeKey, recipeInstance, null);
@@ -259,8 +270,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 5,
                 Ingredient.of(Items.GLASS_BOTTLE),
                 1,
-                new ItemStack(ModItems.TOPAZ.get()),
-                new ItemStack(ModItems.COBALT_SOLUTION.get()),
+                ModItems.TOPAZ.get(),
+                ModItems.COBALT_SOLUTION.get(),
                 1
         );
         output.accept(recipeKey, recipeInstance, null);
@@ -272,8 +283,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 64,
                 Ingredient.of(Items.BLUE_DYE),
                 1,
-                new ItemStack(ModItems.BLUE_TOPAZ.get()),
-                new ItemStack(Items.GLASS_BOTTLE),
+                ModItems.BLUE_TOPAZ.get(),
+                Items.GLASS_BOTTLE,
                 1
         );
         output.accept(recipeKey, recipeInstance, null);

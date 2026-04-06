@@ -2,15 +2,15 @@ package net.diabolo.diabolomod.entity.custom.component_table;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemModelResolver;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -85,8 +85,9 @@ public class ComponentTableRenderer implements BlockEntityRenderer<ComponentTabl
     private int getLightLevel(Level level, BlockPos pos) {
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return LightTexture.pack(bLight, sLight);
+        return LightCoordsUtil.pack(bLight, sLight);
     }
+
 }
 
 

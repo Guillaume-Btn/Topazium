@@ -265,8 +265,8 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
             if (extractedInput == r.inputCount() && extractedFuel == r.fuelCount()) {
                 int currentOutCount = (int) itemHandler.getAmountAsLong(OUTPUT_SLOT);
                 int currentBottleCount = (int) itemHandler.getAmountAsLong(OUTPUT_FUEL_SLOT);
-                itemHandler.set(OUTPUT_SLOT, ItemResource.of(r.output().getItem()), currentOutCount + r.outputCount());
-                itemHandler.set(OUTPUT_FUEL_SLOT, ItemResource.of(r.outputBottle().getItem()), currentBottleCount + r.outputCount());
+                itemHandler.set(OUTPUT_SLOT, ItemResource.of(r.output()), currentOutCount + r.outputCount());
+                itemHandler.set(OUTPUT_FUEL_SLOT, ItemResource.of(r.outputBottle()), currentBottleCount + r.outputCount());
                 tx.commit();
             }
         }
@@ -301,8 +301,8 @@ public class CrystalInfuserBlockEntity extends BlockEntity implements MenuProvid
         if (recipe.isEmpty()) return false;
 
         CrystalInfuserRecipe r = recipe.get().value();
-        ItemResource normalOutput = ItemResource.of(r.output().getItem());
-        ItemResource bottleOutput = ItemResource.of(r.outputBottle().getItem());
+        ItemResource normalOutput = ItemResource.of(r.output());
+        ItemResource bottleOutput = ItemResource.of(r.outputBottle());
 
         return canInsertItemIntoOutputSlot(normalOutput, bottleOutput) &&
                 canInsertAmountIntoOutputSlot(r.outputCount());

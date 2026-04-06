@@ -5,12 +5,6 @@
   "input_count": 5,
   "input_item": "diabolomod:topaz",
   "output_count": 1,
-  "result": {
-    "count": 1,
-    "id": "diabolomod:blue_topaz"
-  },
-  "result_bottle": {
-    "count": 1,
-    "id": "minecraft:glass_bottle"
-  }
+  "result": "diabolomod:blue_topaz",
+  "result_bottle": "minecraft:glass_bottle"
 }

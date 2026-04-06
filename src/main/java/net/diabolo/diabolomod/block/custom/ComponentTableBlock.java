@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -72,7 +73,7 @@ public class ComponentTableBlock extends BaseEntityBlock {
                 }
                 if (crafted) {
                     level.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1f, 1f);
-                    player.displayClientMessage(Component.literal("Pièce terminée !"), true);
+                    player.sendOverlayMessage(Component.literal("Pièce terminée !"));
                     ((ServerLevel) level).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, ModBlocks.TOPAZ_BLOCK.get().defaultBlockState()),
                             pos.getX() + 0.5, pos.getY() + 1.0,
                             pos.getZ() + 0.5, 5, 0, 0, 0, 1);
@@ -88,7 +89,6 @@ public class ComponentTableBlock extends BaseEntityBlock {
             if (stack.is(ModTags.Items.CAN_BE_HAMMERED)) {
 
                 try (Transaction tx = Transaction.openRoot()) {
-                    // On insère 1 item depuis le stack du joueur
                     int inserted = shaper.getItemHandler().insert(0, ItemResource.of(stack), 1, tx);
 
                     if (inserted == 1) {
@@ -108,12 +108,11 @@ public class ComponentTableBlock extends BaseEntityBlock {
 
             if (!resourceToExtract.isEmpty()) {
                 try (Transaction tx = Transaction.openRoot()) {
-                    // On extrait 1 item
                     int extracted = shaper.getItemHandler().extract(0, resourceToExtract, 1, tx);
 
                     if (extracted == 1) {
                         tx.commit(); // Valide l'extraction de la machine
-                        player.addItem(resourceToExtract.toStack(1)); // Donne l'item au joueur
+                        player.addItem(resourceToExtract.toStack(1));
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -124,8 +123,10 @@ public class ComponentTableBlock extends BaseEntityBlock {
         // 4. SI MAIN VIDE (Sans Sneak) -> ON CHANGE DE PATRON
         if (stack.isEmpty()) {
             shaper.cyclePattern();
-            String patternName = shaper.getCurrentPatternOutput().getName().getString();
-            player.displayClientMessage(Component.literal("Patron : " + patternName), true);
+            Item patternItem = shaper.getCurrentPatternOutput();
+            ItemStack patternStack = patternItem.getDefaultInstance();
+            String patternName = patternItem.getName(patternStack).getString();
+            player.sendOverlayMessage(Component.literal("Patron : " + patternName));
             level.playSound(null, pos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1f, 1f);
             return InteractionResult.SUCCESS;
         }

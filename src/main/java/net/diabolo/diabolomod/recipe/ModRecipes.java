@@ -15,7 +15,7 @@ public class ModRecipes {
             DeferredRegister.create(Registries.RECIPE_TYPE, DiaboloMod.MODID);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<CrystalInfuserRecipe>> CRYSTAL_INFUSER_SERIALIZER =
-            SERIALIZERS.register("crystal_infuser", CrystalInfuserRecipe.Serializer::new);
+            SERIALIZERS.register("crystal_infuser", () -> CrystalInfuserRecipe.SERIALIZER);
     public static final DeferredHolder<RecipeType<?>, RecipeType<CrystalInfuserRecipe>> CRYSTAL_INFUSER_TYPE =
             TYPES.register("crystal_infuser", () -> new RecipeType<>() {
                 @Override

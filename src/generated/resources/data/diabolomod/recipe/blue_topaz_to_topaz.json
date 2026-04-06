@@ -5,12 +5,6 @@
   "input_count": 5,
   "input_item": "diabolomod:blue_topaz",
   "output_count": 1,
-  "result": {
-    "count": 1,
-    "id": "diabolomod:topaz"
-  },
-  "result_bottle": {
-    "count": 1,
-    "id": "diabolomod:cobalt_solution"
-  }
+  "result": "diabolomod:topaz",
+  "result_bottle": "diabolomod:cobalt_solution"
 }

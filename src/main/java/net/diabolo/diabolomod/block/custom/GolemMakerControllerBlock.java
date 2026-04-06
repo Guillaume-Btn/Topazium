@@ -80,7 +80,7 @@ public class GolemMakerControllerBlock extends BaseEntityBlock {
             if (!level.isClientSide()) {
                 BlockEntity be = level.getBlockEntity(pos);
                 if (be instanceof GolemMakerControllerEntity controller) {
-                    player.displayClientMessage(Component.literal("§a[Golem Maker] : §f Menu pas encore dispoo"), false);
+                    player.sendOverlayMessage(Component.literal("§a[Golem Maker] : §f Menu pas encore dispoo"));
                     //menu plus tard
                 }
                 return InteractionResult.SUCCESS;
