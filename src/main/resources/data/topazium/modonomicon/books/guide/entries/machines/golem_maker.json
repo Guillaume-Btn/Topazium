@@ -1,0 +1,19 @@
+{
+  "category": "topazium:machines",
+  "name": "topazium.entry.golemmaker.name",
+  "icon": "topazium:golem_maker_controller",
+  "x": 3,
+  "y": 3,
+  "pages": [
+    {
+      "type": "modonomicon:text",
+      "text": "topazium.page.golemmaker.intro"
+    },
+    {
+      "type": "modonomicon:multiblock",
+      "multiblock_id": "topazium:golem_maker",
+      "multiblock_name": "Le Golem Maker",
+      "text": "topazium.page.golemmaker.preview"
+    }
+  ]
+}

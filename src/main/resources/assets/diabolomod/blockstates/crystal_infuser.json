@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "diabolomod:block/crystal_infuser" },
-    "facing=south": { "model": "diabolomod:block/crystal_infuser", "y": 180 },
-    "facing=west":  { "model": "diabolomod:block/crystal_infuser", "y": 270 },
-    "facing=east":  { "model": "diabolomod:block/crystal_infuser", "y": 90 }
-  }
-}

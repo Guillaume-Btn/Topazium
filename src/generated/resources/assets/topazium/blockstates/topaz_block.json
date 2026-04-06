@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "topazium:block/topaz_block"
+    }
+  }
+}

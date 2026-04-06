@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.golem_arms_blaster.name",
+  "icon": "topazium:golem_arms_blaster",
+  "x": 6,
+  "y": -7,
+  "parents": [
+    {
+      "entry": "topazium:items/component_table"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:golem_arms_blaster",
+      "text": "topazium.page.golem_arms_blaster.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.golem_arms_blaster.usage"
+    }
+  ]
+}

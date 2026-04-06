@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "diabolomod:block/component_table_bottom",
-    "side": "diabolomod:block/component_table_side",
-    "top": "diabolomod:block/component_table_top"
-  }
-}

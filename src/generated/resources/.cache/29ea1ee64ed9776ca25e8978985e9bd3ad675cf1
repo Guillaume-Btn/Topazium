@@ -1,0 +1,13 @@
+// 26.1	2026-04-06T02:24:20.3434999	Tags for minecraft:item mod id topazium
+2440491bc7c6e4861c6b79053eaac3d3509d9b1f data/minecraft/tags/item/axes.json
+b6fdc77fed691c84e5e3fcfbb1b1828676ad982c data/minecraft/tags/item/hoes.json
+78e4843612725a502dfad8465be1237b136874b3 data/minecraft/tags/item/pickaxes.json
+7133c68d547e9200b9f0eef29f91f36a41e5ddf7 data/minecraft/tags/item/shovels.json
+16c36ad0d4d57a958963143306f99beef2bb18a3 data/minecraft/tags/item/spears.json
+2c520748f3dc5c7fcf8dabb3d5d85c4cfa9aa3ac data/minecraft/tags/item/swords.json
+dcdb7e2fcee17053e998528b68a52b6ba37cc87f data/minecraft/tags/item/trimmable_armor.json
+bc7c6e4464f950e2c9e1afc0f0c22fb2a3766a78 data/topazium/tags/item/blue_topaz_repair.json
+8df56b6dd5ff71040aada8387b29390314eb9192 data/topazium/tags/item/can_be_hammered.json
+eb4492bf0ade55609f25c7854a8926ddb8b67fb8 data/topazium/tags/item/can_be_infused.json
+3e210adce68f9114a00373fd185156f06897d230 data/topazium/tags/item/is_infuser.json
+1079913c8096fc744fdd128ffa01968de37446ef data/topazium/tags/item/topaz_repair.json

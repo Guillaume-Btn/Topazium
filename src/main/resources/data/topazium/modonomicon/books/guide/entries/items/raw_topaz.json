@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.raw_topaz.name",
+  "icon": "topazium:raw_topaz",
+  "x": -8,
+  "y": -5,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz_ore"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:raw_topaz",
+      "text": "topazium.page.raw_topaz.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.raw_topaz.usage"
+    }
+  ]
+}

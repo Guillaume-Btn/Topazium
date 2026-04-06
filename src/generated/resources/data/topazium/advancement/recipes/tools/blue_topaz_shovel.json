@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_topaz": {
+      "conditions": {
+        "items": [
+          {
+            "items": "topazium:blue_topaz"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "topazium:blue_topaz_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blue_topaz"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "topazium:blue_topaz_shovel"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_topaz": {
+      "conditions": {
+        "items": [
+          {
+            "items": "topazium:raw_topaz"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "topazium:topaz_from_smelting_raw_topaz"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_topaz"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "topazium:topaz_from_smelting_raw_topaz"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "item.topazium.topaz": "Topaz",
+  "item.topazium.raw_topaz": "Raw Topaz",
+  "item.topazium.topaz_sword": "Topaz Sword",
+  "item.topazium.topaz_pickaxe": "Topaz Pickaxe",
+  "item.topazium.topaz_shovel": "Topaz Shovel",
+  "item.topazium.topaz_axe": "Topaz Axe",
+  "item.topazium.topaz_hoe": "Topaz Hoe",
+  "item.topazium.topaz_hammer": "Topaz Hammer",
+  "item.topazium.topaz_spear": "Topaz Spear",
+
+  "item.topazium.topaz_helmet": "Topaz Helmet",
+  "item.topazium.topaz_chestplate": "Topaz Chestplate",
+  "item.topazium.topaz_leggings": "Topaz Leggings",
+  "item.topazium.topaz_boots": "Topaz Boots",
+
+
+  "item.topazium.blue_topaz": "Blue Topaz",
+  "item.topazium.blue_topaz_sword": "Blue Topaz Sword",
+  "item.topazium.blue_topaz_pickaxe": "Blue Topaz Pickaxe",
+  "item.topazium.blue_topaz_shovel": "Blue Topaz Shovel",
+  "item.topazium.blue_topaz_axe": "Blue Topaz Axe",
+  "item.topazium.blue_topaz_hoe": "Blue Topaz Hoe",
+  "item.topazium.blue_topaz_hammer": "Blue Topaz Hammer",
+  "item.topazium.blue_topaz_spear": "Blue Topaz Spear",
+
+  "item.topazium.blue_topaz_helmet": "Blue Topaz Helmet",
+  "item.topazium.blue_topaz_chestplate": "Blue Topaz Chestplate",
+  "item.topazium.blue_topaz_leggings": "Blue Topaz Leggings",
+  "item.topazium.blue_topaz_boots": "Blue Topaz Boots",
+
+  "item.topazium.golem_head_basic": "Golem Head",
+  "item.topazium.golem_arms_blaster": "Golem Blaster Arm",
+  "item.topazium.golem_arms_miner": "Golem Miner Arm",
+  "item.topazium.golem_arms_basic": "Golem Basic Arm",
+  "item.topazium.golem_legs_basic": "Golem Basic legs",
+  "item.topazium.golem_legs_wheels": "Golem Wheel legs",
+
+  "block.topazium.topaz_block": "Block of Topaz",
+  "block.topazium.topaz_ore": "Topaz Ore",
+  "block.topazium.topaz_deepslate_ore": "Topaz Deepslate Ore",
+  "block.topazium.blue_topaz_block": "Block of Blue Topaz",
+  "block.topazium.crystal_infuser": "Crystal Infuser",
+  "block.topazium.component_table": "Component Table",
+
+  "block.topazium.golem_maker_foundation": "Golem maker Foundation",
+  "block.topazium.golem_maker_casing": "Golem maker Casing",
+  "block.topazium.golem_maker_controller": "Golem maker Controller",
+  "block.topazium.golem_maker_assembler": "Golem maker Assembler",
+  "block.topazium.golem_maker_cooler": "Golem maker Cooler",
+  "block.topazium.golem_maker_catalyst": "Golem maker Catalyst",
+  "block.topazium.golem_maker_transformer": "Golem maker Transformer",
+
+  "item.topazium.cobalt_solution": "Cobalt Solution",
+  "item.topazium.cobalt_powder": "Cobalt Powder",
+
+  "creativetab.topazium.items": "Topazium's Items",
+  "creativetab.topazium.blocks": "Topazium's Blocks",
+  "creativetab.topazium.tools": "Topazium's Tools",
+  "creativetab.topazium.golem": "Topazium's Golems",
+
+  "entity.topazium.topaz_golem": "Topaz Golem",
+
+
+  "topazium.book.name": "Topazium Guide",
+  "topazium.book.tooltip": "Everything you need to know about the mod.",
+  "topazium.category.machines.name": "Machines and Multiblocks",
+  "topazium.entry.golemmaker.name": "The Golem Maker",
+  "topazium.page.golemmaker.intro": "The **Golem Maker** is the main machine in this mod. <br> It lets you craft different kinds of Golems by supplying the required parts.",
+  "topazium.page.golemmaker.preview": "Click the eye above to project the structure into the world."
+
+}

@@ -60,7 +60,7 @@
         "diamond_darker": "trims/color_palettes/diamond_darker",
         "netherite_darker": "trims/color_palettes/netherite_darker",
         "topaz": "tutorialmod:trims/color_palettes/topaz",
-        "blue_topaz": "diabolomod:trims/color_palettes/blue_topaz"
+        "blue_topaz": "topazium:trims/color_palettes/blue_topaz"
       }
     }
   ]

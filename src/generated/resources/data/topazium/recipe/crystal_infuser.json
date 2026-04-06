@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:diamond",
+    "G": "minecraft:glass",
+    "I": "minecraft:iron_ingot",
+    "O": "minecraft:obsidian",
+    "P": "minecraft:piston",
+    "T": "topazium:topaz_block"
+  },
+  "pattern": [
+    "IGI",
+    "PDP",
+    "OTO"
+  ],
+  "result": {
+    "id": "topazium:crystal_infuser"
+  }
+}

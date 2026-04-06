@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.topaz_pickaxe.name",
+  "icon": "topazium:topaz_pickaxe",
+  "x": -4,
+  "y": -8,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:topaz_pickaxe",
+      "text": "topazium.page.topaz_pickaxe.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.topaz_pickaxe.usage"
+    }
+  ]
+}

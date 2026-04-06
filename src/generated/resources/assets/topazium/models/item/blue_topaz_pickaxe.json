@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "topazium:item/blue_topaz_pickaxe"
+  }
+}

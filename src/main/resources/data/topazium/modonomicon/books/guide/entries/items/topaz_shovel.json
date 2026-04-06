@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.topaz_shovel.name",
+  "icon": "topazium:topaz_shovel",
+  "x": -2,
+  "y": -8,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:topaz_shovel",
+      "text": "topazium.page.topaz_shovel.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.topaz_shovel.usage"
+    }
+  ]
+}

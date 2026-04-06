@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.component_table.name",
+  "icon": "topazium:component_table",
+  "x": 4,
+  "y": -5,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz_block"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:component_table",
+      "text": "topazium.page.component_table.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.component_table.usage"
+    }
+  ]
+}

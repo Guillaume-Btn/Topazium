@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.topaz_helmet.name",
+  "icon": "topazium:topaz_helmet",
+  "x": -5,
+  "y": -2,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:topaz_helmet",
+      "text": "topazium.page.topaz_helmet.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.topaz_helmet.usage"
+    }
+  ]
+}

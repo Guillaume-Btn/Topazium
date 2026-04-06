@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "topazium:golem_maker_assembler"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "topazium:blocks/golem_maker_assembler"
+}

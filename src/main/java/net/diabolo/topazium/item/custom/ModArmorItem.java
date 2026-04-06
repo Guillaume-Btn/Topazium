@@ -1,0 +1,97 @@
+package net.diabolo.topazium.item.custom;
+
+import net.diabolo.topazium.item.ModArmorMaterials;
+import net.minecraft.world.item.Item;
+
+import com.google.common.collect.ImmutableMap;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.Equippable;
+import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+
+import java.util.List;
+import java.util.Map;
+
+public class ModArmorItem extends Item {
+    private static final Map<ArmorMaterial, List<MobEffectInstance>> TOPAZ_TO_EFFECT_MAP =
+            (new ImmutableMap.Builder<ArmorMaterial, List<MobEffectInstance>>())
+                    .put(ModArmorMaterials.TOPAZ_ARMOR_MATERIAL,
+                            List.of(new MobEffectInstance(MobEffects.SPEED, 200, 0, false, false),
+                                    new MobEffectInstance(MobEffects.STRENGTH, 400, 0, false, false)))
+                    .build();
+
+    private static final Map<ArmorMaterial, List<MobEffectInstance>> BLUE_TOPAZ_TO_EFFECT_MAP =
+            (new ImmutableMap.Builder<ArmorMaterial, List<MobEffectInstance>>())
+                    .put(ModArmorMaterials.BLUE_TOPAZ_ARMOR_MATERIAL,
+                            List.of(new MobEffectInstance(MobEffects.SPEED, 200, 1, false, false),
+                                    new MobEffectInstance(MobEffects.STRENGTH, 200, 1, false, false),
+                                    new MobEffectInstance(MobEffects.NIGHT_VISION, 400, 0 ,false ,false)))
+                    .build();
+
+    public ModArmorItem(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    public void inventoryTick(@NonNull ItemStack stack, @NonNull ServerLevel level, @NonNull Entity entity, @Nullable EquipmentSlot slot) {
+        if(entity instanceof Player player && hasFullSuitOfArmorOn(player)) {
+            evaluateArmorEffects(player, TOPAZ_TO_EFFECT_MAP);
+            evaluateArmorEffects(player, BLUE_TOPAZ_TO_EFFECT_MAP);
+        }
+    }
+
+    private void evaluateArmorEffects(Player player, Map<ArmorMaterial, List<MobEffectInstance>> map) {
+        for(Map.Entry<ArmorMaterial, List<MobEffectInstance>> entry : map.entrySet()) {
+            ArmorMaterial mapArmorMaterial = entry.getKey();
+            List<MobEffectInstance> mapEffect = entry.getValue();
+
+            if(hasPlayerCorrectArmorOn(mapArmorMaterial, player)) {
+                addEffectToPlayer(player, mapEffect);
+            }
+        }
+    }
+
+    private void addEffectToPlayer(Player player, List<MobEffectInstance> mapEffect) {
+        boolean hasPlayerEffect = mapEffect.stream().allMatch(effect -> player.hasEffect(effect.getEffect()));
+
+        if(!hasPlayerEffect) {
+            for (MobEffectInstance effect : mapEffect) {
+                player.addEffect(new MobEffectInstance(effect.getEffect(),
+                        effect.getDuration(), effect.getAmplifier(), effect.isAmbient(), effect.isVisible()));
+            }
+        }
+    }
+
+    private boolean hasPlayerCorrectArmorOn(ArmorMaterial mapArmorMaterial, Player player) {
+        Equippable equippableComponentBoots = player.getItemBySlot(EquipmentSlot.FEET).getComponents().get(DataComponents.EQUIPPABLE);
+        Equippable equippableComponentLeggings = player.getItemBySlot(EquipmentSlot.LEGS).getComponents().get(DataComponents.EQUIPPABLE);
+        Equippable equippableComponentBreastplate = player.getItemBySlot(EquipmentSlot.CHEST).getComponents().get(DataComponents.EQUIPPABLE);
+        Equippable equippableComponentHelmet = player.getItemBySlot(EquipmentSlot.HEAD).getComponents().get(DataComponents.EQUIPPABLE);
+
+        assert equippableComponentBoots != null;
+        assert equippableComponentLeggings != null;
+        assert equippableComponentBreastplate != null;
+        assert equippableComponentHelmet != null;
+        return equippableComponentBoots.assetId().get().equals(mapArmorMaterial.assetId()) &&
+                equippableComponentLeggings.assetId().get().equals(mapArmorMaterial.assetId()) &&
+                equippableComponentBreastplate.assetId().get().equals(mapArmorMaterial.assetId()) &&
+                equippableComponentHelmet.assetId().get().equals(mapArmorMaterial.assetId());
+    }
+
+    private boolean hasFullSuitOfArmorOn(Player player) {
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        ItemStack leggings = player.getItemBySlot(EquipmentSlot.LEGS);
+        ItemStack chestplate = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
+
+        return !boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty();
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "minecraft:stick",
+    "B": "topazium:topaz",
+    "C": "topazium:topaz_block"
+  },
+  "pattern": [
+    "BCB",
+    "BAB",
+    " A "
+  ],
+  "result": {
+    "id": "topazium:topaz_hammer"
+  }
+}

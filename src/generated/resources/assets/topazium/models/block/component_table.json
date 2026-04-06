@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "topazium:block/component_table_bottom",
+    "side": "topazium:block/component_table_side",
+    "top": "topazium:block/component_table_top"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.cobalt_solution.name",
+  "icon": "topazium:cobalt_solution",
+  "x": -6,
+  "y": 1,
+  "parents": [
+    {
+      "entry": "topazium:items/cobalt_powder"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:cobalt_solution",
+      "text": "topazium.page.cobalt_solution.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.cobalt_solution.usage"
+    }
+  ]
+}

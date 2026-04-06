@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.golem_arms_miner.name",
+  "icon": "topazium:golem_arms_miner",
+  "x": 7,
+  "y": -7,
+  "parents": [
+    {
+      "entry": "topazium:items/component_table"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:golem_arms_miner",
+      "text": "topazium.page.golem_arms_miner.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.golem_arms_miner.usage"
+    }
+  ]
+}

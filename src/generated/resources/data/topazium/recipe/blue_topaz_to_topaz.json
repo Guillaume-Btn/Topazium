@@ -1,0 +1,10 @@
+{
+  "type": "topazium:crystal_infuser",
+  "fuel_count": 1,
+  "fuel_item": "minecraft:glass_bottle",
+  "input_count": 5,
+  "input_item": "topazium:blue_topaz",
+  "output_count": 1,
+  "result": "topazium:topaz",
+  "result_bottle": "topazium:cobalt_solution"
+}

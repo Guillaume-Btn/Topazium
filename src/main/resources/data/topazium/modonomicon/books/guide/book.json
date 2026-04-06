@@ -1,0 +1,6 @@
+{
+  "name": "topazium.book.name",
+  "tooltip": "topazium.book.tooltip",
+  "model": "minecraft:book",
+  "book_text_color": "000000"
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "topazium:block/crystal_infuser" },
+    "facing=south": { "model": "topazium:block/crystal_infuser", "y": 180 },
+    "facing=west":  { "model": "topazium:block/crystal_infuser", "y": 270 },
+    "facing=east":  { "model": "topazium:block/crystal_infuser", "y": 90 }
+  }
+}

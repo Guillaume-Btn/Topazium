@@ -1,0 +1,87 @@
+{
+  "item.topazium.topaz": "Topaze",
+  "item.topazium.raw_topaz": "Topaze brut",
+  "item.topazium.topaz_sword": "Épée en Topaze",
+  "item.topazium.topaz_pickaxe": "Pioche en Topaze",
+  "item.topazium.topaz_shovel": "Pelle en Topaze",
+  "item.topazium.topaz_axe": "Hache en Topaze",
+  "item.topazium.topaz_hoe": "Houe en Topaze",
+  "item.topazium.topaz_hammer": "Marteau en Topaze",
+  "item.topazium.topaz_spear": "Lance en Topaze",
+
+  "item.topazium.topaz_helmet": "Casque en Topaze",
+  "item.topazium.topaz_chestplate": "Plastron en Topaze",
+  "item.topazium.topaz_leggings": "Jambières en Topaze",
+  "item.topazium.topaz_boots": "Bottes en Topaze",
+
+
+  "item.topazium.blue_topaz": "Topaze Bleu",
+  "item.topazium.blue_topaz_sword": "Épée en Topaze Bleu",
+  "item.topazium.blue_topaz_pickaxe": "Pioche en Topaze Bleu",
+  "item.topazium.blue_topaz_shovel": "Pelle en Topaze Bleu",
+  "item.topazium.blue_topaz_axe": "Hache en Topaze Bleu",
+  "item.topazium.blue_topaz_hoe": "Houe en Topaze Bleu",
+  "item.topazium.blue_topaz_hammer": "Marteau en Topaze Bleu",
+  "item.topazium.blue_topaz_spear": "Lance en Topaze Bleu",
+
+  "item.topazium.blue_topaz_helmet": "Casque en Topaze Bleu",
+  "item.topazium.blue_topaz_chestplate": "Plastron en Topaze Bleu",
+  "item.topazium.blue_topaz_leggings": "Jambières en Topaze Bleu",
+  "item.topazium.blue_topaz_boots": "Bottes en Topaze Bleu",
+
+  "item.topazium.golem_head_basic": "Tête de Golem",
+  "item.topazium.golem_arms_blaster": "Bras laser de Golem",
+  "item.topazium.golem_arms_miner": "Bras de Golem mineur",
+  "item.topazium.golem_arms_basic": "Bras basique de Golem",
+  "item.topazium.golem_legs_basic": "Jambes basiques de Golem",
+  "item.topazium.golem_legs_wheels": "Jambes chenilles de Golem ",
+
+  "block.topazium.topaz_block": "Bloc de Topaze",
+  "block.topazium.topaz_ore": "Minerais de Topaze",
+  "block.topazium.topaz_deepslate_ore": "Minerais de Topaze des abîmes",
+  "block.topazium.blue_topaz_block": "Bloc de Topaze Bleu",
+  "block.topazium.crystal_infuser": "Infuseur de Crystal",
+  "block.topazium.component_table": "Table à composants",
+
+  "block.topazium.golem_maker_foundation": "Fondation du créateur de Golem",
+  "block.topazium.golem_maker_casing": "Structure du créateur de Golem",
+  "block.topazium.golem_maker_controller": "Controleur du créateur de Golem",
+  "block.topazium.golem_maker_assembler": "Assembleur du créateur de Golem",
+  "block.topazium.golem_maker_cooler": "Refroidisseur du créateur de Golem",
+  "block.topazium.golem_maker_catalyst": "Catalyseur du créateur de Golem",
+  "block.topazium.golem_maker_transformer": "Transformateur du créateur de Golem",
+
+  "item.topazium.cobalt_solution": "Solution de Cobalt",
+  "item.topazium.cobalt_powder": "Poudre de Cobalt",
+
+  "creativetab.topazium.items": "Items de Topazium",
+  "creativetab.topazium.blocks": "Blocs de Topazium",
+  "creativetab.topazium.tools": "Outils de Topazium",
+  "creativetab.topazium.golem": "Parties de golem",
+
+  "entity.topazium.topaz_golem": "Golem de Topaz",
+
+  "topazium.book.name": "Guide de Topazium",
+  "topazium.book.tooltip": "Toutes les informations pour le mod.",
+
+  "topazium.category.machines.name": "Machines et Multiblocks",
+  "topazium.category.items.name": "Ressources & Objets",
+
+
+  "topazium.entry.golemmaker.name": "Le Golem Maker",
+  "topazium.page.golemmaker.intro": "Le Golem Maker est la machine principale de ce mod. Elle permet de crafter différents types de Golems en fournissant les bonnes pièces.",
+  "topazium.page.golemmaker.preview": "Cliquez sur l'œil ci-dessus pour projeter la structure dans le monde.",
+
+  "topazium.entry.topaz.name": "Le Topaze",
+  "topazium.page.topaz.info": "Le Topaze est le matériau de base du mod. Elle permet de fabriquer de nouveaux outils comme des machines.",
+  "topazium.page.topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines.",
+
+  "topazium.entry.blue_topaz.name": "Le Topaze Bleu",
+  "topazium.page.blue_topaz.info": "Le Topaze Bleu est la version amélioré du Topaze. Elle permet de fabriquer de puissants outils.",
+  "topazium.page.blue_topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines.",
+
+  "topazium.entry.raw_topaz.name": "Le Topaze Brut",
+  "topazium.page.raw_topaz.info": "Le Topaze Brut est la version amélioré du Topaze. Elle permet de fabriquer de puissants outils.",
+  "topazium.page.raw_topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines."
+
+}

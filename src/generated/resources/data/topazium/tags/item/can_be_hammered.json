@@ -1,0 +1,11 @@
+{
+  "values": [
+    "topazium:topaz_block",
+    "topazium:golem_arms_basic",
+    "topazium:golem_arms_miner",
+    "topazium:golem_arms_blaster",
+    "topazium:golem_legs_basic",
+    "topazium:golem_legs_wheels",
+    "topazium:golem_head_basic"
+  ]
+}

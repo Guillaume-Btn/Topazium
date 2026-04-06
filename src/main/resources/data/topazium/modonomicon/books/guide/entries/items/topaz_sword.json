@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.topaz_sword.name",
+  "icon": "topazium:topaz_sword",
+  "x": -5,
+  "y": -8,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:topaz_sword",
+      "text": "topazium.page.topaz_sword.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.topaz_sword.usage"
+    }
+  ]
+}

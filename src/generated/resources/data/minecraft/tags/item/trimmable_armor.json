@@ -1,8 +1,8 @@
 {
   "values": [
-    "diabolomod:topaz_helmet",
-    "diabolomod:topaz_chestplate",
-    "diabolomod:topaz_leggings",
-    "diabolomod:topaz_boots"
+    "topazium:topaz_helmet",
+    "topazium:topaz_chestplate",
+    "topazium:topaz_leggings",
+    "topazium:topaz_boots"
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "minecraft:stick",
+    "B": "topazium:topaz"
+  },
+  "pattern": [
+    "BB ",
+    "BA ",
+    " A "
+  ],
+  "result": {
+    "id": "topazium:topaz_axe"
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "diabolomod:item/blue_topaz_spear"
-  }
-}

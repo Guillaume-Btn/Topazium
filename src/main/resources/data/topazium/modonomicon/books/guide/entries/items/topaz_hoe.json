@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.topaz_hoe.name",
+  "icon": "topazium:topaz_hoe",
+  "x": -1,
+  "y": -8,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:topaz_hoe",
+      "text": "topazium.page.topaz_hoe.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.topaz_hoe.usage"
+    }
+  ]
+}

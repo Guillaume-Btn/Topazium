@@ -1,0 +1,27 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.blue_topaz.name",
+  "icon": "topazium:blue_topaz",
+  "x": 2,
+  "y": 1,
+  "parents": [
+    {
+      "entry": "topazium:items/crystal_infuser"
+    },
+    {
+      "entry": "topazium:items/cobalt_solution"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:blue_topaz",
+      "text": "topazium.page.blue_topaz.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.blue_topaz.usage"
+    }
+  ]
+}

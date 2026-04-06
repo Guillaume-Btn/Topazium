@@ -1,0 +1,30 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.topaz.name",
+  "icon": "topazium:topaz",
+  "x": -6,
+  "y": -5,
+  "hide_while_locked": true,
+  "show_when_any_parent_unlocked": true,
+  "condition": {
+    "type": "modonomicon:entry_unlocked",
+    "entry_id": "topazium:items/raw_topaz"
+  },
+  "parents": [
+    {
+      "entry": "topazium:items/raw_topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:topaz",
+      "text": "topazium.page.topaz.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.topaz.usage"
+    }
+  ]
+}

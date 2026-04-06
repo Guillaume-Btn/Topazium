@@ -1,0 +1,8 @@
+// 26.1	2026-04-06T02:24:20.3384994	Tags for minecraft:block mod id topazium
+ce58cddc3c94f09104a6e8e3f24f96961efdcfc2 data/minecraft/tags/block/mineable/pickaxe.json
+010dfc8cae35f4b4cf5aaaddb86569a54b50532e data/minecraft/tags/block/needs_diamond_tool.json
+a206b40aa72ea90962c9a0e6bf4d393f15e98002 data/minecraft/tags/block/needs_iron_tool.json
+5730027d8ddd26c7314ab3821c9d2505107f0e6e data/topazium/tags/block/incorrect_for_blue_topaz_tool.json
+c5cd605fa1c30bafbd1c87a1b64504635d735c6a data/topazium/tags/block/incorrect_for_topaz_tool.json
+a249c46329a41538f49a564e1f14338aaf1be5a0 data/topazium/tags/block/needs_blue_topaz_tool.json
+c000e4b1c26f7c4d7d56117ac6d8c08b2bd6af1d data/topazium/tags/block/needs_topaz_tool.json

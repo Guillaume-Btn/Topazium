@@ -1,8 +1,0 @@
-{
-  "remove": [
-    "#diabolomod:needs_blue_topaz_tool"
-  ],
-  "values": [
-    "#minecraft:incorrect_for_diamond_tool"
-  ]
-}

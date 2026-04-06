@@ -1,17 +1,17 @@
 {
   "values": [
-    "diabolomod:topaz_block",
-    "diabolomod:topaz_ore",
-    "diabolomod:topaz_deepslate_ore",
-    "diabolomod:blue_topaz_block",
-    "diabolomod:crystal_infuser",
-    "diabolomod:component_table",
-    "diabolomod:golem_maker_foundation",
-    "diabolomod:golem_maker_casing",
-    "diabolomod:golem_maker_controller",
-    "diabolomod:golem_maker_assembler",
-    "diabolomod:golem_maker_cooler",
-    "diabolomod:golem_maker_catalyst",
-    "diabolomod:golem_maker_transformer"
+    "topazium:topaz_block",
+    "topazium:topaz_ore",
+    "topazium:topaz_deepslate_ore",
+    "topazium:blue_topaz_block",
+    "topazium:crystal_infuser",
+    "topazium:component_table",
+    "topazium:golem_maker_foundation",
+    "topazium:golem_maker_casing",
+    "topazium:golem_maker_controller",
+    "topazium:golem_maker_assembler",
+    "topazium:golem_maker_cooler",
+    "topazium:golem_maker_catalyst",
+    "topazium:golem_maker_transformer"
   ]
 }

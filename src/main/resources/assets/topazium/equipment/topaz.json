@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "topazium:topaz"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "topazium:topaz"
+      }
+    ]
+  }
+}

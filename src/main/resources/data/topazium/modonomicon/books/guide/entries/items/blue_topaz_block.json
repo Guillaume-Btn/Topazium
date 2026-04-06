@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.blue_topaz_block.name",
+  "icon": "topazium:blue_topaz_block",
+  "x": 8,
+  "y": 1,
+  "parents": [
+    {
+      "entry": "topazium:items/blue_topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:blue_topaz_block",
+      "text": "topazium.page.blue_topaz_block.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.blue_topaz_block.usage"
+    }
+  ]
+}

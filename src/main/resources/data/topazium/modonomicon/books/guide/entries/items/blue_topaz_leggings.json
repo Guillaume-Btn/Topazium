@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.blue_topaz_leggings.name",
+  "icon": "topazium:blue_topaz_leggings",
+  "x": 5,
+  "y": 4,
+  "parents": [
+    {
+      "entry": "topazium:items/blue_topaz"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:blue_topaz_leggings",
+      "text": "topazium.page.blue_topaz_leggings.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.blue_topaz_leggings.usage"
+    }
+  ]
+}

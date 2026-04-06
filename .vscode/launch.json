@@ -12,11 +12,11 @@
       "projectName": "Mod 1",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\clientRunProgramArgs.txt"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\clientRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\clientRunVmArgs.txt",
-        "-Dfml.modFolders\u003dfirstmod%%C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\bin\\main"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dtopazium%%C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},
@@ -34,11 +34,11 @@
       "projectName": "Mod 1",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\dataRunProgramArgs.txt"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\dataRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\dataRunVmArgs.txt",
-        "-Dfml.modFolders\u003dfirstmod%%C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\bin\\main"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003dtopazium%%C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},
@@ -56,11 +56,11 @@
       "projectName": "Mod 1",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\gameTestServerRunProgramArgs.txt"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\gameTestServerRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\gameTestServerRunVmArgs.txt",
-        "-Dfml.modFolders\u003dfirstmod%%C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\bin\\main"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003dtopazium%%C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},
@@ -78,11 +78,11 @@
       "projectName": "Mod 1",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\serverRunProgramArgs.txt"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\serverRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\serverRunVmArgs.txt",
-        "-Dfml.modFolders\u003dfirstmod%%C:\\Guillaume\\Loisir\\NeoForge\\Mod 1\\bin\\main"
+        "@C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dtopazium%%C:\\Guillaume\\Personnel\\Loisir\\NeoForge\\Mod 1\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},

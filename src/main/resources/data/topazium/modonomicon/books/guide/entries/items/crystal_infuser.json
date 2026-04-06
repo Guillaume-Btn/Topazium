@@ -1,0 +1,24 @@
+{
+  "category": "topazium:items",
+  "name": "topazium.entry.crystal_infuser.name",
+  "icon": "topazium:crystal_infuser",
+  "x": 2,
+  "y": -3,
+  "parents": [
+    {
+      "entry": "topazium:items/topaz_block"
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "item": "topazium:crystal_infuser",
+      "text": "topazium.page.crystal_infuser.info"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "Utilisation",
+      "text": "topazium.page.crystal_infuser.usage"
+    }
+  ]
+}
