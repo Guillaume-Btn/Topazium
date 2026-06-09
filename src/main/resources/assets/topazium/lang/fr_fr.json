@@ -68,20 +68,50 @@
   "topazium.category.items.name": "Ressources & Objets",
 
 
+
+  "_comment": "PARTIE POUR MODONOMICON ",
+
   "topazium.entry.golemmaker.name": "Le Golem Maker",
   "topazium.page.golemmaker.intro": "Le Golem Maker est la machine principale de ce mod. Elle permet de crafter différents types de Golems en fournissant les bonnes pièces.",
   "topazium.page.golemmaker.preview": "Cliquez sur l'œil ci-dessus pour projeter la structure dans le monde.",
 
   "topazium.entry.topaz.name": "Le Topaze",
-  "topazium.page.topaz.info": "Le Topaze est le matériau de base du mod. Elle permet de fabriquer de nouveaux outils comme des machines.",
+  "topazium.page.topaz.info": "Le Topaze est le matériau de base du mod. Il permet de fabriquer de nouveaux outils tout comme des machines.",
   "topazium.page.topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines.",
 
   "topazium.entry.blue_topaz.name": "Le Topaze Bleu",
-  "topazium.page.blue_topaz.info": "Le Topaze Bleu est la version amélioré du Topaze. Elle permet de fabriquer de puissants outils.",
+  "topazium.page.blue_topaz.info": "Le Topaze Bleu est la version amélioré du Topaze. Il permet de fabriquer des outils encore plus puissant.",
   "topazium.page.blue_topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines.",
 
   "topazium.entry.raw_topaz.name": "Le Topaze Brut",
-  "topazium.page.raw_topaz.info": "Le Topaze Brut est la version amélioré du Topaze. Elle permet de fabriquer de puissants outils.",
-  "topazium.page.raw_topaz.usage": "Vous pouvez l'utiliser dans la Table de craft pour fabriquer vos outils ou machines."
+  "topazium.page.raw_topaz.info": "Le Topaze Brut est obtenu en minant du minerais de topaz. Il vous permet d'obtenir du topaz.",
+  "topazium.page.raw_topaz.usage": "Vous pouvez l'utiliser dans le four pour avoir du topaz.",
 
+  "topazium.entry.topaz_sword.name": "Épée en Topaze",
+  "topazium.page.topaz_sword.info": "Une arme tranchante et robuste forgée à partir de Topaze.",
+  "topazium.page.topaz_sword.usage": "Peut être fabriquée dans une Table de craft. Inflige plus de dégâts qu'une épée en fer.",
+
+  "topazium.entry.topaz_pickaxe.name": "Pioche en Topaze",
+  "topazium.page.topaz_pickaxe.info": "Une pioche solide permettant de miner des minerais denses.",
+  "topazium.page.topaz_pickaxe.usage": "S'utilise pour extraire des minerais complexes comme le Topaze lui-même.",
+
+  "topazium.entry.topaz_shovel.name": "Pelle en Topaze",
+  "topazium.page.topaz_shovel.info": "Un outil efficace pour déblayer de grandes quantités de terre ou de gravier.",
+  "topazium.page.topaz_shovel.usage": "Fabriquée dans une Table de craft avec des bâtons et du Topaze.",
+
+  "topazium.entry.topaz_axe.name": "Hache en Topaze",
+  "topazium.page.topaz_axe.info": "Tranche le bois avec une grande efficacité tout en étant une bonne arme.",
+  "topazium.page.topaz_axe.usage": "Très utile pour la récolte rapide du bois.",
+
+  "topazium.entry.topaz_hoe.name": "Houe en Topaze",
+  "topazium.page.topaz_hoe.info": "L'outil parfait pour préparer de vastes cultures agricoles.",
+  "topazium.page.topaz_hoe.usage": "S'utilise sur la terre et l'herbe pour créer des terres cultivables.",
+
+  "topazium.entry.topaz_hammer.name": "Marteau en Topaze",
+  "topazium.page.topaz_hammer.info": "Un outil lourd capable de façonner des blocs.",
+  "topazium.page.topaz_hammer.usage": "Mine en zone 3x3. Idéal pour creuser des galeries rapidement.",
+
+  "topazium.entry.topaz_spear.name": "Lance en Topaze",
+  "topazium.page.topaz_spear.info": "Une arme offrant une allonge supérieure pour tenir les ennemis à distance.",
+  "topazium.page.topaz_spear.usage": "Parfaite pour le combat à mi-distance contre les foules."
 }
