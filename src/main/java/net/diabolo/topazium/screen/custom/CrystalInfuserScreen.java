@@ -20,26 +20,22 @@ public class CrystalInfuserScreen extends AbstractContainerScreen<CrystalInfuser
         super(menu, playerInventory, title);
     }
 
-    // NOUVEAU SYSTÈME 1.26.1 : On remplace renderBg par extractContents
-    @Override
     public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
-        // On dessine D'ABORD le fond de notre interface (avant d'appeler le super qui dessine les slots)
-        int guiLeft = this.leftPos; // leftPos et topPos remplacent ton calcul (width - imageWidth) / 2
+        int guiLeft = this.leftPos;
         int guiTop = this.topPos;
 
-        graphics.blitSprite(RenderPipelines.GUI_TEXTURED, GUI_TEXTURE, guiLeft, guiTop, this.imageWidth, this.imageHeight);
+        graphics.blit(RenderPipelines.GUI_TEXTURED, GUI_TEXTURE, guiLeft, guiTop, 0f, 0f, this.imageWidth, this.imageHeight, 256, 256);
 
         renderProgressArrow(graphics, guiLeft, guiTop);
         renderBubbles(graphics, guiLeft + 55, guiTop + 34);
 
-        // On appelle ensuite le super pour qu'il dessine le reste (les slots, les items, etc.)
         super.extractContents(graphics, mouseX, mouseY, a);
     }
 
     private void renderProgressArrow(GuiGraphicsExtractor graphics, int x, int y) {
         if (menu.isCrafting()) {
-            graphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARROW_TEXTURE, x + 73, y + 35,
-                    0, 0, menu.getScaledArrowProgress(), 16, 24, 16); // Vérifie si blitSprite accepte ces arguments, sinon utilise blit() comme avant
+            int progress = menu.getScaledArrowProgress();
+            graphics.blit(RenderPipelines.GUI_TEXTURED, ARROW_TEXTURE, x + 73, y + 35, 0f, 0f, progress, 16, 24, 16);
         }
     }
 
