@@ -1,3 +1,5 @@
+IDÉES :
+
 La Dimension Miroir "L'Éclat" (Monde Parallèle & Dualité)
 Le nom "Diabolo" évoque le jonglage, l'équilibre. Jouons sur le reflet.
 
@@ -129,3 +131,14 @@ Particules, son de forge, et POUF, l'entité Golem spawn au-dessus et les items 
 
 Foreuse a la place de marteau ?
 table de craft a part pour crystaux ?
+
+CHANGEMENT A FAIRE :
+- nerf topaz et bleu et rajouter rouge ?
+- NERF TOPAZ EN GENERAL
+
+FONCTIONNEMENT :
+Generation du topaz :
+- Zone d'apparition : Uniquement entre les couches 11 et -64.
+- Pic de présence : Couche -48. C'est là que le joueur a le plus de chances d'en trouver (grâce au 1er placement en "triangle" très concentré).
+- Rareté : Moyenne. Plus rare que le fer, mais légèrement plus commun que le diamant. Le jeu fait 4 tentatives de placement par chunk (3 autour de la couche -48, et 1 dispersée sur toute la hauteur).
+- Visibilité : Le Topaze est partiellement enfoui (discardChanceOnAirExposure = 0.6). S'il génère sur le mur d'une grotte au contact de l'air, il a 60% de chance de disparaître. Le joueur devra donc creuser la roche pure (strip-mining) pour en trouver la majorité.
