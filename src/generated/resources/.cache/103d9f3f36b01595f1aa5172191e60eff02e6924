@@ -1,4 +1,5 @@
-// 26.1	2026-04-06T02:24:20.3445012	Registries
-4e1f4c0d24c1a8c842b2f5f761e406c5646dba2b data/topazium/neoforge/biome_modifier/add_topaz_ore.json
-8750ca3c0dcbc217350fcf85fadfeb5c5fb26859 data/topazium/worldgen/configured_feature/topaz_ore.json
-60efb82784d7d5fc1b4464c521d1980dad45c8c4 data/topazium/worldgen/placed_feature/topaz_ore_placed.json
+// 26.1	2026-06-23T18:58:08.3927275	Registries
+19a56832c99de9ec24ba8595a45693f91764e928 data/topazium/neoforge/biome_modifier/add_topaz_ore.json
+c459150a03888ba6bca7463e0937bda6ca3e19dc data/topazium/worldgen/configured_feature/topaz_ore.json
+b637d3704d008d3a8399d060796a4b48aeec3ce1 data/topazium/worldgen/placed_feature/topaz_ore_peak.json
+58a611458c3b6272612786d90609eae9ff1db521 data/topazium/worldgen/placed_feature/topaz_ore_spread.json

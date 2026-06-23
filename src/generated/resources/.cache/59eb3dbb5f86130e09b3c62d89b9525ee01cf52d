@@ -1,4 +1,4 @@
-// 26.1	2026-04-06T02:24:20.3445012	Loot Tables
+// 26.1	2026-06-23T18:58:08.3917265	Loot Tables
 16182a077700de8ed214c535452c9e0ac80030b0 data/topazium/loot_table/blocks/blue_topaz_block.json
 ed6a0b758c03c475b5a54cf7f60af7332d40f2fd data/topazium/loot_table/blocks/component_table.json
 fd2d8924c69b462a8fb49c91d56a5e2ddb52a1b9 data/topazium/loot_table/blocks/crystal_infuser.json
@@ -10,5 +10,5 @@ eced0f0ac86f5024d74f6b245d35de24b3e969fa data/topazium/loot_table/blocks/golem_m
 6a847c51722bb0b65e9d3c8ed5a0f503921d8711 data/topazium/loot_table/blocks/golem_maker_foundation.json
 1d0e7dd93ebc159185651003393dd27e92ded6f1 data/topazium/loot_table/blocks/golem_maker_transformer.json
 7dcdecdaabb52cf1baf8419e755bcb97dd171056 data/topazium/loot_table/blocks/topaz_block.json
-803b9a544954f678b44a1a58f38e015b4dcfb5bf data/topazium/loot_table/blocks/topaz_deepslate_ore.json
+1e8993d3d9e2808b8673d7d237562b8650fe0498 data/topazium/loot_table/blocks/topaz_deepslate_ore.json
 932749896dc0c6cc2c42838702d09b9ed8a58cf7 data/topazium/loot_table/blocks/topaz_ore.json

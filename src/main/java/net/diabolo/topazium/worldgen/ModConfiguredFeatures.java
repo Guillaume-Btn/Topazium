@@ -25,12 +25,14 @@ public class ModConfiguredFeatures {
         RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
-        List<OreConfiguration.TargetBlockState> overworldBismuthOres = List.of(
+        List<OreConfiguration.TargetBlockState> overworldTopazOres = List.of(
                 OreConfiguration.target(stoneReplaceables, ModBlocks.TOPAZ_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.TOPAZ_DEEPSLATE_ORE.get().defaultBlockState()));
+        // 1.0f = N'apparaîtra jamais à l'air libre (totalement enfoui).
+        float discardChanceOnAirExposure = 0.6f;
 
-        register(context, OVERWORLD_TOPAZ_ORE_KEY, Feature.ORE, new OreConfiguration(overworldBismuthOres, 7));
-
+        register(context, OVERWORLD_TOPAZ_ORE_KEY, Feature.ORE,
+                new OreConfiguration(overworldTopazOres, 7, discardChanceOnAirExposure));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

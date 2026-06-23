@@ -1,6 +1,9 @@
 {
   "type": "neoforge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": "topazium:topaz_ore_placed",
+  "features": [
+    "topazium:topaz_ore_peak",
+    "topazium:topaz_ore_spread"
+  ],
   "step": "underground_ores"
 }

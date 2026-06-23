@@ -40,9 +40,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.GOLEM_MAKER_TRANSFORMER.get());
 
         add(ModBlocks.TOPAZ_ORE.get(),
-                block -> createOreDrop(ModBlocks.TOPAZ_ORE.get(), ModItems.RAW_TOPAZ.get()));
+                _ -> createOreDrop(ModBlocks.TOPAZ_ORE.get(), ModItems.RAW_TOPAZ.get()));
         add(ModBlocks.TOPAZ_DEEPSLATE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.TOPAZ_DEEPSLATE_ORE.get(), ModItems.RAW_TOPAZ.get(), 1, 3));
+                _ -> createOreDrop(ModBlocks.TOPAZ_DEEPSLATE_ORE.get(), ModItems.RAW_TOPAZ.get()));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

@@ -14,12 +14,20 @@ import java.util.List;
 
 public class ModPlacedFeatures {
 
-    public static final ResourceKey<PlacedFeature> TOPAZ_ORE_PLACED_KEY = registerKey("topaz_ore_placed");
+    public static final ResourceKey<PlacedFeature> TOPAZ_ORE_PEAK_KEY = registerKey("topaz_ore_peak");
+    public static final ResourceKey<PlacedFeature> TOPAZ_ORE_SPREAD_KEY = registerKey("topaz_ore_spread");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-        register(context, TOPAZ_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_TOPAZ_ORE_KEY),
-                ModOrePlacement.commonOrePlacement(9, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(30 ))));
+        var topazConfigured = configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_TOPAZ_ORE_KEY);
+
+        // 1. Le Pic d'abondance en -48 (3 essais par chunk)
+        register(context, TOPAZ_ORE_PEAK_KEY, topazConfigured,
+                ModOrePlacement.commonOrePlacement(3, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-32))));
+
+        // 2. La petite dispersion jusqu'à la couche 11 (1 seul essai par chunk)
+        register(context, TOPAZ_ORE_SPREAD_KEY, topazConfigured,
+                ModOrePlacement.commonOrePlacement(1, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(11))));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

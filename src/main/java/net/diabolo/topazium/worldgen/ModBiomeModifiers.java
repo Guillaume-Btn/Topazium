@@ -22,7 +22,10 @@ public class ModBiomeModifiers {
 
         context.register(ADD_TOPAZ_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.TOPAZ_ORE_PLACED_KEY)),
+                HolderSet.direct(
+                        placedFeatures.getOrThrow(ModPlacedFeatures.TOPAZ_ORE_PEAK_KEY),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.TOPAZ_ORE_SPREAD_KEY)
+                ),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         // Example for individual Biomes!
